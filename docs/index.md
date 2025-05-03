@@ -1,45 +1,50 @@
-# Australian Road Deaths Data Exploration
+# 🚗 Australian Road Deaths Data Exploration
 
-Welcome to this interactive data exploration project focusing on Australia's road fatality statistics. This analysis draws from the **Australian Road Deaths Database (BITRE)** and includes focused investigations into key user groups.
+Welcome to this interactive data analysis project focused on road fatalities in Australia. Drawing on over three decades of data from the **Australian Road Deaths Database (BITRE)**, this project combines epidemiological insight with data science tools to explore trends and risk patterns in fatal crashes.
 
-## 📊 Main Dashboard
+## 📊 Main EDA
 
-Explore the overall trends in road fatalities across Australia, including:
-- Yearly and monthly patterns
-- Road user breakdowns
-- State-level comparisons
-- Time-of-day and day-of-week trends
+A national overview of road fatalities in Australia, including:
+- Yearly and monthly trends
+- State-by-state comparisons
+- Day-of-week and time-of-day crash patterns
+- Road user group breakdowns
 
-👉 [View Main EDA](main-eda.html)
+👉 [View the Main EDA Report](main-eda.html)
 
 ---
 
 ## 🏍️ Motorcyclist Fatalities
 
-A deep dive into fatalities involving motorcycle riders and pillion passengers, including:
-- Rider demographics
-- Day-of-week and time-of-day heatmaps
-- Single vs multi-vehicle crash trends
+A focused sub-analysis of crashes involving motorcyclists and pillion passengers, with a look at:
+- Rider demographics and age distribution
+- Day/time risk patterns (heatmaps)
+- Single-vehicle vs multi-vehicle crash trends
+- Risk normalization using motorcycle licensing data
 
-👉 [View Motorcyclist Analysis](motorcyclists.html)
+👉 [View the Motorcyclist Analysis](motorcyclists.html)
 
 ---
 
 ## 🚸 Vulnerable Road Users
 
-An analysis of at-risk populations such as **child pedestrians** and **cyclists**, covering:
-- Age group trends
-- Vehicle types involved
-- Time and location insights
+An in-depth look at fatalities involving vulnerable populations, particularly **child pedestrians and cyclists**, including:
+- Age and gender distributions
+- Crash location and vehicle involvement
+- Seasonal and daily risk profiles
 
-👉 [View Vulnerable Road Users Report](vulnerable-users.html)
+👉 [View the Vulnerable Road Users Report](vulnerable-users.html)
 
 ---
 
-### 📂 About
+## 📂 About This Project
 
-This project is part of an ongoing public health data science portfolio and is powered by:
+This project was developed as part of a **public health data science portfolio**. It showcases skills in data wrangling, statistical analysis, and data storytelling using open-source tools.
+
+**Tech stack:**
 - Python · Pandas · Matplotlib · Seaborn
 - Jupyter Notebooks · GitHub Pages
 
-_Source: BITRE (2024)_  
+**Data source:** [BITRE Australian Road Death](https://catalogue.data.infrastructure.gov.au/dataset/australian-road-deaths-database)
+
+_last updated: May 2025_
