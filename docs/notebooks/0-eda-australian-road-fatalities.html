@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.qmd"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -243,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="reading-data-and-importing-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="reading-data-and-importing-libraries">1.1 Reading Data and Importing Libraries</h2>
 <p>Import the necessary libraries and read the dataset into a pandas DataFrame. The dataset is in CSV format and contains information about fatal road accidents in Australia from 1989. The dataset is updated monthly and includes various attributes such as the date of the accident, location, vehicle type, and demographic information about the individuals involved in the accidents.</p>
-<div id="3189df6b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:23.974295Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:22.710814Z&quot;}}" data-execution_count="1">
+<div id="25641ef9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:23.974295Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:22.710814Z&quot;}}" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the directory for the script</span></span>
@@ -268,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exploring-the-data-and-checking-the-data-types" class="level2">
 <h2 class="anchored" data-anchor-id="exploring-the-data-and-checking-the-data-types">1.2 Exploring the Data and Checking the Data Types</h2>
 <p>Briefly inspect to check column names, types, summary statistics, and overall structure.</p>
-<div id="efa04d30" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:31.296262Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:31.285629Z&quot;}}" data-execution_count="2">
+<div id="66158ec3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:31.296262Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:31.285629Z&quot;}}" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first and last five rows of the dataset</span></span>
@@ -593,7 +593,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="f9df7ea5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:35.436612Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:35.415429Z&quot;}}" data-execution_count="3">
+<div id="ca8299dc" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:35.436612Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:35.415429Z&quot;}}" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get information about the dataset</span></span>
@@ -635,7 +635,7 @@ memory usage: 9.3+ MB</code></pre>
 <pre><code>None</code></pre>
 </div>
 </div>
-<div id="4808b7df" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:40.386430Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:40.374607Z&quot;}}" data-execution_count="4">
+<div id="6f63b352" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:40.386430Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:40.374607Z&quot;}}" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take the number of rows and columns in the dataset, and the number of unique Crash ID's, and print them out in a sentence. </span></span>
@@ -648,7 +648,7 @@ memory usage: 9.3+ MB</code></pre>
 </div>
 <p>The table below provides a high-level summary of each column, including: - The number of unique values - The most frequently occurring value (where applicable) - The count of that most common value - The number of missing entries</p>
 <p>Note: For identifier fields like <code>Crash ID</code>, the “top value” has limited interpretive value, but is more informative in fields such as <code>State</code> or <code>Age</code>.</p>
-<div id="bd407d62" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:44.577995Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:44.480340Z&quot;}}" data-execution_count="5">
+<div id="b5d8deb8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:44.577995Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:44.480340Z&quot;}}" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating and populating a summary dataframe using pandas</span></span>
@@ -870,7 +870,7 @@ memory usage: 9.3+ MB</code></pre>
 </div>
 </div>
 <p>The summary table above shows the column names, the number of unique values in each column, the most common value in each column and the number of times the most common value appears. From the data we can see that the there are 47567 crashes in the dataset that contains 52843 fatalities, the most deadly accident on record involved 35 fatalities (Kempsey Bus Crash 1989), and the most common gender is Male.</p>
-<div id="2be2e8e7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:47.092074Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:47.084966Z&quot;}}" data-execution_count="6">
+<div id="50f6e9be" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:47.092074Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:47.084966Z&quot;}}" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate statistics for the 'Age' column</span></span>
@@ -893,7 +893,7 @@ memory usage: 9.3+ MB</code></pre>
 <section id="checking-for-null-or-missing-values" class="level2">
 <h2 class="anchored" data-anchor-id="checking-for-null-or-missing-values">2.1 Checking for null or missing values</h2>
 <p>From information provided in the <a href="https://data.gov.au/dataset/ds-dga-5b530fb8-526e-4fbf-b0f6-aa24e84e4277/distribution/dist-dga-59055fed-d4f1-4a81-b3ee-75cb438009c6/details?q=ardd">ARDD data dictionary</a> we know that missing values are represented by ‘-9’, ‘Unspecified’ or ‘Other/-9’. We will search for these values and replace them with null values (NaN).</p>
-<div id="7a71b2f9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:48.868552Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:48.804787Z&quot;}}" data-execution_count="7">
+<div id="4224c91d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:48.868552Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:48.804787Z&quot;}}" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Firstly, we will find the number of blank values in the dataset</span></span>
@@ -1107,7 +1107,7 @@ memory usage: 9.3+ MB</code></pre>
 <section id="data-cleaning" class="level2">
 <h2 class="anchored" data-anchor-id="data-cleaning">2.2 Data Cleaning</h2>
 <p>Data is cleaned using a script that: - Replaces missing values with NaN. - Map numeric month values to month names and create a new column for month names. - Drops columns with high proportions of missing data. - Drops entries from the current year as that data is not yet complete.</p>
-<div id="fc1e6283" class="cell" data-execution_count="8">
+<div id="268b4aa4" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data_cleaning <span class="im">import</span> full_clean_pipeline</span>
@@ -1127,7 +1127,7 @@ memory usage: 9.3+ MB</code></pre>
 <section id="visualise-the-remaining-missing-data" class="level2">
 <h2 class="anchored" data-anchor-id="visualise-the-remaining-missing-data">2.3 Visualise the Remaining Missing Data</h2>
 <p>A quick visualisation of the remaining missing data will be created to help identify any remaining issues.</p>
-<div id="96e36a6d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:59.547229Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:59.113436Z&quot;}}" data-execution_count="9">
+<div id="f2ca271e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:59.547229Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:59.113436Z&quot;}}" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a bar chart of the missing data</span></span>
@@ -1152,7 +1152,7 @@ memory usage: 9.3+ MB</code></pre>
 </div>
 </div>
 <p>The above chart shows the count of missing values, however since some of these numbers are a very small portion of the data, it is difficult to see the distribution of missing values. Therefore, we will create a bar chart of the percentage of missing values per column and set the range on the y-axis to 0-10%.</p>
-<div id="bd225e28" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:03.989754Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:03.816796Z&quot;}}" data-execution_count="10">
+<div id="ea400f1d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:03.989754Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:03.816796Z&quot;}}" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a bar chart of the percentage of missing data</span></span>
@@ -1181,7 +1181,7 @@ memory usage: 9.3+ MB</code></pre>
 </section>
 <section id="check-for-duplicate-entries" class="level2">
 <h2 class="anchored" data-anchor-id="check-for-duplicate-entries">2.4 Check for Duplicate Entries</h2>
-<div id="edef2912" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:11.758716Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:11.706834Z&quot;}}" data-execution_count="11">
+<div id="9ecf53e3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:11.758716Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:11.706834Z&quot;}}" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for duplicate rows</span></span>
@@ -1754,7 +1754,7 @@ memory usage: 9.3+ MB</code></pre>
 <section id="checking-for-outliers" class="level2">
 <h2 class="anchored" data-anchor-id="checking-for-outliers">2.5 Checking for Outliers</h2>
 <p>In this dataset we have a single continuous variable of interest, age. We will use a boxplot to check for outliers in this column.</p>
-<div id="1ae7ce75" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:15.923273Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:15.803311Z&quot;}}" data-execution_count="12">
+<div id="0c10f984" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:15.923273Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:15.803311Z&quot;}}" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a boxplot to check for outliers in the Age column</span></span>
@@ -1773,7 +1773,7 @@ memory usage: 9.3+ MB</code></pre>
 </div>
 </div>
 <p>The above boxplot shows that there are no outliers in the Age column. Checking for outliers using the IRQ method will confirm this.</p>
-<div id="c096c491" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:19.287958Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:19.258768Z&quot;}}" data-execution_count="13">
+<div id="c2c94fa1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:19.287958Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:19.258768Z&quot;}}" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a function to calculate the IRQ</span></span>
@@ -1824,7 +1824,7 @@ Outliers: []</code></pre>
 <p>These visual insights provide context for evaluating the impact of road safety initiatives and identifying groups most at risk.</p>
 <section id="demographic-analysis-of-fatal-road-accidents-in-australia" class="level2">
 <h2 class="anchored" data-anchor-id="demographic-analysis-of-fatal-road-accidents-in-australia">3.1 Demographic Analysis of Fatal Road Accidents in Australia</h2>
-<div id="95172912" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:22.106653Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:21.963352Z&quot;}}" data-execution_count="14">
+<div id="07c22696" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:22.106653Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:21.963352Z&quot;}}" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Age and Sex distribution of fatal road transport accidents in Australia</span></span>
@@ -1848,7 +1848,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>The histogram shows a notable peak in the frequency of fatal accidents involving people in their 20’s and early 30’s. After the age of around 35 there is a general decline in the frequency of fatal accidents.</p>
-<div id="25cdccd9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:26.823067Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:26.717117Z&quot;}}" data-execution_count="15">
+<div id="9b953fb5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:26.823067Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:26.717117Z&quot;}}" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot of fatal accidents by gender</span></span>
@@ -1872,7 +1872,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>The gender distribution of fatal accidents shows a significantly large number of males are represented in the data than females, we will express this as a percentage.</p>
-<div id="11e5247a" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:29.057932Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:29.001428Z&quot;}}" data-execution_count="16">
+<div id="947a0a62" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:29.057932Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:29.001428Z&quot;}}" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gender distribution of fatal accidents by gender as a percentage</span></span>
@@ -1900,7 +1900,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>The bar graph above shows that over 70% of road transport fatalities are male compared to approximately 30% female.</p>
-<div id="ba1dc6a4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:31.531719Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:31.317932Z&quot;}}" data-execution_count="17">
+<div id="6959f69f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:31.531719Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:31.317932Z&quot;}}" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Density plot of age and gender</span></span>
@@ -1926,7 +1926,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>The density plot above shows the age distribution of fatal accidents in Australia separated by gender. It can be seen that both males and females show a peak around the age of 20, and that the age distribution of fatal accidents are relatively similar between the two genders.</p>
-<div id="f9c6dee4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:34.650814Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:34.543971Z&quot;}}" data-execution_count="18">
+<div id="5291d036" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:34.650814Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:34.543971Z&quot;}}" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot of age and gender distribution</span></span>
@@ -1949,7 +1949,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>The above box plots show that the median age appear to be slightly higher for males than females, with several male outliers appearing when the data is segregated by gender.</p>
-<div id="cc5e51ef" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:36.680378Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:36.573087Z&quot;}}" data-execution_count="19">
+<div id="48576a2a" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:36.680378Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:36.573087Z&quot;}}" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of accidents by road user</span></span>
@@ -1979,7 +1979,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>The above horizontal bar chart shows a breakdown of the number of fatal accidents by road user type. From that chart it can be seen that the majority of fatal accidents involve car occupants, followed by pedestrians and motorcyclists.</p>
-<div id="28e4262f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:46.380823Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:46.088711Z&quot;}}" data-execution_count="20">
+<div id="3191b7f0" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:46.380823Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:46.088711Z&quot;}}" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of accidents by road user</span></span>
@@ -2013,7 +2013,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>The above stacked bar graph shows the proportions of fatalities by age group from 1989. The graph shows a general decline in fatalities while proportions remain relatively consistent.</p>
-<div id="0ff0aa21" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:56.867473Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:56.625118Z&quot;}}" data-execution_count="21">
+<div id="5ff8d516" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:56.867473Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:56.625118Z&quot;}}" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of accidents by road user </span></span>
@@ -2049,7 +2049,7 @@ Outliers: []</code></pre>
 </section>
 <section id="geographic-analysis-of-fatal-road-accidents-in-australia" class="level2">
 <h2 class="anchored" data-anchor-id="geographic-analysis-of-fatal-road-accidents-in-australia">3.2 Geographic Analysis of Fatal Road Accidents in Australia</h2>
-<div id="5bafe0a1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:59.121312Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:59.045233Z&quot;}}" data-execution_count="22">
+<div id="13140870" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:59.121312Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:59.045233Z&quot;}}" data-execution_count="22">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie chart of fatal accidents by State</span></span>
@@ -2074,7 +2074,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>The pie chart shows that the majority of fatal accidents occur in New South Wales (31%), followed by Victoria (30%) and Queensland (20%).</p>
-<div id="9b900cb6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:13.459654Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:13.349695Z&quot;}}" data-execution_count="23">
+<div id="1c0009ef" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:13.459654Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:13.349695Z&quot;}}" data-execution_count="23">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart of fatal accidents by State</span></span>
@@ -2105,7 +2105,7 @@ Outliers: []</code></pre>
 <h2 class="anchored" data-anchor-id="temporal-analysis-of-fatal-road-accidents-in-australia">3.3 Temporal Analysis of Fatal Road Accidents in Australia</h2>
 <section id="accidents-by-month-of-year" class="level3">
 <h3 class="anchored" data-anchor-id="accidents-by-month-of-year">Accidents by Month of Year</h3>
-<div id="ddeb479b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:20.927754Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:20.918425Z&quot;}}" data-execution_count="24">
+<div id="64723886" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:20.927754Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:20.918425Z&quot;}}" data-execution_count="24">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we will calculate the number of accidents by month</span></span>
@@ -2121,7 +2121,7 @@ Outliers: []</code></pre>
 <span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>month_counts <span class="op">=</span> month_counts.sort_values(<span class="st">'Month'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="931426c1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2023-10-28T09:16:51.079610Z&quot;,&quot;start_time&quot;:&quot;2023-10-28T09:16:50.974037Z&quot;}}" data-execution_count="25">
+<div id="0e6caf02" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2023-10-28T09:16:51.079610Z&quot;,&quot;start_time&quot;:&quot;2023-10-28T09:16:50.974037Z&quot;}}" data-execution_count="25">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the number of accidents by month</span></span>
@@ -2150,7 +2150,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>The above bar chart shows that the number of fatal accidents is relatively consistent throughout the year with December and March having a slightly higher number of accidents than other months.</p>
-<div id="c0630e4e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:25.146459Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:25.138646Z&quot;}}" data-execution_count="26">
+<div id="7fdce34c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:25.146459Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:25.138646Z&quot;}}" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count accidents by day of the week</span></span>
@@ -2163,7 +2163,7 @@ Outliers: []</code></pre>
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>day_counts <span class="op">=</span> day_counts.sort_values(<span class="st">'Day'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="6b751ce2" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:27.186084Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:27.086563Z&quot;}}" data-execution_count="27">
+<div id="74f491b7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:27.186084Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:27.086563Z&quot;}}" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the number of accidents by day of the week</span></span>
@@ -2192,7 +2192,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>The above bar chart shows that the number of fatal accidents is highest on Saturday, followed by Friday and Sunday. We can also plot the percentage of accidents by day of the week below.</p>
-<div id="35152b61" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:29.957184Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:29.839149Z&quot;}}" data-execution_count="28">
+<div id="635394de" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:29.957184Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:29.839149Z&quot;}}" data-execution_count="28">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>day_counts[<span class="st">'Percentage'</span>] <span class="op">=</span> (day_counts[<span class="st">'Accidents'</span>] <span class="op">/</span> day_counts[<span class="st">'Accidents'</span>].<span class="bu">sum</span>()) <span class="op">*</span> <span class="dv">100</span></span>
@@ -2218,7 +2218,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>Finally, we will create a heatmap of time of day and day of the week to visualise the temporal distribution of fatal accidents.</p>
-<div id="83fc08fa" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:33.045845Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:32.724346Z&quot;}}" data-execution_count="29">
+<div id="852445d9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:33.045845Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:32.724346Z&quot;}}" data-execution_count="29">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We will create a new data frame for this visualisation because we have to do some manipulation that involves dropping rows. </span></span>
@@ -2264,7 +2264,7 @@ Outliers: []</code></pre>
 <section id="change-over-time-in-the-number-of-fatal-accidents-by-year" class="level3">
 <h3 class="anchored" data-anchor-id="change-over-time-in-the-number-of-fatal-accidents-by-year">Change over time in the number of fatal accidents by year</h3>
 <p>We will now examine how these trends have changed over time. Firstly, we will create a line graph of the number of fatal accidents by year.</p>
-<div id="de2e904d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:41:39.972113Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:41:39.851082Z&quot;}}" data-execution_count="30">
+<div id="b7f78b76" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:41:39.972113Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:41:39.851082Z&quot;}}" data-execution_count="30">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a line graph of fatalities by year</span></span>
@@ -2293,7 +2293,7 @@ Outliers: []</code></pre>
 </div>
 </div>
 <p>We can see an overall decline in the number of fatal road transport accidents in Australia since 1989. The raw numbers are declining despite a growing population. To explore this trend further we will calculate the number of fatal accidents per 100,000 persons.</p>
-<div id="bf76d612" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:41:57.714875Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:41:57.611239Z&quot;}}" data-execution_count="31">
+<div id="8a7cd7fe" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:41:57.714875Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:41:57.611239Z&quot;}}" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We find population data for Australia from 1989 to 2021 from the United Nations website: https://population.un.org/dataportal/data/indicators/49/locations/36/start/1989/end/2021/table/pivotbylocation</span></span>
@@ -2345,7 +2345,7 @@ Outliers: []</code></pre>
 <section id="change-over-time-in-fatalities-by-gender" class="level3">
 <h3 class="anchored" data-anchor-id="change-over-time-in-fatalities-by-gender">Change over time in fatalities by gender</h3>
 <p>We will now examine if there has been a change in the distribution of fatal accidents by gender over time.</p>
-<div id="299ad9b5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:42:09.337595Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:42:09.212702Z&quot;}}" data-execution_count="32">
+<div id="53bd005f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:42:09.337595Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:42:09.212702Z&quot;}}" data-execution_count="32">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grouping the number of fatalities each year by gender</span></span>
@@ -2385,7 +2385,7 @@ Outliers: []</code></pre>
 <section id="change-over-time-in-fatalities-by-age-group" class="level3">
 <h3 class="anchored" data-anchor-id="change-over-time-in-fatalities-by-age-group">Change over time in fatalities by age group</h3>
 <p>We will now examine if there has been a change in the distribution of fatal accidents by age group over time.</p>
-<div id="baeb8885" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:42:13.809212Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:42:13.685940Z&quot;}}" data-execution_count="33">
+<div id="ba0de039" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:42:13.809212Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:42:13.685940Z&quot;}}" data-execution_count="33">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
@@ -2412,7 +2412,7 @@ Outliers: []</code></pre>
 <section id="change-over-time-in-fatalities-by-road-user-type" class="level3">
 <h3 class="anchored" data-anchor-id="change-over-time-in-fatalities-by-road-user-type">Change over time in fatalities by road user type</h3>
 <p>Finally, we will examine if there has been a change in the distribution of fatal accidents by road user type over time.</p>
-<div id="acaa6643" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:42:20.725429Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:42:20.587920Z&quot;}}" data-execution_count="34">
+<div id="99a64615" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:42:20.725429Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:42:20.587920Z&quot;}}" data-execution_count="34">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grouping data by year and road user type, and counting fatalities</span></span>
