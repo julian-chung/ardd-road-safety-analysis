@@ -1,0 +1,2876 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Analysis of Fatal Road Accidents in Australia since 1989 – Australian Road Deaths Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6bdd2aebeb936dcddaa5f935a5de481c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Australian Road Deaths Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.qmd"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../notebooks/0-eda-australian-road-fatalities.html" aria-current="page"> 
+<span class="menu-text">Main EDA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../notebooks/2-motorcyclists.html"> 
+<span class="menu-text">Motorcyclists</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../notebooks/1-vulnerable-road-users.html"> 
+<span class="menu-text">Vulnerable Users</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
+  <li><a href="#part-1-data-checking" id="toc-part-1-data-checking" class="nav-link" data-scroll-target="#part-1-data-checking">Part 1: Data Checking</a>
+  <ul class="collapse">
+  <li><a href="#reading-data-and-importing-libraries" id="toc-reading-data-and-importing-libraries" class="nav-link" data-scroll-target="#reading-data-and-importing-libraries">1.1 Reading Data and Importing Libraries</a></li>
+  <li><a href="#exploring-the-data-and-checking-the-data-types" id="toc-exploring-the-data-and-checking-the-data-types" class="nav-link" data-scroll-target="#exploring-the-data-and-checking-the-data-types">1.2 Exploring the Data and Checking the Data Types</a></li>
+  </ul></li>
+  <li><a href="#part-2-data-preparation" id="toc-part-2-data-preparation" class="nav-link" data-scroll-target="#part-2-data-preparation">Part 2: Data Preparation</a>
+  <ul class="collapse">
+  <li><a href="#checking-for-null-or-missing-values" id="toc-checking-for-null-or-missing-values" class="nav-link" data-scroll-target="#checking-for-null-or-missing-values">2.1 Checking for null or missing values</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">2.2 Data Cleaning</a></li>
+  <li><a href="#visualise-the-remaining-missing-data" id="toc-visualise-the-remaining-missing-data" class="nav-link" data-scroll-target="#visualise-the-remaining-missing-data">2.3 Visualise the Remaining Missing Data</a></li>
+  <li><a href="#check-for-duplicate-entries" id="toc-check-for-duplicate-entries" class="nav-link" data-scroll-target="#check-for-duplicate-entries">2.4 Check for Duplicate Entries</a></li>
+  <li><a href="#checking-for-outliers" id="toc-checking-for-outliers" class="nav-link" data-scroll-target="#checking-for-outliers">2.5 Checking for Outliers</a></li>
+  </ul></li>
+  <li><a href="#part-3-data-visualisation" id="toc-part-3-data-visualisation" class="nav-link" data-scroll-target="#part-3-data-visualisation">Part 3: Data Visualisation</a>
+  <ul class="collapse">
+  <li><a href="#demographic-analysis-of-fatal-road-accidents-in-australia" id="toc-demographic-analysis-of-fatal-road-accidents-in-australia" class="nav-link" data-scroll-target="#demographic-analysis-of-fatal-road-accidents-in-australia">3.1 Demographic Analysis of Fatal Road Accidents in Australia</a></li>
+  <li><a href="#geographic-analysis-of-fatal-road-accidents-in-australia" id="toc-geographic-analysis-of-fatal-road-accidents-in-australia" class="nav-link" data-scroll-target="#geographic-analysis-of-fatal-road-accidents-in-australia">3.2 Geographic Analysis of Fatal Road Accidents in Australia</a></li>
+  <li><a href="#temporal-analysis-of-fatal-road-accidents-in-australia" id="toc-temporal-analysis-of-fatal-road-accidents-in-australia" class="nav-link" data-scroll-target="#temporal-analysis-of-fatal-road-accidents-in-australia">3.3 Temporal Analysis of Fatal Road Accidents in Australia</a>
+  <ul class="collapse">
+  <li><a href="#accidents-by-month-of-year" id="toc-accidents-by-month-of-year" class="nav-link" data-scroll-target="#accidents-by-month-of-year">Accidents by Month of Year</a></li>
+  <li><a href="#change-over-time-in-the-number-of-fatal-accidents-by-year" id="toc-change-over-time-in-the-number-of-fatal-accidents-by-year" class="nav-link" data-scroll-target="#change-over-time-in-the-number-of-fatal-accidents-by-year">Change over time in the number of fatal accidents by year</a></li>
+  <li><a href="#change-over-time-in-fatalities-by-gender" id="toc-change-over-time-in-fatalities-by-gender" class="nav-link" data-scroll-target="#change-over-time-in-fatalities-by-gender">Change over time in fatalities by gender</a></li>
+  <li><a href="#change-over-time-in-fatalities-by-age-group" id="toc-change-over-time-in-fatalities-by-age-group" class="nav-link" data-scroll-target="#change-over-time-in-fatalities-by-age-group">Change over time in fatalities by age group</a></li>
+  <li><a href="#change-over-time-in-fatalities-by-road-user-type" id="toc-change-over-time-in-fatalities-by-road-user-type" class="nav-link" data-scroll-target="#change-over-time-in-fatalities-by-road-user-type">Change over time in fatalities by road user type</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#part-4-conclusion" id="toc-part-4-conclusion" class="nav-link" data-scroll-target="#part-4-conclusion">Part 4: Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#opportunities-for-further-research" id="toc-opportunities-for-further-research" class="nav-link" data-scroll-target="#opportunities-for-further-research">Opportunities for Further Research</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Analysis of Fatal Road Accidents in Australia since 1989</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This project explores fatal road transport accidents in Australia from 1989. Using data sourced from the <a href="https://catalogue.data.infrastructure.gov.au/dataset/australian-road-deaths-database">Australian Road Deaths Database (ARDD)</a>, the analysis examines the demographic, geographic, and temporal distribution of fatal accidents.</p>
+<p>The key objectives of this analysis are to:</p>
+<ul>
+<li><p>Identify the demographic groups most affected by fatal road accidents</p></li>
+<li><p>Examine how fatalities are distributed across Australian states and territories</p></li>
+<li><p>Explore patterns in accident timing (days of the week, months of the year)</p></li>
+<li><p>Analyze trends over time in road fatalities overall and among vulnerable road users (pedestrians, cyclists)</p></li>
+<li><p>The analysis applies data cleaning, missing value handling, and exploratory data visualization techniques to highlight significant trends and support future road safety research efforts.</p></li>
+</ul>
+</section>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<ul>
+<li><p>Road fatalities have steadily declined from 1989 to 2021, both in raw numbers and when adjusted per 100,000 population.</p></li>
+<li><p>Young drivers (aged 17–25) historically had the highest fatality rates but have seen substantial improvements, likely due to licensing restrictions.</p></li>
+<li><p>Males account for approximately 70% of all road fatalities, a ratio that has remained consistent over time.</p></li>
+<li><p>The majority of fatal accidents occur between Friday and Sunday, with Friday afternoon being the most dangerous time period.</p></li>
+<li><p>New South Wales, Victoria, and Queensland account for more than 80% of all fatalities.</p></li>
+<li><p>Pedestrian fatalities have decreased over time, but cyclist fatalities have remained relatively constant since the mid-1990s.</p></li>
+</ul>
+</section>
+<section id="part-1-data-checking" class="level1">
+<h1>Part 1: Data Checking</h1>
+<section id="reading-data-and-importing-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="reading-data-and-importing-libraries">1.1 Reading Data and Importing Libraries</h2>
+<p>Import the necessary libraries and read the dataset into a pandas DataFrame. The dataset is in CSV format and contains information about fatal road accidents in Australia from 1989. The dataset is updated monthly and includes various attributes such as the date of the accident, location, vehicle type, and demographic information about the individuals involved in the accidents.</p>
+<div id="3189df6b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:23.974295Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:22.710814Z&quot;}}" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the directory for the script</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">"../scripts"</span>) </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing the required libraries</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Pandas to read the csv file and store it in a dataframe</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../data/Crash_Data.csv"</span>, low_memory<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="exploring-the-data-and-checking-the-data-types" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-the-data-and-checking-the-data-types">1.2 Exploring the Data and Checking the Data Types</h2>
+<p>Briefly inspect to check column names, types, summary statistics, and overall structure.</p>
+<div id="efa04d30" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:31.296262Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:31.285629Z&quot;}}" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first and last five rows of the dataset</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>display(df.head())</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>display(df.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Crash ID</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Month</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Dayweek</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Crash Type</th>
+<th data-quarto-table-cell-role="th">Bus Involvement</th>
+<th data-quarto-table-cell-role="th">Heavy Rigid Truck Involvement</th>
+<th data-quarto-table-cell-role="th">Articulated Truck Involvement</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">National Remoteness Areas</th>
+<th data-quarto-table-cell-role="th">SA4 Name 2016</th>
+<th data-quarto-table-cell-role="th">National LGA Name 2017</th>
+<th data-quarto-table-cell-role="th">National Road Type</th>
+<th data-quarto-table-cell-role="th">Christmas Period</th>
+<th data-quarto-table-cell-role="th">Easter Period</th>
+<th data-quarto-table-cell-role="th">Age Group</th>
+<th data-quarto-table-cell-role="th">Day of week</th>
+<th data-quarto-table-cell-role="th">Time of day</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>20212133</td>
+<td>Vic</td>
+<td>9</td>
+<td>2021</td>
+<td>Sunday</td>
+<td>0:30</td>
+<td>Single</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>38</td>
+<td>Inner Regional Australia</td>
+<td>Melbourne - Outer East</td>
+<td>Yarra Ranges (S)</td>
+<td>Arterial Road</td>
+<td>No</td>
+<td>No</td>
+<td>26_to_39</td>
+<td>Weekend</td>
+<td>Night</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>20214022</td>
+<td>SA</td>
+<td>9</td>
+<td>2021</td>
+<td>Saturday</td>
+<td>23:31</td>
+<td>Multiple</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>...</td>
+<td>28</td>
+<td>Major Cities of Australia</td>
+<td>Adelaide - North</td>
+<td>Playford (C)</td>
+<td>NaN</td>
+<td>No</td>
+<td>No</td>
+<td>26_to_39</td>
+<td>Weekend</td>
+<td>Night</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>20212096</td>
+<td>Vic</td>
+<td>9</td>
+<td>2021</td>
+<td>Saturday</td>
+<td>23:00</td>
+<td>Single</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>19</td>
+<td>Inner Regional Australia</td>
+<td>Hume</td>
+<td>Wangaratta (RC)</td>
+<td>Access road</td>
+<td>No</td>
+<td>No</td>
+<td>17_to_25</td>
+<td>Weekend</td>
+<td>Night</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>20212145</td>
+<td>Vic</td>
+<td>9</td>
+<td>2021</td>
+<td>Saturday</td>
+<td>22:25</td>
+<td>Single</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>23</td>
+<td>Outer Regional Australia</td>
+<td>Hume</td>
+<td>Wangaratta (RC)</td>
+<td>Arterial Road</td>
+<td>No</td>
+<td>No</td>
+<td>17_to_25</td>
+<td>Weekend</td>
+<td>Night</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>20212075</td>
+<td>Vic</td>
+<td>9</td>
+<td>2021</td>
+<td>Saturday</td>
+<td>5:15</td>
+<td>Single</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>46</td>
+<td>Major Cities of Australia</td>
+<td>Melbourne - South East</td>
+<td>Casey (C)</td>
+<td>Local Road</td>
+<td>No</td>
+<td>No</td>
+<td>40_to_64</td>
+<td>Weekend</td>
+<td>Night</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 23 columns</p>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Crash ID</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Month</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Dayweek</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Crash Type</th>
+<th data-quarto-table-cell-role="th">Bus Involvement</th>
+<th data-quarto-table-cell-role="th">Heavy Rigid Truck Involvement</th>
+<th data-quarto-table-cell-role="th">Articulated Truck Involvement</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">National Remoteness Areas</th>
+<th data-quarto-table-cell-role="th">SA4 Name 2016</th>
+<th data-quarto-table-cell-role="th">National LGA Name 2017</th>
+<th data-quarto-table-cell-role="th">National Road Type</th>
+<th data-quarto-table-cell-role="th">Christmas Period</th>
+<th data-quarto-table-cell-role="th">Easter Period</th>
+<th data-quarto-table-cell-role="th">Age Group</th>
+<th data-quarto-table-cell-role="th">Day of week</th>
+<th data-quarto-table-cell-role="th">Time of day</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">52838</td>
+<td>19891246</td>
+<td>NSW</td>
+<td>1</td>
+<td>1989</td>
+<td>Wednesday</td>
+<td>17:05</td>
+<td>Single</td>
+<td>Yes</td>
+<td>NaN</td>
+<td>No</td>
+<td>...</td>
+<td>5</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>No</td>
+<td>No</td>
+<td>0_to_16</td>
+<td>Weekday</td>
+<td>Day</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">52839</td>
+<td>19895088</td>
+<td>WA</td>
+<td>1</td>
+<td>1989</td>
+<td>Monday</td>
+<td>6:00</td>
+<td>Single</td>
+<td>No</td>
+<td>NaN</td>
+<td>No</td>
+<td>...</td>
+<td>19</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Yes</td>
+<td>No</td>
+<td>17_to_25</td>
+<td>Weekday</td>
+<td>Day</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">52840</td>
+<td>19895088</td>
+<td>WA</td>
+<td>1</td>
+<td>1989</td>
+<td>Monday</td>
+<td>6:00</td>
+<td>Single</td>
+<td>No</td>
+<td>NaN</td>
+<td>No</td>
+<td>...</td>
+<td>17</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Yes</td>
+<td>No</td>
+<td>17_to_25</td>
+<td>Weekday</td>
+<td>Day</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">52841</td>
+<td>19895088</td>
+<td>WA</td>
+<td>1</td>
+<td>1989</td>
+<td>Monday</td>
+<td>6:00</td>
+<td>Single</td>
+<td>No</td>
+<td>NaN</td>
+<td>No</td>
+<td>...</td>
+<td>17</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Yes</td>
+<td>No</td>
+<td>17_to_25</td>
+<td>Weekday</td>
+<td>Day</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">52842</td>
+<td>19896063</td>
+<td>Tas</td>
+<td>1</td>
+<td>1989</td>
+<td>Tuesday</td>
+<td>12:40</td>
+<td>Multiple</td>
+<td>No</td>
+<td>NaN</td>
+<td>No</td>
+<td>...</td>
+<td>63</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>No</td>
+<td>No</td>
+<td>40_to_64</td>
+<td>Weekday</td>
+<td>Day</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 23 columns</p>
+</div>
+</div>
+</div>
+<div id="f9df7ea5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:35.436612Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:35.415429Z&quot;}}" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get information about the dataset</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>display(df.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 52843 entries, 0 to 52842
+Data columns (total 23 columns):
+ #   Column                         Non-Null Count  Dtype 
+---  ------                         --------------  ----- 
+ 0   Crash ID                       52843 non-null  int64 
+ 1   State                          52843 non-null  object
+ 2   Month                          52843 non-null  int64 
+ 3   Year                           52843 non-null  int64 
+ 4   Dayweek                        52843 non-null  object
+ 5   Time                           52803 non-null  object
+ 6   Crash Type                     52843 non-null  object
+ 7   Bus Involvement                52821 non-null  object
+ 8   Heavy Rigid Truck Involvement  32328 non-null  object
+ 9   Articulated Truck Involvement  52821 non-null  object
+ 10  Speed Limit                    52141 non-null  object
+ 11  Road User                      52843 non-null  object
+ 12  Gender                         52816 non-null  object
+ 13  Age                            52843 non-null  int64 
+ 14  National Remoteness Areas      6878 non-null   object
+ 15  SA4 Name 2016                  6892 non-null   object
+ 16  National LGA Name 2017         6893 non-null   object
+ 17  National Road Type             6877 non-null   object
+ 18  Christmas Period               52843 non-null  object
+ 19  Easter Period                  52843 non-null  object
+ 20  Age Group                      52753 non-null  object
+ 21  Day of week                    52843 non-null  object
+ 22  Time of day                    52843 non-null  object
+dtypes: int64(4), object(19)
+memory usage: 9.3+ MB</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>None</code></pre>
+</div>
+</div>
+<div id="4808b7df" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:40.386430Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:40.374607Z&quot;}}" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take the number of rows and columns in the dataset, and the number of unique Crash ID's, and print them out in a sentence. </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dataset contains </span><span class="sc">{</span>df<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">:,}</span><span class="ss"> rows and </span><span class="sc">{</span>df<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> columns, "f"with </span><span class="sc">{</span>df[<span class="st">'Crash ID'</span>]<span class="sc">.</span>nunique()<span class="sc">:,}</span><span class="ss"> unique crash IDs."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dataset contains 52,843 rows and 23 columns, with 47,567 unique crash IDs.</code></pre>
+</div>
+</div>
+<p>The table below provides a high-level summary of each column, including: - The number of unique values - The most frequently occurring value (where applicable) - The count of that most common value - The number of missing entries</p>
+<p>Note: For identifier fields like <code>Crash ID</code>, the “top value” has limited interpretive value, but is more informative in fields such as <code>State</code> or <code>Age</code>.</p>
+<div id="bd407d62" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:44.577995Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:44.480340Z&quot;}}" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating and populating a summary dataframe using pandas</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>summary_df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Column Name'</span>: df.columns, <span class="co"># Getting the column names</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Unique Values'</span>: [df[col].nunique() <span class="cf">for</span> col <span class="kw">in</span> df.columns], <span class="co"># Counting the number of unique values in each column</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Most Common Value'</span>: [df[col].mode()[<span class="dv">0</span>] <span class="cf">for</span> col <span class="kw">in</span> df.columns], <span class="co"># Finding the most common value in each column using mode function</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Count of Most Common Value'</span>: [df[col].value_counts().iloc[<span class="dv">0</span>] <span class="cf">for</span> col <span class="kw">in</span> df.columns], <span class="co"># Counting the number of times the most common value appears in each column</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Missing Values'</span>: df.isnull().<span class="bu">sum</span>().values <span class="co"># Counting the number of blank values in each column</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying the summary dataframe</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>display(summary_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Column Name</th>
+<th data-quarto-table-cell-role="th">Unique Values</th>
+<th data-quarto-table-cell-role="th">Most Common Value</th>
+<th data-quarto-table-cell-role="th">Count of Most Common Value</th>
+<th data-quarto-table-cell-role="th">Missing Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Crash ID</td>
+<td>47567</td>
+<td>19891474</td>
+<td>35</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>State</td>
+<td>8</td>
+<td>NSW</td>
+<td>16293</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Month</td>
+<td>12</td>
+<td>12</td>
+<td>4721</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Year</td>
+<td>33</td>
+<td>1989</td>
+<td>2800</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Dayweek</td>
+<td>7</td>
+<td>Saturday</td>
+<td>9696</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Time</td>
+<td>1413</td>
+<td>15:00</td>
+<td>1144</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Crash Type</td>
+<td>2</td>
+<td>Single</td>
+<td>29249</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Bus Involvement</td>
+<td>2</td>
+<td>No</td>
+<td>51835</td>
+<td>22</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Heavy Rigid Truck Involvement</td>
+<td>2</td>
+<td>No</td>
+<td>30735</td>
+<td>20515</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Articulated Truck Involvement</td>
+<td>2</td>
+<td>No</td>
+<td>47476</td>
+<td>22</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Speed Limit</td>
+<td>19</td>
+<td>100</td>
+<td>18248</td>
+<td>702</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Road User</td>
+<td>7</td>
+<td>Driver</td>
+<td>23816</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Gender</td>
+<td>3</td>
+<td>Male</td>
+<td>37813</td>
+<td>27</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Age</td>
+<td>103</td>
+<td>18</td>
+<td>1953</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>National Remoteness Areas</td>
+<td>5</td>
+<td>Major Cities of Australia</td>
+<td>2370</td>
+<td>45965</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>SA4 Name 2016</td>
+<td>88</td>
+<td>Western Australia - Wheat Belt</td>
+<td>230</td>
+<td>45951</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>National LGA Name 2017</td>
+<td>500</td>
+<td>Central Coast</td>
+<td>91</td>
+<td>45950</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>National Road Type</td>
+<td>13</td>
+<td>National or State Highway</td>
+<td>1863</td>
+<td>45966</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Christmas Period</td>
+<td>2</td>
+<td>No</td>
+<td>51208</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Easter Period</td>
+<td>2</td>
+<td>No</td>
+<td>52573</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Age Group</td>
+<td>6</td>
+<td>17_to_25</td>
+<td>13771</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Day of week</td>
+<td>2</td>
+<td>Weekday</td>
+<td>31066</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>Time of day</td>
+<td>2</td>
+<td>Day</td>
+<td>30117</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The summary table above shows the column names, the number of unique values in each column, the most common value in each column and the number of times the most common value appears. From the data we can see that the there are 47567 crashes in the dataset that contains 52843 fatalities, the most deadly accident on record involved 35 fatalities (Kempsey Bus Crash 1989), and the most common gender is Male.</p>
+<div id="2be2e8e7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:47.092074Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:47.084966Z&quot;}}" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate statistics for the 'Age' column</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>mean_age <span class="op">=</span> df[<span class="st">'Age'</span>].mean()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>median_age <span class="op">=</span> df[<span class="st">'Age'</span>].median()</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>min_age <span class="op">=</span> df[<span class="st">'Age'</span>].<span class="bu">min</span>()</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>max_age <span class="op">=</span> df[<span class="st">'Age'</span>].<span class="bu">max</span>()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The average age of individuals involved in fatal road crashes was </span><span class="sc">{</span>mean_age<span class="sc">:.1f}</span><span class="ss"> years "f"(median: </span><span class="sc">{</span>median_age<span class="sc">}</span><span class="ss">, range: </span><span class="sc">{</span>min_age<span class="sc">}</span><span class="ss">–</span><span class="sc">{</span>max_age<span class="sc">}</span><span class="ss">)."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The average age of individuals involved in fatal road crashes was 39.7 years (median: 34.0, range: -9–101).</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="part-2-data-preparation" class="level1">
+<h1>Part 2: Data Preparation</h1>
+<section id="checking-for-null-or-missing-values" class="level2">
+<h2 class="anchored" data-anchor-id="checking-for-null-or-missing-values">2.1 Checking for null or missing values</h2>
+<p>From information provided in the <a href="https://data.gov.au/dataset/ds-dga-5b530fb8-526e-4fbf-b0f6-aa24e84e4277/distribution/dist-dga-59055fed-d4f1-4a81-b3ee-75cb438009c6/details?q=ardd">ARDD data dictionary</a> we know that missing values are represented by ‘-9’, ‘Unspecified’ or ‘Other/-9’. We will search for these values and replace them with null values (NaN).</p>
+<div id="7a71b2f9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:48.868552Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:48.804787Z&quot;}}" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Firstly, we will find the number of blank values in the dataset</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>blank_values <span class="op">=</span> df.isnull().<span class="bu">sum</span>()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Secondly, we will find the number of values set to '-9' which according to the data book are also missing data. </span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>neg_nine_values <span class="op">=</span> df.isin([<span class="op">-</span><span class="dv">9</span>, <span class="st">'Other/-9'</span>]).<span class="bu">sum</span>()</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Thirdly there are a handful of 'Unspecified' value in the dataset, so we will also sum them</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>unspecified_values <span class="op">=</span> (df <span class="op">==</span> <span class="st">"Unspecified"</span>).<span class="bu">sum</span>()</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># We will now sum all the missing values</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>total_missing <span class="op">=</span> blank_values <span class="op">+</span> neg_nine_values <span class="op">+</span> unspecified_values</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying counts of blank, '-9', 'unspecified', and total missing values per column</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>missing_data_summary <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Blank Values'</span>: blank_values,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'-9 Values'</span>: neg_nine_values,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Unspecified Values'</span>: unspecified_values,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Total of Missing Values'</span>: total_missing</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>display(missing_data_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Blank Values</th>
+<th data-quarto-table-cell-role="th">-9 Values</th>
+<th data-quarto-table-cell-role="th">Unspecified Values</th>
+<th data-quarto-table-cell-role="th">Total of Missing Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Crash ID</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">State</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Month</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Year</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Dayweek</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Time</td>
+<td>40</td>
+<td>0</td>
+<td>0</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Crash Type</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Bus Involvement</td>
+<td>22</td>
+<td>0</td>
+<td>0</td>
+<td>22</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Heavy Rigid Truck Involvement</td>
+<td>20515</td>
+<td>0</td>
+<td>0</td>
+<td>20515</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Articulated Truck Involvement</td>
+<td>22</td>
+<td>0</td>
+<td>0</td>
+<td>22</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Speed Limit</td>
+<td>702</td>
+<td>0</td>
+<td>2</td>
+<td>704</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Road User</td>
+<td>0</td>
+<td>92</td>
+<td>0</td>
+<td>92</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Gender</td>
+<td>27</td>
+<td>0</td>
+<td>1</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>0</td>
+<td>90</td>
+<td>0</td>
+<td>90</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">National Remoteness Areas</td>
+<td>45965</td>
+<td>0</td>
+<td>0</td>
+<td>45965</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SA4 Name 2016</td>
+<td>45951</td>
+<td>0</td>
+<td>0</td>
+<td>45951</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">National LGA Name 2017</td>
+<td>45950</td>
+<td>0</td>
+<td>0</td>
+<td>45950</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">National Road Type</td>
+<td>45966</td>
+<td>0</td>
+<td>0</td>
+<td>45966</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Christmas Period</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Easter Period</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Age Group</td>
+<td>90</td>
+<td>0</td>
+<td>0</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Day of week</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Time of day</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Null or missing values will be replaced with NaN for easier analysis and columns with high proportions of missing data will be dropped from further analysis to ensure data quality and avoid skewed interpretations.</p>
+<p>Heavy Rigid Truck Involvement, National Remoteness Areas, SA4 Name 2016, National LGA Name 2017, and National Road Type will be dropped.</p>
+</section>
+<section id="data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning">2.2 Data Cleaning</h2>
+<p>Data is cleaned using a script that: - Replaces missing values with NaN. - Map numeric month values to month names and create a new column for month names. - Drops columns with high proportions of missing data. - Drops entries from the current year as that data is not yet complete.</p>
+<div id="fc1e6283" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> data_cleaning <span class="im">import</span> full_clean_pipeline</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> full_clean_pipeline()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dynamic year variable to get the latest year in the dataset to use in the analysis</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>latest_year <span class="op">=</span> df[<span class="st">'Year'</span>].<span class="bu">max</span>()</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>earliest_year <span class="op">=</span> df[<span class="st">'Year'</span>].<span class="bu">min</span>()</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The dataset contains data from </span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The dataset contains data from 1989 to 2021.</code></pre>
+</div>
+</div>
+</section>
+<section id="visualise-the-remaining-missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="visualise-the-remaining-missing-data">2.3 Visualise the Remaining Missing Data</h2>
+<p>A quick visualisation of the remaining missing data will be created to help identify any remaining issues.</p>
+<div id="96e36a6d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:04:59.547229Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:04:59.113436Z&quot;}}" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a bar chart of the missing data</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>missing_value_count <span class="op">=</span> df.isnull().<span class="bu">sum</span>() <span class="co"># We could instead call on the missing_data_summary dataframe using the 'total_missing' column, but defining a new variable is easier to read and shorter to type</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">8</span>))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span>missing_value_count.index, </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>missing_value_count)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Count of Missing Values per Column'</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Column Name'</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Count of missing values'</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above chart shows the count of missing values, however since some of these numbers are a very small portion of the data, it is difficult to see the distribution of missing values. Therefore, we will create a bar chart of the percentage of missing values per column and set the range on the y-axis to 0-10%.</p>
+<div id="bd225e28" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:03.989754Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:03.816796Z&quot;}}" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a bar chart of the percentage of missing data</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>missing_values_percentage <span class="op">=</span> (missing_value_count <span class="op">/</span> <span class="bu">len</span>(df)) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">8</span>))</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span>missing_values_percentage.index, </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>missing_values_percentage)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Percentage of Missing Values per Column'</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Column Name'</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Percentage of missing values (0 to 10%)'</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">11</span>, <span class="dv">1</span>))</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above chart shows the percentage of missing values per column, with the Y-axis set to a range of 0 to 10%. Speed limit has the highest percentage of missing values at 2.6%. The remaining columns have a very low percentage of missing values, with the majority of columns having less than 0.5% missing values. These values will not be dropped from the main dataset, however when creating visualisations we may need to create new dataframes that drop rows with missing values.</p>
+</section>
+<section id="check-for-duplicate-entries" class="level2">
+<h2 class="anchored" data-anchor-id="check-for-duplicate-entries">2.4 Check for Duplicate Entries</h2>
+<div id="edef2912" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:11.758716Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:11.706834Z&quot;}}" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for duplicate rows</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>duplicate_rows <span class="op">=</span> df[df.duplicated()]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>display(duplicate_rows)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for duplicate values in the Crash ID column</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>duplicate_crash_ids <span class="op">=</span> df[df.duplicated([<span class="st">'Crash ID'</span>])]</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>display(duplicate_crash_ids)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Crash ID</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Month</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Dayweek</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Crash Type</th>
+<th data-quarto-table-cell-role="th">Bus Involvement</th>
+<th data-quarto-table-cell-role="th">Articulated Truck Involvement</th>
+<th data-quarto-table-cell-role="th">Speed Limit</th>
+<th data-quarto-table-cell-role="th">Road User</th>
+<th data-quarto-table-cell-role="th">Gender</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Christmas Period</th>
+<th data-quarto-table-cell-role="th">Easter Period</th>
+<th data-quarto-table-cell-role="th">Age Group</th>
+<th data-quarto-table-cell-role="th">Day of week</th>
+<th data-quarto-table-cell-role="th">Time of day</th>
+<th data-quarto-table-cell-role="th">Month Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">473</td>
+<td>20215012</td>
+<td>WA</td>
+<td>4</td>
+<td>2021</td>
+<td>Saturday</td>
+<td>20:50</td>
+<td>Single</td>
+<td>No</td>
+<td>No</td>
+<td>110</td>
+<td>Passenger</td>
+<td>Male</td>
+<td>16</td>
+<td>No</td>
+<td>No</td>
+<td>0_to_16</td>
+<td>Weekend</td>
+<td>Night</td>
+<td>April</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1426</td>
+<td>20203031</td>
+<td>Qld</td>
+<td>6</td>
+<td>2020</td>
+<td>Sunday</td>
+<td>4:00</td>
+<td>Single</td>
+<td>No</td>
+<td>No</td>
+<td>70</td>
+<td>Passenger</td>
+<td>Female</td>
+<td>14</td>
+<td>No</td>
+<td>No</td>
+<td>0_to_16</td>
+<td>Weekend</td>
+<td>Night</td>
+<td>June</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1650</td>
+<td>20202055</td>
+<td>Vic</td>
+<td>4</td>
+<td>2020</td>
+<td>Wednesday</td>
+<td>17:30</td>
+<td>Multiple</td>
+<td>No</td>
+<td>Yes</td>
+<td>100</td>
+<td>Pedestrian</td>
+<td>NaN</td>
+<td>-9</td>
+<td>No</td>
+<td>No</td>
+<td>NaN</td>
+<td>Weekday</td>
+<td>Day</td>
+<td>April</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1651</td>
+<td>20202055</td>
+<td>Vic</td>
+<td>4</td>
+<td>2020</td>
+<td>Wednesday</td>
+<td>17:30</td>
+<td>Multiple</td>
+<td>No</td>
+<td>Yes</td>
+<td>100</td>
+<td>Pedestrian</td>
+<td>NaN</td>
+<td>-9</td>
+<td>No</td>
+<td>No</td>
+<td>NaN</td>
+<td>Weekday</td>
+<td>Day</td>
+<td>April</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1652</td>
+<td>20202055</td>
+<td>Vic</td>
+<td>4</td>
+<td>2020</td>
+<td>Wednesday</td>
+<td>17:30</td>
+<td>Multiple</td>
+<td>No</td>
+<td>Yes</td>
+<td>100</td>
+<td>Pedestrian</td>
+<td>NaN</td>
+<td>-9</td>
+<td>No</td>
+<td>No</td>
+<td>NaN</td>
+<td>Weekday</td>
+<td>Day</td>
+<td>April</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">52623</td>
+<td>19895071</td>
+<td>WA</td>
+<td>1</td>
+<td>1989</td>
+<td>Sunday</td>
+<td>22:17</td>
+<td>Single</td>
+<td>No</td>
+<td>No</td>
+<td>110</td>
+<td>Passenger</td>
+<td>Male</td>
+<td>19</td>
+<td>No</td>
+<td>No</td>
+<td>17_to_25</td>
+<td>Weekend</td>
+<td>Night</td>
+<td>January</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">52783</td>
+<td>19892372</td>
+<td>Vic</td>
+<td>1</td>
+<td>1989</td>
+<td>Thursday</td>
+<td>14:08</td>
+<td>Multiple</td>
+<td>No</td>
+<td>No</td>
+<td>60</td>
+<td>Passenger</td>
+<td>Female</td>
+<td>65</td>
+<td>No</td>
+<td>No</td>
+<td>65_to_74</td>
+<td>Weekday</td>
+<td>Day</td>
+<td>January</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">52785</td>
+<td>19892372</td>
+<td>Vic</td>
+<td>1</td>
+<td>1989</td>
+<td>Thursday</td>
+<td>14:08</td>
+<td>Multiple</td>
+<td>No</td>
+<td>No</td>
+<td>60</td>
+<td>Passenger</td>
+<td>Female</td>
+<td>65</td>
+<td>No</td>
+<td>No</td>
+<td>65_to_74</td>
+<td>Weekday</td>
+<td>Day</td>
+<td>January</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">52819</td>
+<td>19896006</td>
+<td>Tas</td>
+<td>1</td>
+<td>1989</td>
+<td>Wednesday</td>
+<td>20:20</td>
+<td>Multiple</td>
+<td>No</td>
+<td>Yes</td>
+<td>100</td>
+<td>Passenger</td>
+<td>Male</td>
+<td>13</td>
+<td>No</td>
+<td>No</td>
+<td>0_to_16</td>
+<td>Weekday</td>
+<td>Night</td>
+<td>January</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">52841</td>
+<td>19895088</td>
+<td>WA</td>
+<td>1</td>
+<td>1989</td>
+<td>Monday</td>
+<td>6:00</td>
+<td>Single</td>
+<td>No</td>
+<td>No</td>
+<td>110</td>
+<td>Passenger</td>
+<td>Male</td>
+<td>17</td>
+<td>Yes</td>
+<td>No</td>
+<td>17_to_25</td>
+<td>Weekday</td>
+<td>Day</td>
+<td>January</td>
+</tr>
+</tbody>
+</table>
+
+<p>155 rows × 19 columns</p>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Crash ID</th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">Month</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Dayweek</th>
+<th data-quarto-table-cell-role="th">Time</th>
+<th data-quarto-table-cell-role="th">Crash Type</th>
+<th data-quarto-table-cell-role="th">Bus Involvement</th>
+<th data-quarto-table-cell-role="th">Articulated Truck Involvement</th>
+<th data-quarto-table-cell-role="th">Speed Limit</th>
+<th data-quarto-table-cell-role="th">Road User</th>
+<th data-quarto-table-cell-role="th">Gender</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Christmas Period</th>
+<th data-quarto-table-cell-role="th">Easter Period</th>
+<th data-quarto-table-cell-role="th">Age Group</th>
+<th data-quarto-table-cell-role="th">Day of week</th>
+<th data-quarto-table-cell-role="th">Time of day</th>
+<th data-quarto-table-cell-role="th">Month Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>20213026</td>
+<td>Qld</td>
+<td>9</td>
+<td>2021</td>
+<td>Wednesday</td>
+<td>23:00</td>
+<td>Multiple</td>
+<td>No</td>
+<td>No</td>
+<td>NaN</td>
+<td>Driver</td>
+<td>Male</td>
+<td>34</td>
+<td>No</td>
+<td>No</td>
+<td>26_to_39</td>
+<td>Weekday</td>
+<td>Night</td>
+<td>September</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">52</td>
+<td>20212073</td>
+<td>Vic</td>
+<td>9</td>
+<td>2021</td>
+<td>Tuesday</td>
+<td>12:30</td>
+<td>Multiple</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Driver</td>
+<td>Female</td>
+<td>71</td>
+<td>No</td>
+<td>No</td>
+<td>65_to_74</td>
+<td>Weekday</td>
+<td>Day</td>
+<td>September</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">59</td>
+<td>20211068</td>
+<td>NSW</td>
+<td>9</td>
+<td>2021</td>
+<td>Tuesday</td>
+<td>21:50</td>
+<td>Single</td>
+<td>No</td>
+<td>No</td>
+<td>60</td>
+<td>Passenger</td>
+<td>Female</td>
+<td>6</td>
+<td>No</td>
+<td>No</td>
+<td>0_to_16</td>
+<td>Weekday</td>
+<td>Night</td>
+<td>September</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">63</td>
+<td>20212015</td>
+<td>Vic</td>
+<td>9</td>
+<td>2021</td>
+<td>Thursday</td>
+<td>19:33</td>
+<td>Multiple</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Male</td>
+<td>15</td>
+<td>No</td>
+<td>No</td>
+<td>0_to_16</td>
+<td>Weekday</td>
+<td>Night</td>
+<td>September</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">64</td>
+<td>20212015</td>
+<td>Vic</td>
+<td>9</td>
+<td>2021</td>
+<td>Thursday</td>
+<td>19:33</td>
+<td>Multiple</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Male</td>
+<td>16</td>
+<td>No</td>
+<td>No</td>
+<td>0_to_16</td>
+<td>Weekday</td>
+<td>Night</td>
+<td>September</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">52832</td>
+<td>19892409</td>
+<td>Vic</td>
+<td>1</td>
+<td>1989</td>
+<td>Saturday</td>
+<td>22:54</td>
+<td>Multiple</td>
+<td>No</td>
+<td>No</td>
+<td>100</td>
+<td>Driver</td>
+<td>Male</td>
+<td>29</td>
+<td>No</td>
+<td>No</td>
+<td>26_to_39</td>
+<td>Weekend</td>
+<td>Night</td>
+<td>January</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">52835</td>
+<td>19891498</td>
+<td>NSW</td>
+<td>1</td>
+<td>1989</td>
+<td>Sunday</td>
+<td>14:35</td>
+<td>Multiple</td>
+<td>No</td>
+<td>No</td>
+<td>80</td>
+<td>Passenger</td>
+<td>Male</td>
+<td>2</td>
+<td>Yes</td>
+<td>No</td>
+<td>0_to_16</td>
+<td>Weekend</td>
+<td>Day</td>
+<td>January</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">52836</td>
+<td>19893191</td>
+<td>Qld</td>
+<td>1</td>
+<td>1989</td>
+<td>Saturday</td>
+<td>12:00</td>
+<td>Multiple</td>
+<td>No</td>
+<td>Yes</td>
+<td>60</td>
+<td>Passenger</td>
+<td>Female</td>
+<td>22</td>
+<td>No</td>
+<td>No</td>
+<td>17_to_25</td>
+<td>Weekend</td>
+<td>Day</td>
+<td>January</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">52840</td>
+<td>19895088</td>
+<td>WA</td>
+<td>1</td>
+<td>1989</td>
+<td>Monday</td>
+<td>6:00</td>
+<td>Single</td>
+<td>No</td>
+<td>No</td>
+<td>110</td>
+<td>Passenger</td>
+<td>Male</td>
+<td>17</td>
+<td>Yes</td>
+<td>No</td>
+<td>17_to_25</td>
+<td>Weekday</td>
+<td>Day</td>
+<td>January</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">52841</td>
+<td>19895088</td>
+<td>WA</td>
+<td>1</td>
+<td>1989</td>
+<td>Monday</td>
+<td>6:00</td>
+<td>Single</td>
+<td>No</td>
+<td>No</td>
+<td>110</td>
+<td>Passenger</td>
+<td>Male</td>
+<td>17</td>
+<td>Yes</td>
+<td>No</td>
+<td>17_to_25</td>
+<td>Weekday</td>
+<td>Day</td>
+<td>January</td>
+</tr>
+</tbody>
+</table>
+
+<p>5276 rows × 19 columns</p>
+</div>
+</div>
+</div>
+<p>In this dataset, Crash IDs represent a single event, but there are multiple rows for each Crash ID in some cases when there have been multiple fatalities in a crash. Since there appears to be no true duplicate rows, we will not drop any rows from the dataset.</p>
+</section>
+<section id="checking-for-outliers" class="level2">
+<h2 class="anchored" data-anchor-id="checking-for-outliers">2.5 Checking for Outliers</h2>
+<p>In this dataset we have a single continuous variable of interest, age. We will use a boxplot to check for outliers in this column.</p>
+<div id="1ae7ce75" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:15.923273Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:15.803311Z&quot;}}" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a boxplot to check for outliers in the Age column</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span>df[<span class="st">'Age'</span>])</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Boxplot of Age'</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Age'</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above boxplot shows that there are no outliers in the Age column. Checking for outliers using the IRQ method will confirm this.</p>
+<div id="c096c491" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:19.287958Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:19.258768Z&quot;}}" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a function to calculate the IRQ</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> IRQ_and_bounds(column):</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    Q1 <span class="op">=</span> column.quantile(<span class="fl">0.25</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    Q3 <span class="op">=</span> column.quantile(<span class="fl">0.75</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    IRQ <span class="op">=</span> Q3 <span class="op">-</span> Q1</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    lower_bound <span class="op">=</span> Q1 <span class="op">-</span> (<span class="fl">1.5</span> <span class="op">*</span> IRQ)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    upper_bound <span class="op">=</span> Q3 <span class="op">+</span> (<span class="fl">1.5</span> <span class="op">*</span> IRQ)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> IRQ, lower_bound, upper_bound</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the IRQ function to calculate the IRQ of the Age column</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>IRQ_and_bounds(df[<span class="st">'Age'</span>])</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the IRQ function to check for outliers in the Age column</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>irq_value, lower_bound, upper_bound <span class="op">=</span> IRQ_and_bounds(df[<span class="st">'Age'</span>])</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"IRQ: </span><span class="sc">{</span>irq_value<span class="sc">}</span><span class="ss">, Lower Bound: </span><span class="sc">{</span>lower_bound<span class="sc">}</span><span class="ss">, Upper Bound: </span><span class="sc">{</span>upper_bound<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the IRQ function to check for outliers in the Age column</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> identify_outliers(column):</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    _, lower_bound, upper_bound <span class="op">=</span> IRQ_and_bounds(column)</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    outliers <span class="op">=</span> column[(column <span class="op">&lt;</span> lower_bound) <span class="op">|</span> (column <span class="op">&gt;</span> upper_bound)]</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> outliers</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>outliers <span class="op">=</span> identify_outliers(df[<span class="st">'Age'</span>])</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Outliers: </span><span class="sc">{</span>outliers<span class="sc">.</span>values<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>IRQ: 33.0, Lower Bound: -27.5, Upper Bound: 104.5
+Outliers: []</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="part-3-data-visualisation" class="level1">
+<h1>Part 3: Data Visualisation</h1>
+<p>This section explores patterns in fatal road transport accidents in Australia from 1989 to 2021. Each row in the dataset represents a single fatality and includes demographic, geographic, and temporal details.</p>
+<p>The visualisations aim to examine:</p>
+<ul>
+<li><p>The demographic characteristics of individuals involved in fatal crashes</p></li>
+<li><p>The geographic distribution of fatal incidents across Australian states and territories</p></li>
+<li><p>Temporal trends, including changes over time and differences by day of week or time of year</p></li>
+<li><p>Shifts in the demographic profile of fatalities over time</p></li>
+<li><p>Trends in pedestrian and cyclist fatalities, and whether these have changed meaningfully since 1989</p></li>
+</ul>
+<p>These visual insights provide context for evaluating the impact of road safety initiatives and identifying groups most at risk.</p>
+<section id="demographic-analysis-of-fatal-road-accidents-in-australia" class="level2">
+<h2 class="anchored" data-anchor-id="demographic-analysis-of-fatal-road-accidents-in-australia">3.1 Demographic Analysis of Fatal Road Accidents in Australia</h2>
+<div id="95172912" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:22.106653Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:21.963352Z&quot;}}" data-execution_count="14">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Age and Sex distribution of fatal road transport accidents in Australia</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">8</span>))</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">'Age'</span>], bins<span class="op">=</span><span class="dv">40</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>            kde<span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>            alpha<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Age Distribution of Fatal Road Transport Accidents in Australia (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Age'</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>plt.xticks(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">101</span>, <span class="dv">10</span>))</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The histogram shows a notable peak in the frequency of fatal accidents involving people in their 20’s and early 30’s. After the age of around 35 there is a general decline in the frequency of fatal accidents.</p>
+<div id="25cdccd9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:26.823067Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:26.717117Z&quot;}}" data-execution_count="15">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot of fatal accidents by gender</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">6</span>))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'Gender'</span>, </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>df,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>            alpha<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Gender Distribution of Fatal Accidents in Australia by</span><span class="ch">\n</span><span class="ss">Count (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Gender'</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The gender distribution of fatal accidents shows a significantly large number of males are represented in the data than females, we will express this as a percentage.</p>
+<div id="11e5247a" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:29.057932Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:29.001428Z&quot;}}" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gender distribution of fatal accidents by gender as a percentage</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>gender_percentage <span class="op">=</span> (df[<span class="st">'Gender'</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>) <span class="op">*</span> <span class="dv">100</span>).reset_index()</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>gender_percentage.columns <span class="op">=</span> [<span class="st">'Gender'</span>, <span class="st">'Percentage'</span>]</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">6</span>))</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Gender'</span>, </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Percentage'</span>, </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>gender_percentage, </span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>            alpha<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Gender Distribution of Fatal Accidents in Australia</span><span class="ch">\n</span><span class="ss">as a Percentage (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Gender'</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Percentage'</span>)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The bar graph above shows that over 70% of road transport fatalities are male compared to approximately 30% female.</p>
+<div id="ba1dc6a4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:31.531719Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:31.317932Z&quot;}}" data-execution_count="17">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Density plot of age and gender</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">8</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(data<span class="op">=</span>df, </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span><span class="st">'Age'</span>, </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">'Gender'</span>, </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>            fill<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>            palette<span class="op">=</span><span class="st">'rainbow'</span>, </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>            alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Age and Gender Distribution of Fatal Accidents in Australia (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Age'</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Density'</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The density plot above shows the age distribution of fatal accidents in Australia separated by gender. It can be seen that both males and females show a peak around the age of 20, and that the age distribution of fatal accidents are relatively similar between the two genders.</p>
+<div id="f9c6dee4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:34.650814Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:34.543971Z&quot;}}" data-execution_count="18">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot of age and gender distribution</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">6</span>))</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'Gender'</span>, </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Age'</span>, </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>df)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Box Plot of Age and Gender Distribution of Fatal Accidents</span><span class="ch">\n</span><span class="ss">in Australia (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Gender'</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Age'</span>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above box plots show that the median age appear to be slightly higher for males than females, with several male outliers appearing when the data is segregated by gender.</p>
+<div id="cc5e51ef" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:36.680378Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:36.573087Z&quot;}}" data-execution_count="19">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of accidents by road user</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>road_user_counts <span class="op">=</span> df[<span class="st">'Road User'</span>].value_counts().reset_index()</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>road_user_counts.columns <span class="op">=</span> [<span class="st">'Road User'</span>, <span class="st">'Accidents'</span>]</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Fatalities by Road User Type</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Accidents'</span>, </span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Road User'</span>, </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>road_user_counts, </span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">'Road User'</span>, </span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>            palette<span class="op">=</span><span class="st">'rainbow'</span>)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Number of Fatal Accidents between (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">) by Road User Type"</span>)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Accidents'</span>)</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Road User Type'</span>)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above horizontal bar chart shows a breakdown of the number of fatal accidents by road user type. From that chart it can be seen that the majority of fatal accidents involve car occupants, followed by pedestrians and motorcyclists.</p>
+<div id="28e4262f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:46.380823Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:46.088711Z&quot;}}" data-execution_count="20">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of accidents by road user</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>age_group_fatalities <span class="op">=</span> df.groupby([<span class="st">'Year'</span>, <span class="st">'Age Group'</span>])[<span class="st">'Crash ID'</span>].size().reset_index(name<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a pivot table to transform the data into wide format</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>age_group_fatalities_pivot <span class="op">=</span> age_group_fatalities.pivot(index<span class="op">=</span><span class="st">'Year'</span>, </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                                                        columns<span class="op">=</span><span class="st">'Age Group'</span>, </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>                                                        values<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>age_group_fatalities_pivot.columns <span class="op">=</span> age_group_fatalities_pivot.columns.<span class="bu">str</span>.replace(<span class="st">'_'</span>, <span class="st">' '</span>) <span class="co"># Remove underscores from column names so they appear more nearly in the legend</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>age_group_fatalities_pivot.plot(kind<span class="op">=</span><span class="st">'bar'</span>, </span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>                                stacked<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>                                figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>), </span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>                                cmap<span class="op">=</span><span class="st">'rainbow'</span>)</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Fatalities by Age Group Since </span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Fatalities'</span>)</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Age Group'</span>)</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above stacked bar graph shows the proportions of fatalities by age group from 1989. The graph shows a general decline in fatalities while proportions remain relatively consistent.</p>
+<div id="0ff0aa21" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:56.867473Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:56.625118Z&quot;}}" data-execution_count="21">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of accidents by road user </span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>road_user_fatalities <span class="op">=</span> df.groupby([<span class="st">'Year'</span>, <span class="st">'Road User'</span>])[<span class="st">'Crash ID'</span>].size().reset_index(name<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a pivot table to transform the data into wide format</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>road_user_fatalities_pivot <span class="op">=</span> road_user_fatalities.pivot(index<span class="op">=</span><span class="st">'Year'</span>, </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>                                                        columns<span class="op">=</span><span class="st">'Road User'</span>, </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>                                                        values<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>road_user_fatalities_pivot.plot(kind<span class="op">=</span><span class="st">'bar'</span>, </span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>                                stacked<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>                                figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>), </span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>                                cmap<span class="op">=</span><span class="st">'jet'</span>)</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Fatalities by Road User Type (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Fatalities'</span>)</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Road User Type'</span>)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above stacked bar graph shows the proportions of fatalities by road user type from 1989 to 2021. The graph shows a general decline in fatalities, and proportions that remain relatively consistent.</p>
+</section>
+<section id="geographic-analysis-of-fatal-road-accidents-in-australia" class="level2">
+<h2 class="anchored" data-anchor-id="geographic-analysis-of-fatal-road-accidents-in-australia">3.2 Geographic Analysis of Fatal Road Accidents in Australia</h2>
+<div id="5bafe0a1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:05:59.121312Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:05:59.045233Z&quot;}}" data-execution_count="22">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie chart of fatal accidents by State</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Firstly, calculate the number of accidents by state. </span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>state_counts <span class="op">=</span> df[<span class="st">'State'</span>].value_counts().reset_index()</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>state_counts.columns <span class="op">=</span> [<span class="st">'State'</span>, <span class="st">'Accidents'</span>]</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>plt.pie(x<span class="op">=</span>state_counts[<span class="st">'Accidents'</span>], </span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>state_counts[<span class="st">'State'</span>], </span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>        autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>, </span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>        startangle<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Percentage of Fatal Accidents by State (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The pie chart shows that the majority of fatal accidents occur in New South Wales (31%), followed by Victoria (30%) and Queensland (20%).</p>
+<div id="9b900cb6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:13.459654Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:13.349695Z&quot;}}" data-execution_count="23">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart of fatal accidents by State</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Accidents'</span>, </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'State'</span>, </span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>state_counts,</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">'State'</span>,</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>            alpha<span class="op">=</span><span class="fl">0.9</span>,</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>            palette<span class="op">=</span><span class="st">'rainbow'</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Number of Fatal Accidents by State (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Accidents'</span>)</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'State'</span>)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above bar graph is an alternative visualisation of the number of fatal accidents by state.</p>
+</section>
+<section id="temporal-analysis-of-fatal-road-accidents-in-australia" class="level2">
+<h2 class="anchored" data-anchor-id="temporal-analysis-of-fatal-road-accidents-in-australia">3.3 Temporal Analysis of Fatal Road Accidents in Australia</h2>
+<section id="accidents-by-month-of-year" class="level3">
+<h3 class="anchored" data-anchor-id="accidents-by-month-of-year">Accidents by Month of Year</h3>
+<div id="ddeb479b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:20.927754Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:20.918425Z&quot;}}" data-execution_count="24">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we will calculate the number of accidents by month</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>month_counts <span class="op">=</span> df[<span class="st">'Month Name'</span>].value_counts().reset_index()</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>month_counts.columns <span class="op">=</span> [<span class="st">'Month'</span>, <span class="st">'Accidents'</span>]</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sorting the months in order by converting them to a categorical variable and sorting by the month order</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>month_order <span class="op">=</span> [<span class="st">'January'</span>, <span class="st">'February'</span>, <span class="st">'March'</span>, <span class="st">'April'</span>, <span class="st">'May'</span>, <span class="st">'June'</span>, <span class="st">'July'</span>,</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">'August'</span>, <span class="st">'September'</span>, <span class="st">'October'</span>, <span class="st">'November'</span>, <span class="st">'December'</span>]</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>month_counts[<span class="st">'Month'</span>] <span class="op">=</span> pd.Categorical(month_counts[<span class="st">'Month'</span>], categories<span class="op">=</span>month_order, ordered<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>month_counts <span class="op">=</span> month_counts.sort_values(<span class="st">'Month'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="931426c1" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2023-10-28T09:16:51.079610Z&quot;,&quot;start_time&quot;:&quot;2023-10-28T09:16:50.974037Z&quot;}}" data-execution_count="25">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the number of accidents by month</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Month'</span>, </span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Accidents'</span>, </span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>month_counts, </span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">'Month'</span>, </span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>            palette<span class="op">=</span><span class="st">'rainbow'</span>,</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>            alpha<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Number of Fatal Accidents by Month (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Month'</span>)</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Accidents'</span>)</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">5500</span>, <span class="dv">500</span>))</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above bar chart shows that the number of fatal accidents is relatively consistent throughout the year with December and March having a slightly higher number of accidents than other months.</p>
+<div id="c0630e4e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:25.146459Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:25.138646Z&quot;}}" data-execution_count="26">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count accidents by day of the week</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>day_counts <span class="op">=</span> df[<span class="st">'Dayweek'</span>].value_counts().reset_index()</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>day_counts.columns <span class="op">=</span> [<span class="st">'Day'</span>, <span class="st">'Accidents'</span>]</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort the days in order</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>day_order <span class="op">=</span> [<span class="st">'Monday'</span>, <span class="st">'Tuesday'</span>, <span class="st">'Wednesday'</span>, <span class="st">'Thursday'</span>, <span class="st">'Friday'</span>, <span class="st">'Saturday'</span>, <span class="st">'Sunday'</span>]</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>day_counts[<span class="st">'Day'</span>] <span class="op">=</span> pd.Categorical(day_counts[<span class="st">'Day'</span>], categories<span class="op">=</span>day_order, ordered<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>day_counts <span class="op">=</span> day_counts.sort_values(<span class="st">'Day'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="6b751ce2" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:27.186084Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:27.086563Z&quot;}}" data-execution_count="27">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the number of accidents by day of the week</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Day'</span>, </span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Accidents'</span>, </span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>day_counts, </span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">'Day'</span>, </span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>            palette<span class="op">=</span><span class="st">'rainbow'</span>,</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>            alpha<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Number of Fatal Accidents by Day of the Week (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Day of the Week'</span>)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">12000</span>, <span class="dv">1000</span>))</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Accidents'</span>)</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-28-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above bar chart shows that the number of fatal accidents is highest on Saturday, followed by Friday and Sunday. We can also plot the percentage of accidents by day of the week below.</p>
+<div id="35152b61" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:29.957184Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:29.839149Z&quot;}}" data-execution_count="28">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>day_counts[<span class="st">'Percentage'</span>] <span class="op">=</span> (day_counts[<span class="st">'Accidents'</span>] <span class="op">/</span> day_counts[<span class="st">'Accidents'</span>].<span class="bu">sum</span>()) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Day'</span>, </span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Percentage'</span>, </span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>day_counts, </span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">'Day'</span>, </span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>            palette<span class="op">=</span><span class="st">'rainbow'</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Percentage of Fatal Accidents by Day of the Week (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Day of the Week'</span>)</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Percentage of Accidents (%)'</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-29-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Finally, we will create a heatmap of time of day and day of the week to visualise the temporal distribution of fatal accidents.</p>
+<div id="83fc08fa" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:06:33.045845Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:06:32.724346Z&quot;}}" data-execution_count="29">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We will create a new data frame for this visualisation because we have to do some manipulation that involves dropping rows. </span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a new dataframe</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>heatmap_df <span class="op">=</span> df[[<span class="st">'Time'</span>, <span class="st">'Dayweek'</span>]].copy()</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Dropping rows with missing values</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>heatmap_df <span class="op">=</span> heatmap_df.dropna(subset<span class="op">=</span>[<span class="st">'Time'</span>])</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Then we will extract the hour from the time field to make it easier to create a heatmap</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>heatmap_df[<span class="st">'Hour'</span>] <span class="op">=</span> heatmap_df[<span class="st">'Time'</span>].<span class="bu">str</span>.split(<span class="st">':'</span>).<span class="bu">str</span>[<span class="dv">0</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Next we need to create a pivot table to convert the data into wide format</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>pivot_table <span class="op">=</span> pd.pivot_table(heatmap_df, </span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>                            values<span class="op">=</span><span class="st">'Time'</span>, </span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>                            index<span class="op">=</span>[<span class="st">'Hour'</span>], </span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>                            columns<span class="op">=</span>[<span class="st">'Dayweek'</span>], </span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>                            aggfunc<span class="op">=</span><span class="st">'count'</span>, </span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>                            fill_value<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Finally plotting a heatmap</span></span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>sns.heatmap(pivot_table[day_order], </span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>            annot<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>            cmap<span class="op">=</span><span class="st">'RdYlGn_r'</span>, <span class="co"># Take a colour pallet from https://loading.io/color/feature/RdYlGn-9/ and use _r to flip it so that red is higher and green is lower</span></span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>            fmt<span class="op">=</span><span class="st">'g'</span>)</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Heatmap of Fatal Accidents (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">) by Day of Week and Hour of Day"</span>)</span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Day of the Week'</span>)</span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Hour of Day'</span>)</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-30-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above heatmap shows that the majority of fatal accidents occur at 3pm on Friday, and that Friday and Saturday afternoons have the highest number of fatal accidents.</p>
+</section>
+<section id="change-over-time-in-the-number-of-fatal-accidents-by-year" class="level3">
+<h3 class="anchored" data-anchor-id="change-over-time-in-the-number-of-fatal-accidents-by-year">Change over time in the number of fatal accidents by year</h3>
+<p>We will now examine how these trends have changed over time. Firstly, we will create a line graph of the number of fatal accidents by year.</p>
+<div id="de2e904d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:41:39.972113Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:41:39.851082Z&quot;}}" data-execution_count="30">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a line graph of fatalities by year</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>fatalities_per_year <span class="op">=</span> df.groupby(<span class="st">'Year'</span>)[<span class="st">'Crash ID'</span>].size().reset_index()</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>fatalities_per_year.columns <span class="op">=</span> [<span class="st">'Year'</span>, <span class="st">'Fatalities'</span>]</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a Line Plot</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span><span class="st">'Year'</span>, </span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Fatalities'</span>,</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>fatalities_per_year,</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>            marker<span class="op">=</span><span class="st">"o"</span>)</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Total Number of Fatalities by Year (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Fatalities'</span>)</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-31-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see an overall decline in the number of fatal road transport accidents in Australia since 1989. The raw numbers are declining despite a growing population. To explore this trend further we will calculate the number of fatal accidents per 100,000 persons.</p>
+<div id="bf76d612" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:41:57.714875Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:41:57.611239Z&quot;}}" data-execution_count="31">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We find population data for Australia from 1989 to 2021 from the United Nations website: https://population.un.org/dataportal/data/indicators/49/locations/36/start/1989/end/2021/table/pivotbylocation</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Using this data we create a dictionary with Year as the index. </span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>australian_population_data <span class="op">=</span>  {</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Year'</span>: <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1989</span>, <span class="dv">2022</span>)),</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Population'</span>: [</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>        <span class="dv">16796588</span>, <span class="dv">17048003</span>, <span class="dv">17271086</span>, <span class="dv">17462504</span>, <span class="dv">17631511</span>, <span class="dv">17805504</span>, <span class="dv">18003000</span>, </span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>        <span class="dv">18211845</span>, <span class="dv">18410250</span>, <span class="dv">18601667</span>, <span class="dv">18800892</span>, <span class="dv">19017963</span>, <span class="dv">19248143</span>, <span class="dv">19475844</span>, </span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>        <span class="dv">19698999</span>, <span class="dv">19925056</span>, <span class="dv">20171731</span>, <span class="dv">20467030</span>, <span class="dv">20830828</span>, <span class="dv">21247873</span>, <span class="dv">21660892</span>, </span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>        <span class="dv">22019168</span>, <span class="dv">22357034</span>, <span class="dv">22729269</span>, <span class="dv">23111782</span>, <span class="dv">23469579</span>, <span class="dv">23820236</span>, <span class="dv">24195701</span>, </span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>        <span class="dv">24590334</span>, <span class="dv">24979230</span>, <span class="dv">25357170</span>, <span class="dv">25670051</span>, <span class="dv">25921089</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a dataframe from the dictionary</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>population_df <span class="op">=</span> pd.DataFrame(australian_population_data)</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the population data with the fatalities data</span></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>merged_df <span class="op">=</span> pd.merge(fatalities_per_year, population_df, on<span class="op">=</span><span class="st">'Year'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of fatalities per 100,000 people</span></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>merged_df[<span class="st">'Fatalities per 100k'</span>] <span class="op">=</span> (merged_df[<span class="st">'Fatalities'</span>] <span class="op">/</span> merged_df[<span class="st">'Population'</span>]) <span class="op">*</span> <span class="dv">100000</span></span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Line plot of fatalities per 100,000 people</span></span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span><span class="st">'Year'</span>, </span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Fatalities per 100k'</span>, </span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>merged_df,</span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a>            marker<span class="op">=</span><span class="st">"o"</span>)</span>
+<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Fatalities per 100,000 Population by Year (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Fatalities per 100,000 Population'</span>)</span>
+<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-32-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above line graphs shows a steady decline in both overall fatalities and fatalities per 100,000 in Australia.</p>
+</section>
+<section id="change-over-time-in-fatalities-by-gender" class="level3">
+<h3 class="anchored" data-anchor-id="change-over-time-in-fatalities-by-gender">Change over time in fatalities by gender</h3>
+<p>We will now examine if there has been a change in the distribution of fatal accidents by gender over time.</p>
+<div id="299ad9b5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:42:09.337595Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:42:09.212702Z&quot;}}" data-execution_count="32">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grouping the number of fatalities each year by gender</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>gender_fatalities <span class="op">=</span> df.groupby([<span class="st">'Year'</span>, <span class="st">'Gender'</span>])[<span class="st">'Crash ID'</span>].size().reset_index(name<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating total fatalities per year</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>total_fatalities_per_year <span class="op">=</span> gender_fatalities.groupby(<span class="st">'Year'</span>)[<span class="st">'Fatalities'</span>].<span class="bu">sum</span>().reset_index(name<span class="op">=</span><span class="st">'Total Fatalities'</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Merging the dataframes and calculating proportions</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>gender_fatalities <span class="op">=</span> pd.merge(gender_fatalities, total_fatalities_per_year, on<span class="op">=</span><span class="st">'Year'</span>)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>gender_fatalities[<span class="st">'Proportion'</span>] <span class="op">=</span> (gender_fatalities[<span class="st">'Fatalities'</span>] <span class="op">/</span> gender_fatalities[<span class="st">'Total Fatalities'</span>]) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivoting the data for easier plotting</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>gender_proportions_pivot <span class="op">=</span> gender_fatalities.pivot(index<span class="op">=</span><span class="st">'Year'</span>, columns<span class="op">=</span><span class="st">'Gender'</span>, values<span class="op">=</span><span class="st">'Proportion'</span>)</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data<span class="op">=</span>gender_proportions_pivot)</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Proportion of Fatalities by Gender Over Time (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Proportion of Fatalities (%)'</span>)</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>plt.grid(color<span class="op">=</span><span class="st">'grey'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Gender'</span>)</span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-33-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above line graph shows that the ratio of male to female road transport fatalities has remained relatively consistent over time.</p>
+</section>
+<section id="change-over-time-in-fatalities-by-age-group" class="level3">
+<h3 class="anchored" data-anchor-id="change-over-time-in-fatalities-by-age-group">Change over time in fatalities by age group</h3>
+<p>We will now examine if there has been a change in the distribution of fatal accidents by age group over time.</p>
+<div id="baeb8885" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:42:13.809212Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:42:13.685940Z&quot;}}" data-execution_count="33">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data<span class="op">=</span>age_group_fatalities_pivot, marker<span class="op">=</span><span class="st">"o"</span>, linewidth<span class="op">=</span><span class="fl">2.5</span>) <span class="co"># Use the pivot table created earlier</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Fatalities Over Time by Age Group (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Fatalities'</span>)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>plt.grid(color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Age Group'</span>)</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-34-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above line graph shows that the number of fatalities has decreased over time for all age groups. The largest decrease has been in the 17-25 age group, possibly due to the introduction of restrictions on provisional license holders. We can also see that in the early 2000’s, 40 to 64 year olds became the age group with the highest number of fatalities.</p>
+</section>
+<section id="change-over-time-in-fatalities-by-road-user-type" class="level3">
+<h3 class="anchored" data-anchor-id="change-over-time-in-fatalities-by-road-user-type">Change over time in fatalities by road user type</h3>
+<p>Finally, we will examine if there has been a change in the distribution of fatal accidents by road user type over time.</p>
+<div id="acaa6643" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2024-07-09T01:42:20.725429Z&quot;,&quot;start_time&quot;:&quot;2024-07-09T01:42:20.587920Z&quot;}}" data-execution_count="34">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grouping data by year and road user type, and counting fatalities</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>ped_and_cyclist_fatalities <span class="op">=</span> df[df[<span class="st">'Road User'</span>].isin([<span class="st">'Pedal cyclist'</span>, <span class="st">'Pedestrian'</span>])]</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by Year and Road User, counting all Crash ID occurrences</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>fatalities_by_year_user <span class="op">=</span> ped_and_cyclist_fatalities.groupby([<span class="st">'Year'</span>, <span class="st">'Road User'</span>])[<span class="st">'Crash ID'</span>].count().reset_index(name<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge fatalities data with population data</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>fatalities_with_pop <span class="op">=</span> pd.merge(fatalities_by_year_user, population_df, on<span class="op">=</span><span class="st">'Year'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate fatalities per 100,000 people</span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>fatalities_with_pop[<span class="st">'Fatalities per 100k'</span>] <span class="op">=</span> (fatalities_with_pop[<span class="st">'Fatalities'</span>] <span class="op">/</span> fatalities_with_pop[<span class="st">'Population'</span>]) <span class="op">*</span> <span class="dv">100000</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivot the data</span></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span><span class="st">'Year'</span>, </span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Fatalities per 100k'</span>,</span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>fatalities_with_pop, </span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">'Road User'</span>, </span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>            marker<span class="op">=</span><span class="st">"o"</span>)</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Fatalities per 100,000 Population Over Time by Road User Type (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Fatalities per 100,000 Population'</span>)</span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>sns.despine()</span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0-eda-australian-road-fatalities_files/figure-html/cell-35-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The line graph above shows a steady decline in pedestrian fatalities since 1989, however cyclist fatalities have remained relatively consistent since the mid 1990’s.</p>
+</section>
+</section>
+</section>
+<section id="part-4-conclusion" class="level1">
+<h1>Part 4: Conclusion</h1>
+<p>This exploratory analysis examined the demographic, geographic, and temporal distribution of fatal road transport accidents in Australia, focusing on changes from 1989 to 2021.</p>
+<p>Key findings include: - A significant overall decline in fatalities, both in absolute terms and per 100,000 population. - The largest reduction occurred among 17–25-year-old drivers, potentially linked to licensing reforms targeting provisional license holders. - Males consistently account for approximately 70% of road fatalities throughout the observed period. - Fatal accidents are most concentrated between Friday and Sunday, with Friday afternoons posing the highest risk. - New South Wales, Victoria, and Queensland collectively represent over 80% of national road fatalities. - Pedestrian fatalities have decreased over time, while cyclist fatalities have remained relatively stable since the mid-1990s.</p>
+<section id="opportunities-for-further-research" class="level2">
+<h2 class="anchored" data-anchor-id="opportunities-for-further-research">Opportunities for Further Research</h2>
+<p>This dataset focuses solely on fatal accidents. Expanding future analyses to include injury data could provide a more comprehensive understanding of road safety trends.<br>
+Additionally, examining the injury-to-fatality ratio among pedestrians and cyclists could offer insights into the effectiveness of vehicle design improvements and road safety initiatives aimed at protecting vulnerable road users.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

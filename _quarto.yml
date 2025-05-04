@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: docs  # important for GitHub Pages
+
+website:
+  title: "Australian Road Deaths Analysis"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Main EDA"
+        href: notebooks/0-eda-australian-road-fatalities.qmd
+      - text: "Motorcyclists"
+        href: notebooks/2-motorcyclists.qmd
+      - text: "Vulnerable Users"
+        href: notebooks/1-vulnerable-road-users.qmd
+
+format:
+  html:
+    theme: flatly
+    toc: true
+    toc-location: right
+    code-fold: true
