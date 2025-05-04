@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sub Analysis of Vulnerable Road Users – Australian Road Deaths Analysis</title>
+<title>Sub Analysis of Pedestrians and Cyclists Under 16 – Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Australian Road Deaths Analysis</span>
+    <span class="navbar-title">Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -137,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../notebooks/1-vulnerable-road-users.html" aria-current="page"> 
-<span class="menu-text">Vulnerable Users</span></a>
+<span class="menu-text">Children</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -155,33 +155,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#key-findings" id="toc-key-findings" class="nav-link active" data-scroll-target="#key-findings">Key Findings</a></li>
-  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
-  <li><a href="#vulnerable-road-users-visualization" id="toc-vulnerable-road-users-visualization" class="nav-link" data-scroll-target="#vulnerable-road-users-visualization">Vulnerable Road Users Visualization</a>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link active" data-scroll-target="#key-findings">1. Key Findings</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">2. Data Cleaning</a></li>
+  <li><a href="#vulnerable-road-users-visualization" id="toc-vulnerable-road-users-visualization" class="nav-link" data-scroll-target="#vulnerable-road-users-visualization">3. Vulnerable Road Users Visualization</a></li>
+  <li><a href="#child-pedestrian-and-cyclist-fatalities" id="toc-child-pedestrian-and-cyclist-fatalities" class="nav-link" data-scroll-target="#child-pedestrian-and-cyclist-fatalities">3.1 Child Pedestrian and Cyclist Fatalities</a>
   <ul class="collapse">
-  <li><a href="#child-pedestrian-and-cyclist-fatalities" id="toc-child-pedestrian-and-cyclist-fatalities" class="nav-link" data-scroll-target="#child-pedestrian-and-cyclist-fatalities">1. Child Pedestrian and Cyclist Fatalities</a>
+  <li><a href="#child-pedestrian-and-cyclist-fatalities-by-year" id="toc-child-pedestrian-and-cyclist-fatalities-by-year" class="nav-link" data-scroll-target="#child-pedestrian-and-cyclist-fatalities-by-year">3.1.1 Child Pedestrian and Cyclist Fatalities by Year</a></li>
+  <li><a href="#child-pedestrian-and-cyclist-fatalities-by-month" id="toc-child-pedestrian-and-cyclist-fatalities-by-month" class="nav-link" data-scroll-target="#child-pedestrian-and-cyclist-fatalities-by-month">3.1.2 Child Pedestrian and Cyclist Fatalities by Month</a></li>
+  <li><a href="#child-pedestrian-and-cyclist-fatalities-by-day-of-week-and-time-of-day" id="toc-child-pedestrian-and-cyclist-fatalities-by-day-of-week-and-time-of-day" class="nav-link" data-scroll-target="#child-pedestrian-and-cyclist-fatalities-by-day-of-week-and-time-of-day">3.1.3 Child Pedestrian and Cyclist Fatalities by Day of Week and Time of Day</a></li>
+  <li><a href="#child-pedestrian-and-cyclist-fatalities-by-gender" id="toc-child-pedestrian-and-cyclist-fatalities-by-gender" class="nav-link" data-scroll-target="#child-pedestrian-and-cyclist-fatalities-by-gender">3.1.4 Child Pedestrian and Cyclist Fatalities by Gender</a></li>
+  </ul></li>
+  <li><a href="#child-pedestrian-fatalities" id="toc-child-pedestrian-fatalities" class="nav-link" data-scroll-target="#child-pedestrian-fatalities">3.2 Child Pedestrian Fatalities</a>
   <ul class="collapse">
-  <li><a href="#child-pedestrian-and-cyclist-fatalities-by-year" id="toc-child-pedestrian-and-cyclist-fatalities-by-year" class="nav-link" data-scroll-target="#child-pedestrian-and-cyclist-fatalities-by-year">1.1 Child Pedestrian and Cyclist Fatalities by Year</a></li>
-  <li><a href="#child-pedestrian-and-cyclist-fatalities-by-month" id="toc-child-pedestrian-and-cyclist-fatalities-by-month" class="nav-link" data-scroll-target="#child-pedestrian-and-cyclist-fatalities-by-month">1.2 Child Pedestrian and Cyclist Fatalities by Month</a></li>
-  <li><a href="#child-pedestrian-and-cyclist-fatalities-by-day-of-week-and-time-of-day" id="toc-child-pedestrian-and-cyclist-fatalities-by-day-of-week-and-time-of-day" class="nav-link" data-scroll-target="#child-pedestrian-and-cyclist-fatalities-by-day-of-week-and-time-of-day">1.3 Child Pedestrian and Cyclist Fatalities by Day of Week and Time of Day</a></li>
-  <li><a href="#child-pedestrian-and-cyclist-fatalities-by-gender" id="toc-child-pedestrian-and-cyclist-fatalities-by-gender" class="nav-link" data-scroll-target="#child-pedestrian-and-cyclist-fatalities-by-gender">1.4 Child Pedestrian and Cyclist Fatalities by Gender</a></li>
+  <li><a href="#child-pedestiran-fatalities-by-year" id="toc-child-pedestiran-fatalities-by-year" class="nav-link" data-scroll-target="#child-pedestiran-fatalities-by-year">3.2.1 Child Pedestiran Fatalities by Year</a></li>
+  <li><a href="#child-pedestrian-fatalities-by-month" id="toc-child-pedestrian-fatalities-by-month" class="nav-link" data-scroll-target="#child-pedestrian-fatalities-by-month">3.2.2 Child Pedestrian Fatalities by Month</a></li>
+  <li><a href="#child-pesestrian-fatalities-by-day-of-week-and-time-of-day" id="toc-child-pesestrian-fatalities-by-day-of-week-and-time-of-day" class="nav-link" data-scroll-target="#child-pesestrian-fatalities-by-day-of-week-and-time-of-day">3.2.3 Child Pesestrian Fatalities by Day of Week and Time of Day</a></li>
+  <li><a href="#child-pedestrian-fatalities-by-gender" id="toc-child-pedestrian-fatalities-by-gender" class="nav-link" data-scroll-target="#child-pedestrian-fatalities-by-gender">3.2.4 Child Pedestrian Fatalities by Gender</a></li>
   </ul></li>
-  <li><a href="#child-pedestrian-fatalities" id="toc-child-pedestrian-fatalities" class="nav-link" data-scroll-target="#child-pedestrian-fatalities">2. Child Pedestrian Fatalities</a>
+  <li><a href="#child-cyclist-fatalities" id="toc-child-cyclist-fatalities" class="nav-link" data-scroll-target="#child-cyclist-fatalities">3.3 Child Cyclist Fatalities</a>
   <ul class="collapse">
-  <li><a href="#child-pedestiran-fatalities-by-year" id="toc-child-pedestiran-fatalities-by-year" class="nav-link" data-scroll-target="#child-pedestiran-fatalities-by-year">2.1 Child Pedestiran Fatalities by Year</a></li>
-  <li><a href="#child-pedestrian-fatalities-by-month" id="toc-child-pedestrian-fatalities-by-month" class="nav-link" data-scroll-target="#child-pedestrian-fatalities-by-month">2.2 Child Pedestrian Fatalities by Month</a></li>
-  <li><a href="#child-pesestrian-fatalities-by-day-of-week-and-time-of-day" id="toc-child-pesestrian-fatalities-by-day-of-week-and-time-of-day" class="nav-link" data-scroll-target="#child-pesestrian-fatalities-by-day-of-week-and-time-of-day">2.3 Child Pesestrian Fatalities by Day of Week and Time of Day</a></li>
-  <li><a href="#child-pedestrian-fatalities-by-gender" id="toc-child-pedestrian-fatalities-by-gender" class="nav-link" data-scroll-target="#child-pedestrian-fatalities-by-gender">2.4 Child Pedestrian Fatalities by Gender</a></li>
+  <li><a href="#child-cyclist-fatalities-by-year" id="toc-child-cyclist-fatalities-by-year" class="nav-link" data-scroll-target="#child-cyclist-fatalities-by-year">3.3.1 Child Cyclist Fatalities by Year</a></li>
+  <li><a href="#child-cyclist-fatalities-by-month" id="toc-child-cyclist-fatalities-by-month" class="nav-link" data-scroll-target="#child-cyclist-fatalities-by-month">3.3.2 Child Cyclist Fatalities by Month</a></li>
+  <li><a href="#child-cyclist-fatalities-by-day-of-week-and-time-of-day" id="toc-child-cyclist-fatalities-by-day-of-week-and-time-of-day" class="nav-link" data-scroll-target="#child-cyclist-fatalities-by-day-of-week-and-time-of-day">3.3.3 Child Cyclist Fatalities by Day of Week and Time of Day</a></li>
+  <li><a href="#child-cyclist-fatalities-by-gender" id="toc-child-cyclist-fatalities-by-gender" class="nav-link" data-scroll-target="#child-cyclist-fatalities-by-gender">3.3.4 Child Cyclist Fatalities by Gender</a></li>
   </ul></li>
-  <li><a href="#child-cyclist-fatalities" id="toc-child-cyclist-fatalities" class="nav-link" data-scroll-target="#child-cyclist-fatalities">3. Child Cyclist Fatalities</a>
-  <ul class="collapse">
-  <li><a href="#child-cyclist-fatalities-by-year" id="toc-child-cyclist-fatalities-by-year" class="nav-link" data-scroll-target="#child-cyclist-fatalities-by-year">3.1 Child Cyclist Fatalities by Year</a></li>
-  <li><a href="#child-cyclist-fatalities-by-month" id="toc-child-cyclist-fatalities-by-month" class="nav-link" data-scroll-target="#child-cyclist-fatalities-by-month">3.2 Child Cyclist Fatalities by Month</a></li>
-  <li><a href="#child-cyclist-fatalities-by-day-of-week-and-time-of-day" id="toc-child-cyclist-fatalities-by-day-of-week-and-time-of-day" class="nav-link" data-scroll-target="#child-cyclist-fatalities-by-day-of-week-and-time-of-day">3.3 Child Cyclist Fatalities by Day of Week and Time of Day</a></li>
-  <li><a href="#child-cyclist-fatalities-by-gender" id="toc-child-cyclist-fatalities-by-gender" class="nav-link" data-scroll-target="#child-cyclist-fatalities-by-gender">3.4 Child Cyclist Fatalities by Gender</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">4. Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -190,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sub Analysis of Vulnerable Road Users</h1>
+<h1 class="title">Sub Analysis of Pedestrians and Cyclists Under 16</h1>
 </div>
 
 
@@ -211,12 +209,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The notebook focuses on identifying: - Long-term trends in child pedestrian and cyclist fatalities - Temporal and gender-based differences - Key risk periods by month, day, and time</p>
 <p>Findings from this analysis can support targeted interventions to improve road safety for children and non-motorized road users.</p>
 <section id="key-findings" class="level2">
-<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<h2 class="anchored" data-anchor-id="key-findings">1. Key Findings</h2>
+<ul>
+<li><strong>Fatalities Have Declined</strong>: Both pedestrian and cyclist fatalities have steadily decreased since 1989, with more pronounced reductions among pedestrians.</li>
+<li><strong>Gender Disparity</strong>: Males make up the majority of fatalities in both cohorts, especially among cyclists (87%).</li>
+<li><strong>High-Risk Time Windows</strong>: Most fatalities occur on weekdays during school commute hours — especially 3–6 pm.</li>
+<li><strong>Seasonal Trends</strong>: Warmer months (particularly March) see more fatalities, suggesting increased outdoor activity or exposure.</li>
+<li><strong>State Patterns</strong>: New South Wales consistently reports the highest number of fatalities, even in recent years.</li>
+</ul>
 </section>
 <section id="data-cleaning" class="level2">
-<h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
+<h2 class="anchored" data-anchor-id="data-cleaning">2. Data Cleaning</h2>
 <p>Data cleaning pipeline is imported from the <code>data_cleaning.py</code> file. The pipeline includes functions to load the data, clean it, and filter it for the analysis.</p>
-<div id="72093ad8" class="cell" data-execution_count="1">
+<div id="228cc320" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
@@ -254,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>The dataset contains data from 1989 to 2021.</code></pre>
 </div>
 </div>
-<div id="458d9f6b" class="cell" data-execution_count="2">
+<div id="4809f067" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create commonly used filtered DataFrames</span></span>
@@ -290,13 +295,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="vulnerable-road-users-visualization" class="level1">
-<h1>Vulnerable Road Users Visualization</h1>
+<section id="vulnerable-road-users-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="vulnerable-road-users-visualization">3. Vulnerable Road Users Visualization</h2>
+<p>Children are considered vulnerable road users due to their physical fragility and limited situational awareness. This analysis focuses on child pedestrians and cyclists involved in fatal road transport accidents in Australia from 1989 to present. The analysis aims to identify long-term trends, and gender-based differences, and key risk periods by month, day, and time. The findings can support targeted interventions to improve road safety for children and non-motorized road users.</p>
+</section>
 <section id="child-pedestrian-and-cyclist-fatalities" class="level2">
-<h2 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities">1. Child Pedestrian and Cyclist Fatalities</h2>
+<h2 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities">3.1 Child Pedestrian and Cyclist Fatalities</h2>
 <section id="child-pedestrian-and-cyclist-fatalities-by-year" class="level3">
-<h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-year">1.1 Child Pedestrian and Cyclist Fatalities by Year</h3>
-<div id="024b352d" class="cell" data-execution_count="3">
+<h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-year">3.1.1 Child Pedestrian and Cyclist Fatalities by Year</h3>
+<div id="3f412c32" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fatalities for Children Under 16 by Road User Type </span></span>
@@ -327,8 +334,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The above line graph shows the raw number of cyclist and pedestrian fatalities involving children under 16 from 1989. The graph shows a steady decline in fatalities for both groups, with a plateau from the mid 2000s.</p>
-<div id="4e2743e2" class="cell" data-execution_count="4">
+<p>Both groups show a substantial reduction in fatalities over time, particularly during the early 1990s. Pedestrian fatalities consistently outnumber cyclist fatalities by a wide margin, though both decline sharply from 1989 to the early 2000s before plateauing. Notably, pedestrian deaths fall from over 70 in 1989 to fewer than 20 per year by 2010, while cyclist fatalities drop from over 40 to fewer than 10 in the same period.</p>
+<p>The rate of decline appears to slow post-2005, suggesting a possible floor effect or the limits of existing road safety interventions. This plateau may reflect the need for new strategies targeting high-risk environments, particularly in urban pedestrian zones.</p>
+<div id="39d23832" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by Year and State, counting all Crash ID occurrences</span></span>
@@ -359,11 +367,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>This stacked bar chart shows the number of fatal pedestrian and cyclist incidents involving children under 16 across Australian states from 1989 to 2023. States are separated by colour, and the number of fatalities is represented by the height of the bars. The graph shows that New South Wales has the highest number of fatalities, followed by Victoria and Queensland. The other states have significantly lower numbers of fatalities.</p>
+<p>Fatalities have declined across all jurisdictions over the past three decades, with the steepest reductions occurring in the early 1990s. New South Wales consistently recorded the highest number of child fatalities, followed by Victoria and Queensland. From around 2010 onward, most states reached relatively low and stable fatality counts, with smaller jurisdictions such as the ACT, Tasmania, and the Northern Territory reporting only isolated deaths in some years.</p>
+<p>The overall downward trend suggests widespread improvements in road safety and child protection, though persistent differences between larger and smaller states may reflect underlying variations in population size, infrastructure, and road use exposure.</p>
 </section>
 <section id="child-pedestrian-and-cyclist-fatalities-by-month" class="level3">
-<h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-month">1.2 Child Pedestrian and Cyclist Fatalities by Month</h3>
-<div id="ba582f69" class="cell" data-execution_count="5">
+<h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-month">3.1.2 Child Pedestrian and Cyclist Fatalities by Month</h3>
+<div id="56d9fba2" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the pre-defined DataFrame directly</span></span>
@@ -384,7 +393,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Fatalities'</span>)</span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes to self:</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co"># - March consistently shows the highest fatalities. Hypothesis: post-holiday period rush, school resumes, weather still warm.</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># - Could explore whether public holidays or daylight changes contribute to spikes.</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># - Consider overlaying school term calendars for more precision - using matplotlib</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -394,10 +408,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>March records the highest number of fatalities, followed by February and April, suggesting a seasonal pattern linked to school terms and active travel. In contrast, July and November show the lowest fatality counts, coinciding with mid-year and end-of-year school holidays when children may be less exposed to traffic during commutes.</p>
+<p>These patterns highlight the increased risk during school periods, particularly at the beginning of the academic year, and reinforce the need for targeted road safety campaigns and infrastructure improvements near schools and common travel routes.</p>
 </section>
 <section id="child-pedestrian-and-cyclist-fatalities-by-day-of-week-and-time-of-day" class="level3">
-<h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-day-of-week-and-time-of-day">1.3 Child Pedestrian and Cyclist Fatalities by Day of Week and Time of Day</h3>
-<div id="f68e9594" class="cell" data-execution_count="6">
+<h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-day-of-week-and-time-of-day">3.1.3 Child Pedestrian and Cyclist Fatalities by Day of Week and Time of Day</h3>
+<div id="234f24af" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Operate on a slice</span></span>
@@ -430,7 +446,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Child Cyclist and Pedestrian Fatalities Count by Day of Week and Hour of Day (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
 <span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Day of the Week'</span>)</span>
 <span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Hour of Day'</span>)</span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes to self:</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co"># - Strong peaks at 8–9 AM and 3–5 PM on weekdays likely align with school commute times.</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co"># - Lighter activity on weekends, but Saturdays still have a mild peak in the afternoon.</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co"># - Might be worth exploring how school safety campaigns or pedestrian crossings have changed over time.</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="co"># - Potential: Animate the heatmap across decades to see if patterns shift.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -440,11 +462,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>This heatmap shows when child pedestrian and cyclist fatalities most commonly occur, broken down by hour of day and day of the week. Redder areas indicate higher fatality counts, highlighting dangerous time windows. The heatmap shows that most fatalities occur on weekdays, with a peak around 8-9am and 3-5pm, likely due to school drop-off and pick-up times. The heatmap also shows that fatalities on weekends are spread out more evenly throughout the day, with a peak around 3pm on Saturdays.</p>
+<p>This heatmap shows when child pedestrian and cyclist fatalities (under 16) most commonly occur, broken down by hour of day and day of week (1989–2021). Redder areas indicate higher fatality counts, with the most dangerous time windows clearly concentrated on weekday afternoons. The highest peak is seen around 3 PM on Wednesdays (46 deaths), likely corresponding to school dismissal times. A smaller morning peak appears between 8–9 AM, reflecting school commute patterns.</p>
+<p>On weekends, fatalities are lower overall and spread more evenly throughout the day, with a minor rise around 3 PM on Saturdays. These patterns highlight the need for targeted road safety measures during school travel hours, particularly in the afternoon when children may be less supervised and traffic volume is high.</p>
 </section>
 <section id="child-pedestrian-and-cyclist-fatalities-by-gender" class="level3">
-<h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-gender">1.4 Child Pedestrian and Cyclist Fatalities by Gender</h3>
-<div id="2ac3a582" class="cell" data-execution_count="7">
+<h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-gender">3.1.4 Child Pedestrian and Cyclist Fatalities by Gender</h3>
+<div id="63f45be8" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ped_cyclist_gender_fatalities <span class="op">=</span> child_ped_cyclist_fatalities.dropna(subset<span class="op">=</span>[<span class="st">'Gender'</span>])</span>
@@ -463,7 +486,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and print the percentage</span></span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>ped_cyclist_gender_count[<span class="st">'Percentage'</span>] <span class="op">=</span> (ped_cyclist_gender_count[<span class="st">'Fatalities'</span>] <span class="op">/</span> ped_cyclist_gender_count[<span class="st">'Fatalities'</span>].<span class="bu">sum</span>()) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ped_cyclist_gender_count[[<span class="st">'Gender'</span>, <span class="st">'Percentage'</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ped_cyclist_gender_count[[<span class="st">'Gender'</span>, <span class="st">'Percentage'</span>]])</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes to self:</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co"># - Significant male overrepresentation (71%) — this echoes broader patterns in injury epidemiology.</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># - Consider referencing behavioural studies on risk-taking in boys vs girls.</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># - Could be interesting to stratify by pedestrian vs cyclist — are boys more likely in one group?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -478,13 +506,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1    Male   70.820669</code></pre>
 </div>
 </div>
+<p>Males account for 71% of fatalities, while females make up 29% — a ratio that aligns with global trends in child injury and trauma literature. Boys are consistently overrepresented in road trauma statistics, often attributed to differences in risk-taking behaviour, mobility patterns, and supervision levels. These disparities suggest the need for gender-sensitive road safety education and interventions, particularly those that address behavioural risk factors among young boys.</p>
 </section>
 </section>
 <section id="child-pedestrian-fatalities" class="level2">
-<h2 class="anchored" data-anchor-id="child-pedestrian-fatalities">2. Child Pedestrian Fatalities</h2>
+<h2 class="anchored" data-anchor-id="child-pedestrian-fatalities">3.2 Child Pedestrian Fatalities</h2>
+<p>In this section, we examine child pedestrian fatalities independently to identify risk patterns unique to this group. Isolating these incidents enables more precise policy recommendations around urban planning, traffic calming, and school zone safety.</p>
 <section id="child-pedestiran-fatalities-by-year" class="level3">
-<h3 class="anchored" data-anchor-id="child-pedestiran-fatalities-by-year">2.1 Child Pedestiran Fatalities by Year</h3>
-<div id="ae9dc5cd" class="cell" data-execution_count="8">
+<h3 class="anchored" data-anchor-id="child-pedestiran-fatalities-by-year">3.2.1 Child Pedestiran Fatalities by Year</h3>
+<div id="97cc3303" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fatalities_by_year_state <span class="op">=</span> pedestrian_children.groupby([<span class="st">'Year'</span>, <span class="st">'State'</span>])[<span class="st">'Crash ID'</span>].count().reset_index(name<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
@@ -518,7 +548,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'State'</span>)</span>
 <span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes to self:</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="co"># - Post-2016, NSW appears to spike in several years despite overall low fatality counts.</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="co"># - Check if these are isolated incidents or part of a broader trend.</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="co"># - Could normalise by child population in each state to see per capita risk.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -528,10 +563,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>This stacked bar chart shows the annual number of child pedestrian fatalities by state and territory from 1989 to 2021. While overall fatalities have decreased substantially over time, New South Wales (NSW) consistently reports higher counts than other jurisdictions, particularly in recent years (2016, 2017, 2020, and 2021). Even as fatalities fall below 10 per year in most states, NSW continues to contribute a disproportionate share.</p>
+<p>However, because numbers in the later years are low, small fluctuations can appear large in relative terms, and should be interpreted cautiously. The continued presence of fatalities in NSW during this period may warrant further investigation into population density, urban traffic exposure, or pedestrian safety infrastructure.</p>
 </section>
 <section id="child-pedestrian-fatalities-by-month" class="level3">
-<h3 class="anchored" data-anchor-id="child-pedestrian-fatalities-by-month">2.2 Child Pedestrian Fatalities by Month</h3>
-<div id="b49050f5" class="cell" data-execution_count="9">
+<h3 class="anchored" data-anchor-id="child-pedestrian-fatalities-by-month">3.2.2 Child Pedestrian Fatalities by Month</h3>
+<div id="cadee7b5" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the pre-defined DataFrame for pedestrian children directly</span></span>
@@ -554,7 +591,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Fatalities'</span>)</span>
 <span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes to self:</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co"># - Similar pattern to combined cohort — school months (esp. March/April) have higher fatality counts.</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co"># - Slight dip during winter (June–August), potentially due to lower pedestrian activity or shorter days.</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co"># - November dip is interesting — worth checking if linked to school exams or decreased mobility.</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="co"># - Future idea: plot weather data overlays or correlate with pedestrian traffic density.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -564,10 +607,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>This bar chart displays child pedestrian fatalities by month from 1989 to 2021. The distribution reveals a seasonal pattern, with higher fatalities in school-term months such as March and April, and a modest dip during mid-year winter months like June and July. March stands out as the peak month for fatalities, which may coincide with the return to school routines, busier traffic, and possibly less daylight in early mornings.</p>
+<p>In contrast, November shows the lowest fatality count, possibly reflecting both end-of-year fatigue in reporting or reduced outdoor activity due to rising temperatures and school year winding down.</p>
 </section>
 <section id="child-pesestrian-fatalities-by-day-of-week-and-time-of-day" class="level3">
-<h3 class="anchored" data-anchor-id="child-pesestrian-fatalities-by-day-of-week-and-time-of-day">2.3 Child Pesestrian Fatalities by Day of Week and Time of Day</h3>
-<div id="55ecc531" class="cell" data-execution_count="10">
+<h3 class="anchored" data-anchor-id="child-pesestrian-fatalities-by-day-of-week-and-time-of-day">3.2.3 Child Pesestrian Fatalities by Day of Week and Time of Day</h3>
+<div id="bc845dd6" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a slice of the pedestrian_children DataFrame with relevant columns</span></span>
@@ -603,7 +648,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Child Pedestrian Fatalities Count by Day of Week and Hour of Day (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
 <span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Day of the Week'</span>)</span>
 <span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Hour of Day'</span>)</span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Future enhancement:</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="co"># - Animate or facet the heatmap by month to explore seasonality more clearly.</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="co"># - Overlay or bin hours relative to local sunrise/sunset times for each state — this would allow analysis of fatalities occurring in low-light vs daylight.</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="co"># - Could investigate whether higher fatality counts correlate with low-light hours in winter months, supporting visibility as a risk factor.</span></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="co"># - If sunrise/sunset data proves too fiddly, approximate “daylight” vs “dark” hours by state/season.</span></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="co"># - Add weather overlays (rainy vs clear days) if data is accessible — might show interesting visibility or road condition effects.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -613,10 +665,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>This heatmap illustrates the distribution of child pedestrian fatalities by hour of day and day of week from 1989 to 2021. The most prominent peaks occur on weekday afternoons, particularly around 3–5 PM, coinciding with typical school dismissal times. Notably, Wednesdays and Thursdays at 3–4 PM exhibit the highest fatality counts, suggesting recurring risk windows in the midweek. Weekend patterns are less pronounced but show modest activity in the late afternoons, particularly on Saturdays. Early morning and late evening hours show comparatively lower risk.</p>
 </section>
 <section id="child-pedestrian-fatalities-by-gender" class="level3">
-<h3 class="anchored" data-anchor-id="child-pedestrian-fatalities-by-gender">2.4 Child Pedestrian Fatalities by Gender</h3>
-<div id="7465425f" class="cell" data-execution_count="11">
+<h3 class="anchored" data-anchor-id="child-pedestrian-fatalities-by-gender">3.2.4 Child Pedestrian Fatalities by Gender</h3>
+<div id="c5281443" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pedestrian_gender_fatalities <span class="op">=</span> pedestrian_children.dropna(subset<span class="op">=</span>[<span class="st">'Gender'</span>])</span>
@@ -650,13 +703,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1    Male   65.478615</code></pre>
 </div>
 </div>
+<p>This bar chart shows the distribution of child pedestrian fatalities by gender from 1989 to 2021. Males accounted for 65% of all fatalities, while females made up 35%. Although the disparity is notable, it’s less pronounced than in the combined cyclist + pedestrian cohort, suggesting that male overrepresentation is particularly elevated among cyclists — a trend explored later in this report.</p>
 </section>
 </section>
 <section id="child-cyclist-fatalities" class="level2">
-<h2 class="anchored" data-anchor-id="child-cyclist-fatalities">3. Child Cyclist Fatalities</h2>
+<h2 class="anchored" data-anchor-id="child-cyclist-fatalities">3.3 Child Cyclist Fatalities</h2>
+<p>This section explores fatal incidents involving child cyclists, examining trends over time, by location, and demographic patterns to identify risk factors unique to this vulnerable road user group.</p>
 <section id="child-cyclist-fatalities-by-year" class="level3">
-<h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-year">3.1 Child Cyclist Fatalities by Year</h3>
-<div id="0410670a" class="cell" data-execution_count="12">
+<h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-year">3.3.1 Child Cyclist Fatalities by Year</h3>
+<div id="4856886d" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fatalities_by_year_state <span class="op">=</span> cyclist_children.groupby([<span class="st">'Year'</span>, <span class="st">'State'</span>])[<span class="st">'Crash ID'</span>].count().reset_index(name<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
@@ -683,7 +738,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'State'</span>)</span>
 <span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes to self:</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="co"># - Check ABS or transport usage datasets for trends in school transport modes over the same period (1989–2021).</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="co"># - If cycling to school has dropped, consider citing behavioural/demographic shifts (e.g. rise in car drop-offs, urban sprawl).</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="co"># - Add an annotation or footnote on the chart pointing out near-zero years post-2010—reinforces rarity of these events.</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co"># - Explore splitting the graph by urban vs rural (if data allows) to investigate regional patterns in child cyclist fatalities.</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="co"># - Optional: Create a faceted version (small multiples) to better visualise each state's trend individually.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -693,11 +755,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The above stacked bar chart shows the number of fatal cyclist incidents involving children under 16 across Australian states from 1989 to 2023. The graph shows a steady decline in fatalities for all states, with New South Wales having the highest number of fatalities, followed by Victoria and Queensland.</p>
+<p>This stacked bar chart shows fatal cyclist incidents involving children under 16 across Australian states from 1989 to 2021. There is a clear and sustained decline in fatalities across all jurisdictions over time. While New South Wales, Victoria, and Queensland consistently report the highest counts, the absolute numbers in recent years are very low—often in the single digits. This downward trend may not solely reflect safer road conditions but could also suggest a shift away from cycling as a common mode of transport for children, particularly for school commutes.</p>
 </section>
 <section id="child-cyclist-fatalities-by-month" class="level3">
-<h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-month">3.2 Child Cyclist Fatalities by Month</h3>
-<div id="0c61acea" class="cell" data-execution_count="13">
+<h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-month">3.3.2 Child Cyclist Fatalities by Month</h3>
+<div id="6cce1c08" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>month_counts_cyc_df <span class="op">=</span> cyclist_children.copy() <span class="co"># Use copy only if adding column modifies original view</span></span>
@@ -720,7 +782,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Fatalities'</span>)</span>
 <span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes to self:</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="co"># - Consider overlaying average national temperature or daylight hours to reinforce seasonal interpretation.</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="co"># - If possible, add school holiday annotations (April, July, December/January) — may explain dips and spikes.</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="co"># - Compare to weekday/weekend ratios in cyclist fatalities to explore recreational vs commute-related patterns.</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a><span class="co"># - Optional: Animate with year or cumulative line to show decline across decades alongside seasonality.</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="co"># - Long-term idea: Examine school policies on cycling (e.g. infrastructure, encouragement) over time for context.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -730,10 +799,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>This bar chart illustrates child cyclist fatalities by month from 1989 to 2021. A distinct seasonal pattern emerges, with higher fatalities during warmer months — particularly March, February, and January — and a sharp decline during the colder months of June through September. This suggests that child cycling activity may be strongly influenced by seasonal weather, with reduced exposure to road environments in winter correlating with fewer fatalities.</p>
 </section>
 <section id="child-cyclist-fatalities-by-day-of-week-and-time-of-day" class="level3">
-<h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-day-of-week-and-time-of-day">3.3 Child Cyclist Fatalities by Day of Week and Time of Day</h3>
-<div id="53f6c444" class="cell" data-execution_count="14">
+<h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-day-of-week-and-time-of-day">3.3.3 Child Cyclist Fatalities by Day of Week and Time of Day</h3>
+<div id="f859f76b" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>heatmap_df_cyc <span class="op">=</span> cyclist_children[[<span class="st">'Time'</span>, <span class="st">'Dayweek'</span>]]</span>
@@ -766,7 +836,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Child Cyclist Fatalities Count by Day of Week and Hour of Day (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>) </span>
 <span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Day of the Week'</span>)</span>
 <span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Hour of Day'</span>)</span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes to self:</span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a><span class="co"># - Consider comparing this with pedestrian heatmap to explore mode-of-travel differences.</span></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="co"># - Explore population-level cycling participation rates among children over time (e.g., ABS or VicHealth reports).</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a><span class="co"># - If available, overlay school zones or proximity to residential areas in spatial plots for deeper insight.</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="co"># - You could normalize by hour-of-day traffic volume if any datasets are available (e.g., school commute data).</span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a><span class="co"># - Could be interesting to explore helmet legislation, bike lanes, or safety campaigns rolled out over the decades.</span></span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a><span class="co"># - If building an animation later, highlight how afternoon hours remain consistently high-risk.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -776,10 +854,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>This heatmap displays the distribution of child cyclist fatalities by hour of the day and day of the week from 1989 to 2021. A distinct concentration appears during weekday afternoons, particularly between 3–6 PM, which coincides with the after-school period. Weekend fatalities are more evenly distributed across daylight hours. The overall low fatality counts highlight the relatively small number of incidents, potentially reflecting a decline in cycling participation among children or improvements in road safety.</p>
 </section>
 <section id="child-cyclist-fatalities-by-gender" class="level3">
-<h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-gender">3.4 Child Cyclist Fatalities by Gender</h3>
-<div id="58d63fd4" class="cell" data-execution_count="15">
+<h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-gender">3.3.4 Child Cyclist Fatalities by Gender</h3>
+<div id="31d85913" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for valid entries in 'Gender'</span></span>
@@ -799,7 +878,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and print the percentage for consistency</span></span>
 <span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>gender_count_cyc[<span class="st">'Percentage'</span>] <span class="op">=</span> (gender_count_cyc[<span class="st">'Fatalities'</span>] <span class="op">/</span> gender_count_cyc[<span class="st">'Fatalities'</span>].<span class="bu">sum</span>()) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gender_count_cyc[[<span class="st">'Gender'</span>, <span class="st">'Percentage'</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gender_count_cyc[[<span class="st">'Gender'</span>, <span class="st">'Percentage'</span>]])</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes to self:</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="co"># - Follow up with participation rate data (e.g., ABS, VicHealth, AusCycle) to contextualize the gender split.</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="co"># - Consider incorporating qualitative data or surveys on why girls might cycle less (uniforms, parental concerns, social norms).</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="co"># - Explore literature on gender differences in childhood risk exposure or injury rates.</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="co"># - Would benefit from a stacked bar or percent-normalized visual if participation data is found.</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="co"># - Future addition: small multiples by age band to see if the gender gap widens with age.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -814,19 +900,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1    Male   86.526946</code></pre>
 </div>
 </div>
+<p>This bar chart shows a pronounced gender disparity in child cyclist fatalities: 87% of deaths were male, compared to just 13% female. This gap may reflect a combination of factors — from lower cycling participation among girls, to social norms, clothing barriers (e.g., school uniforms), parental attitudes, or differences in risk-taking behavior. The gender imbalance seen here is far greater than in pedestrian fatalities, suggesting a need for further investigation into who is cycling, where, and under what conditions.</p>
 </section>
 </section>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>This analysis highlights key vulnerabilities in child pedestrian and cyclist safety:</p>
-<ul>
-<li>Pedestrian fatalities have declined more significantly than cyclist fatalities.</li>
-<li>Males are consistently more represented in both groups.</li>
-<li>Fatalities often occur in the late afternoon and early evening, especially on Fridays.</li>
-<li>Seasonal variation is evident, with higher rates in warmer months.</li>
-</ul>
-<p>Future work could explore how school zones, urban density, and infrastructure changes impact these trends.</p>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">4. Conclusion</h2>
+<p>This exploratory analysis highlights consistent patterns in child pedestrian and cyclist fatalities across Australia between 1989 and 2021. The data reflect clear improvements in safety outcomes over time, yet notable vulnerabilities remain — particularly in temporal clustering, gender disparity, and geographic variability.</p>
+<p>While pedestrian fatalities have declined more significantly, the persistence of cyclist deaths — especially among boys — calls for deeper investigation into behavioral, cultural, and infrastructural factors. Time-of-day clustering around school transit periods reinforces the need for targeted safety interventions.</p>
+<p>Future work may focus on integrating spatial data, school zone mapping, or mobility trends to explore contextual contributors to these incidents. This project demonstrates the value of EDA in generating hypotheses and guiding data-driven public health planning.</p>
 
 
 </section>

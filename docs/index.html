@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Australian Road Deaths Analysis</title>
+<title>Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Australian Road Deaths Analysis</span>
+    <span class="navbar-title">Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -102,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./notebooks/1-vulnerable-road-users.html"> 
-<span class="menu-text">Vulnerable Users</span></a>
+<span class="menu-text">Children</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -115,17 +115,61 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="australian-road-deaths-data-exploration" class="level1">
+<h1>🚗 Australian Road Deaths Data Exploration</h1>
+<p>Welcome to this interactive data analysis project focused on road fatalities in Australia. Drawing on over three decades of data from the <strong>Australian Road Deaths Database (BITRE)</strong> to explore trends and risk patterns in fatal crashes.</p>
+<hr>
+<section id="main-eda" class="level2">
+<h2 class="anchored" data-anchor-id="main-eda">📊 Main EDA</h2>
+<p>A national overview of road fatalities in Australia, including: - Yearly and monthly trends - State-by-state comparisons - Day-of-week and time-of-day crash patterns - Road user group breakdowns</p>
+<p>👉 <a href="notebooks/0-eda-australian-road-fatalities.html">View the Main EDA Report</a></p>
+<hr>
+</section>
+<section id="motorcyclist-fatalities" class="level2">
+<h2 class="anchored" data-anchor-id="motorcyclist-fatalities">🏍️ Motorcyclist Fatalities</h2>
+<p>A focused sub-analysis of crashes involving motorcyclists and pillion passengers, with a look at: - Rider demographics and age distribution - Day/time risk patterns (heatmaps) - Single-vehicle vs multi-vehicle crash trends - Risk normalization using motorcycle licensing data</p>
+<p>👉 <a href="notebooks/2-motorcyclists.html">View the Motorcyclist Analysis</a></p>
+<hr>
+</section>
+<section id="vulnerable-road-users" class="level2">
+<h2 class="anchored" data-anchor-id="vulnerable-road-users">🚸 Vulnerable Road Users</h2>
+<p>An in-depth look at fatalities involving <strong>child pedestrians and cyclists</strong>, including: - Age and gender distributions - Crash location and vehicle involvement - Seasonal and daily risk profiles</p>
+<p>👉 <a href="notebooks/1-vulnerable-road-users.html">View the Vulnerable Road Users Report</a></p>
+<hr>
+</section>
+<section id="about-this-project" class="level2">
+<h2 class="anchored" data-anchor-id="about-this-project">📂 About This Project</h2>
+<p>This project was developed as part of a <strong>public health data science portfolio</strong>. It showcases skills in data wrangling, statistical analysis, and data storytelling using open-source tools.</p>
+<p><strong>Tech stack:</strong> - Python · Pandas · Matplotlib · Seaborn - Jupyter/Quarto · GitHub Pages</p>
+<p><strong>Data source:</strong> <a href="https://www.bitre.gov.au/statistics/safety/fatal_road_crash_database">BITRE Australian Road Deaths Database</a><br>
+<em>Last updated: May 2025</em></p>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

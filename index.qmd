@@ -1,0 +1,59 @@
+---
+title: "Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)"
+format:
+  html:
+    toc: false
+    code-fold: false
+---
+
+# 🚗 Australian Road Deaths Data Exploration
+
+Welcome to this interactive data analysis project focused on road fatalities in Australia. Drawing on over three decades of data from the **Australian Road Deaths Database (BITRE)** to explore trends and risk patterns in fatal crashes.
+
+---
+
+## 📊 Main EDA
+
+A national overview of road fatalities in Australia, including:
+- Yearly and monthly trends
+- State-by-state comparisons
+- Day-of-week and time-of-day crash patterns
+- Road user group breakdowns
+
+👉 [View the Main EDA Report](notebooks/0-eda-australian-road-fatalities.html)
+
+---
+
+## 🏍️ Motorcyclist Fatalities
+
+A focused sub-analysis of crashes involving motorcyclists and pillion passengers, with a look at:
+- Rider demographics and age distribution
+- Day/time risk patterns (heatmaps)
+- Single-vehicle vs multi-vehicle crash trends
+- Risk normalization using motorcycle licensing data
+
+👉 [View the Motorcyclist Analysis](notebooks/2-motorcyclists.html)
+
+---
+
+## 🚸 Vulnerable Road Users
+
+An in-depth look at fatalities involving **child pedestrians and cyclists**, including:
+- Age and gender distributions
+- Crash location and vehicle involvement
+- Seasonal and daily risk profiles
+
+👉 [View the Vulnerable Road Users Report](notebooks/1-vulnerable-road-users.html)
+
+---
+
+## 📂 About This Project
+
+This project was developed as part of a **public health data science portfolio**. It showcases skills in data wrangling, statistical analysis, and data storytelling using open-source tools.
+
+**Tech stack:**
+- Python · Pandas · Matplotlib · Seaborn
+- Jupyter/Quarto · GitHub Pages
+
+**Data source:** [BITRE Australian Road Deaths Database](https://www.bitre.gov.au/statistics/safety/fatal_road_crash_database)  
+_Last updated: May 2025_

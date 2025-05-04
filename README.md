@@ -1,4 +1,4 @@
-# 🚗 Australian Road Fatalities Analysis (1989–2022)
+# 🚗 Australian Road Fatalities Analysis
 
 This project investigates patterns in fatal road transport accidents across Australia using the Australian Road Deaths Database (ARDD). The analysis spans over three decades (1989–2022) and identifies demographic, geographic, and temporal risk factors contributing to road deaths.
 
@@ -9,15 +9,15 @@ In addition to a comprehensive exploratory data analysis (EDA), this repository 
 ## 📂 Project Structure
 
 ```bash
-ardd-road-safety-analysis-1989-2022/
+ardd-road-safety-analysis/
 ├── data/                          # Raw data files (e.g. ARDD CSVs, license data)
 ├── notebooks/
 │   ├── 0-eda-australian-road-fatalities.ipynb       # Main EDA: trends by state, year, age, gender
 │   ├── 1-vulnerable-road-users.ipynb                # Sub-analysis: child pedestrians and cyclists
-│   └── 2-motorcyclists.ipynb                         # Sub-analysis: motorcyclist and pillion deaths
+│   └── 2-motorcyclists.ipynb                        # Sub-analysis: motorcyclist and pillion deaths
 ├── scripts/
 │   └── data_cleaning.py           # Modular pipeline for data cleaning and preparation
-├── └── fetch_and_clean.py           # Script to fetch and clean ARDD data - WIP
+├── └── fetch_and_clean.py         # Script to fetch and clean ARDD data - WIP
 ├── requirements.txt
 └── README.md
 ```

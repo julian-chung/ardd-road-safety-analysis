@@ -1,9 +1,9 @@
 project:
   type: website
-  output-dir: docs  # important for GitHub Pages
+  output-dir: docs 
 
 website:
-  title: "Australian Road Deaths Analysis"
+  title: "Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)"
   navbar:
     left:
       - text: "Home"
@@ -12,7 +12,7 @@ website:
         href: notebooks/0-eda-australian-road-fatalities.qmd
       - text: "Motorcyclists"
         href: notebooks/2-motorcyclists.qmd
-      - text: "Vulnerable Users"
+      - text: "Children"
         href: notebooks/1-vulnerable-road-users.qmd
 
 format:
