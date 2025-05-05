@@ -218,7 +218,7 @@ Drops incomplete, redundant, or irrelevant columns
 
 Returns a tidy, analysis-ready DataFrame</code></pre>
 <p>The cleaned dataset is then filtered to isolate fatal incidents involving motorcyclists and pillion passengers, forming the analytical base for this sub-study.</p>
-<div id="4869f8fd" class="cell" data-execution_count="1">
+<div id="8d8b230a" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
@@ -292,7 +292,7 @@ Returns a tidy, analysis-ready DataFrame</code></pre>
 <p>The following section presents key visualizations that explore how motorcycle-related fatalities have varied over time and by geography. These charts aim to highlight long-term trends, state-level differences, and contextualize deaths relative to the licensed rider population.</p>
 <section id="yearly-fatalities" class="level3">
 <h3 class="anchored" data-anchor-id="yearly-fatalities">3.1 Yearly Fatalities</h3>
-<div id="9745dfee" class="cell" data-execution_count="2">
+<div id="ab748718" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by Year and Road User for the filtered set</span></span>
@@ -336,7 +336,7 @@ Forward-filling tier labels (Full, Provisional, L Permits)
 
 Reshaping the data to align with crash statistics</code></pre>
 <p>Despite its structure, this dataset provides valuable insight by allowing normalization of fatalities per licensed rider—offering a more accurate picture of risk over time.</p>
-<div id="db24838e" class="cell" data-execution_count="3">
+<div id="c7ec1612" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyze_motorcycle_fatality_rates(motorcyclist_pillion_fatalities):</span>
@@ -468,7 +468,7 @@ Reshaping the data to align with crash statistics</code></pre>
 </section>
 <section id="fatalities-by-state" class="level3">
 <h3 class="anchored" data-anchor-id="fatalities-by-state">3.2 Fatalities by State</h3>
-<div id="5524e0f6" class="cell" data-execution_count="4">
+<div id="fa94f087" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by Year and State</span></span>
@@ -503,7 +503,7 @@ Reshaping the data to align with crash statistics</code></pre>
 </section>
 <section id="age-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="age-distribution">3.3 Age Distribution</h3>
-<div id="e2a30e89" class="cell" data-execution_count="5">
+<div id="718dfe9a" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the age distribution for motorcyclists and pillion passengers</span></span>
@@ -528,7 +528,7 @@ Reshaping the data to align with crash statistics</code></pre>
 </section>
 <section id="gender-breakdown" class="level3">
 <h3 class="anchored" data-anchor-id="gender-breakdown">3.4 Gender Breakdown</h3>
-<div id="6235bd09" class="cell" data-execution_count="6">
+<div id="0954e809" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out missing gender values</span></span>
@@ -560,7 +560,7 @@ Reshaping the data to align with crash statistics</code></pre>
 </div>
 </div>
 <p>The overwhelming majority of motorcycle fatalities between 1989 and 2021 involved male riders, who accounted for 93.7% of all deaths. Female riders represented just 6.3% of the total. While this stark imbalance partly reflects the fact that far more men ride motorcycles, it also highlights a broader pattern in risk-taking behavior. Numerous studies have shown that male motorcyclists, particularly younger riders, are more likely to engage in speeding, aggressive cornering, and risky overtaking — all factors linked to crash risk. The gender gap in fatalities is therefore not just about who rides, but often how they ride.</p>
-<div id="656f60ad" class="cell" data-execution_count="7">
+<div id="936d15d1" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ratio of gender fatalities of pillion passengers</span></span>
@@ -610,7 +610,7 @@ Reshaping the data to align with crash statistics</code></pre>
 </div>
 </div>
 <p>Pillion passenger fatalities show a gendered pattern, with 56% of deaths involving female passengers and 44% male. This stands in contrast to rider fatalities, which are overwhelmingly male. The data reflects broader social dynamics — women are more likely to be passengers than riders, and pillion safety is rarely given the same attention in safety campaigns or gear design.</p>
-<div id="9631865d" class="cell" data-execution_count="8">
+<div id="bf1932a4" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out missing Age or Gender values for the plot</span></span>
@@ -638,7 +638,7 @@ Reshaping the data to align with crash statistics</code></pre>
 </section>
 <section id="monthly-trends" class="level3">
 <h3 class="anchored" data-anchor-id="monthly-trends">3.5 Monthly Trends</h3>
-<div id="8a3f96b8" class="cell" data-execution_count="9">
+<div id="8b815be6" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Map month numbers to names</span></span>
@@ -675,7 +675,7 @@ Reshaping the data to align with crash statistics</code></pre>
 </section>
 <section id="time-of-day-vs-day-of-week" class="level3">
 <h3 class="anchored" data-anchor-id="time-of-day-vs-day-of-week">3.7 Time of Day vs Day of Week</h3>
-<div id="e48219e0" class="cell" data-execution_count="10">
+<div id="d0068c72" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select relevant columns and drop missing Time values</span></span>
@@ -725,7 +725,7 @@ Reshaping the data to align with crash statistics</code></pre>
 </section>
 <section id="single-vs-multi-vehicle-crashes" class="level3">
 <h3 class="anchored" data-anchor-id="single-vs-multi-vehicle-crashes">3.8 Single vs Multi-Vehicle Crashes</h3>
-<div id="383f29b0" class="cell" data-execution_count="11">
+<div id="ebcfd631" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate counts for each Crash Type</span></span>
@@ -766,7 +766,7 @@ Reshaping the data to align with crash statistics</code></pre>
 <p>Analysis of crash types from 1989 to 2021 reveals that 58% of fatal motorcycle crashes involved another vehicle, while 42% were single-vehicle incidents. This finding highlights that a significant portion of fatalities occur without another party involved, suggesting that rider behavior, decision-making, or road conditions may play an important role.</p>
 <p>The high proportion of single-vehicle motorcycle fatalities reinforces a longstanding principle in motorcycle safety: the rider themselves is often the greatest risk factor. While not all single-vehicle crashes stem from rider error, the data implies that many of these tragic events could potentially be mitigated through improved rider training, safer riding practices, and hazard awareness. It also raises questions about infrastructure and road maintenance, both of which disproportionately affect motorcyclists.</p>
 <p>In contrast, multi-vehicle crashes remind us that vigilance is equally required around other road users, many of whom may fail to detect or respect motorcyclists. Together, these figures point to the need for both personal responsibility and broader systemic efforts to protect motorcyclists.</p>
-<div id="2ce940b5" class="cell" data-execution_count="12">
+<div id="d6cd9bf9" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Line Graph of Proportions Over Time</span></span>
@@ -809,7 +809,7 @@ Reshaping the data to align with crash statistics</code></pre>
 <p>Analysis of fatal motorcycle crashes by type reveals an emerging trend: since 2015, the proportion of single-vehicle fatalities has been gradually increasing, while multi-vehicle fatalities have declined — a convergence not seen in earlier decades. This is especially noteworthy given the context of major technological and safety advancements in motorcycling during this period.</p>
 <p>Modern motorcycles, including mid-range performance bikes, now come equipped with advanced safety features such as traction control, ABS, multiple rider modes, wheelie control, and quickshifters. High-end models even offer lean-angle-sensitive ABS, cornering lights, and ride-by-wire throttles. Simultaneously, protective gear has improved dramatically — with the rise of ECE 22.06-certified helmets, airbag vests, and CE Level 2-rated armor becoming increasingly standard and affordable.</p>
 <p>Despite these improvements, the relative rise in single-vehicle fatalities suggests that technology alone is not enough to prevent crashes. These incidents may stem from factors like excessive speed, rider inexperience, or misjudgment on corners and rural roads — scenarios where rider behavior and decision-making remain the dominant risk factors. It reinforces the idea that while safety features can mitigate outcomes, they cannot eliminate the inherent risk of riding. This underscores the ongoing need for rider education, road awareness, and perhaps cultural shifts within the motorcycling community toward valuing defensive riding as much as performance and thrill.</p>
-<div id="222ead9a" class="cell" data-execution_count="13">
+<div id="57a71cc8" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Compute proportions</span></span>

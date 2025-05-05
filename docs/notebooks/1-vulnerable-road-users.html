@@ -223,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-cleaning" class="level1">
 <h1>2. Data Cleaning</h1>
 <p>Data cleaning pipeline is imported from the <code>data_cleaning.py</code> file. The pipeline includes functions to load the data, clean it, and filter it for the analysis.</p>
-<div id="dff5e701" class="cell" data-execution_count="1">
+<div id="1a89adf0" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
@@ -261,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>The dataset contains data from 1989 to 2021.</code></pre>
 </div>
 </div>
-<div id="4ddb5dce" class="cell" data-execution_count="2">
+<div id="815ce0f9" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create commonly used filtered DataFrames</span></span>
@@ -304,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities">3.1 Child Pedestrian and Cyclist Fatalities</h2>
 <section id="child-pedestrian-and-cyclist-fatalities-by-year" class="level3">
 <h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-year">Child Pedestrian and Cyclist Fatalities by Year</h3>
-<div id="bf581fad" class="cell" data-execution_count="3">
+<div id="3cf15911" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fatalities for Children Under 16 by Road User Type </span></span>
@@ -337,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Both groups show a substantial reduction in fatalities over time, particularly during the early 1990s. Pedestrian fatalities consistently outnumber cyclist fatalities by a wide margin, though both decline sharply from 1989 to the early 2000s before plateauing. Notably, pedestrian deaths fall from over 70 in 1989 to fewer than 20 per year by 2010, while cyclist fatalities drop from over 40 to fewer than 10 in the same period.</p>
 <p>The rate of decline appears to slow post-2005, suggesting a possible floor effect or the limits of existing road safety interventions. This plateau may reflect the need for new strategies targeting high-risk environments, particularly in urban pedestrian zones.</p>
-<div id="7a0d0f53" class="cell" data-execution_count="4">
+<div id="785306cb" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by Year and State, counting all Crash ID occurrences</span></span>
@@ -373,7 +373,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="child-pedestrian-and-cyclist-fatalities-by-month" class="level3">
 <h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-month">Child Pedestrian and Cyclist Fatalities by Month</h3>
-<div id="79425cdc" class="cell" data-execution_count="5">
+<div id="d757c7be" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the pre-defined DataFrame directly</span></span>
@@ -414,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="child-pedestrian-and-cyclist-fatalities-by-day-of-week-and-time-of-day" class="level3">
 <h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-day-of-week-and-time-of-day">Child Pedestrian and Cyclist Fatalities by Day of Week and Time of Day</h3>
-<div id="181b8a80" class="cell" data-execution_count="6">
+<div id="cae0a75e" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Operate on a slice</span></span>
@@ -468,7 +468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="child-pedestrian-and-cyclist-fatalities-by-gender" class="level3">
 <h3 class="anchored" data-anchor-id="child-pedestrian-and-cyclist-fatalities-by-gender">Child Pedestrian and Cyclist Fatalities by Gender</h3>
-<div id="0cc998df" class="cell" data-execution_count="7">
+<div id="3131ca10" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ped_cyclist_gender_fatalities <span class="op">=</span> child_ped_cyclist_fatalities.dropna(subset<span class="op">=</span>[<span class="st">'Gender'</span>])</span>
@@ -515,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this section, we examine child pedestrian fatalities independently to identify risk patterns unique to this group. Isolating these incidents enables more precise policy recommendations around urban planning, traffic calming, and school zone safety.</p>
 <section id="child-pedestrian-fatalities-by-year" class="level3">
 <h3 class="anchored" data-anchor-id="child-pedestrian-fatalities-by-year">Child Pedestrian Fatalities by Year</h3>
-<div id="4df91ef8" class="cell" data-execution_count="8">
+<div id="d812fc38" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fatalities_by_year_state <span class="op">=</span> pedestrian_children.groupby([<span class="st">'Year'</span>, <span class="st">'State'</span>])[<span class="st">'Crash ID'</span>].count().reset_index(name<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
@@ -569,7 +569,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="child-pedestrian-fatalities-by-month" class="level3">
 <h3 class="anchored" data-anchor-id="child-pedestrian-fatalities-by-month">Child Pedestrian Fatalities by Month</h3>
-<div id="64db4866" class="cell" data-execution_count="9">
+<div id="cbf81a37" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the pre-defined DataFrame for pedestrian children directly</span></span>
@@ -613,7 +613,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="child-pedestrian-fatalities-by-day-of-week-and-time-of-day" class="level3">
 <h3 class="anchored" data-anchor-id="child-pedestrian-fatalities-by-day-of-week-and-time-of-day">Child Pedestrian Fatalities by Day of Week and Time of Day</h3>
-<div id="722de060" class="cell" data-execution_count="10">
+<div id="852b4bc5" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a slice of the pedestrian_children DataFrame with relevant columns</span></span>
@@ -670,7 +670,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="child-pedestrian-fatalities-by-gender" class="level3">
 <h3 class="anchored" data-anchor-id="child-pedestrian-fatalities-by-gender">Child Pedestrian Fatalities by Gender</h3>
-<div id="949b6d2c" class="cell" data-execution_count="11">
+<div id="d50973b1" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pedestrian_gender_fatalities <span class="op">=</span> pedestrian_children.dropna(subset<span class="op">=</span>[<span class="st">'Gender'</span>])</span>
@@ -712,7 +712,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This section explores fatal incidents involving child cyclists, examining trends over time, by location, and demographic patterns to identify risk factors unique to this vulnerable road user group.</p>
 <section id="child-cyclist-fatalities-by-year" class="level3">
 <h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-year">Child Cyclist Fatalities by Year</h3>
-<div id="fc0da99d" class="cell" data-execution_count="12">
+<div id="083ec54d" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fatalities_by_year_state <span class="op">=</span> cyclist_children.groupby([<span class="st">'Year'</span>, <span class="st">'State'</span>])[<span class="st">'Crash ID'</span>].count().reset_index(name<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
@@ -760,7 +760,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="child-cyclist-fatalities-by-month" class="level3">
 <h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-month">Child Cyclist Fatalities by Month</h3>
-<div id="117e0443" class="cell" data-execution_count="13">
+<div id="14d372f3" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>month_counts_cyc_df <span class="op">=</span> cyclist_children.copy() <span class="co"># Use copy only if adding column modifies original view</span></span>
@@ -804,7 +804,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="child-cyclist-fatalities-by-day-of-week-and-time-of-day" class="level3">
 <h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-day-of-week-and-time-of-day">Child Cyclist Fatalities by Day of Week and Time of Day</h3>
-<div id="35fb828a" class="cell" data-execution_count="14">
+<div id="7d64c54f" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>heatmap_df_cyc <span class="op">=</span> cyclist_children[[<span class="st">'Time'</span>, <span class="st">'Dayweek'</span>]]</span>
@@ -859,7 +859,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="child-cyclist-fatalities-by-gender" class="level3">
 <h3 class="anchored" data-anchor-id="child-cyclist-fatalities-by-gender">Child Cyclist Fatalities by Gender</h3>
-<div id="3458f65e" class="cell" data-execution_count="15">
+<div id="a9204664" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for valid entries in 'Gender'</span></span>
