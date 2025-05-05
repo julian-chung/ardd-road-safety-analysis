@@ -24,7 +24,7 @@ The notebook focuses on identifying:
 Findings from this analysis can support targeted interventions to improve road safety for children and non-motorized road users.
 
 
-## 1. Key Findings
+# 1. Key Findings
 
 - **Fatalities Have Declined**: Both pedestrian and cyclist fatalities have steadily decreased since 1989, with more pronounced reductions among pedestrians.
 - **Gender Disparity**: Males make up the majority of fatalities in both cohorts, especially among cyclists (87%).
@@ -32,7 +32,7 @@ Findings from this analysis can support targeted interventions to improve road s
 - **Seasonal Trends**: Warmer months (particularly March) see more fatalities, suggesting increased outdoor activity or exposure.
 - **State Patterns**: New South Wales consistently reports the highest number of fatalities, even in recent years.
 
-## 2. Data Cleaning
+# 2. Data Cleaning
 
 Data cleaning pipeline is imported from the `data_cleaning.py` file. The pipeline includes functions to load the data, clean it, and filter it for the analysis.
 
@@ -98,7 +98,7 @@ custom_palette = {'Female': 'lightcoral', 'Male': 'skyblue'}
 ```
 
 
-## 3. Vulnerable Road Users Visualization
+# 3. Vulnerable Road Users Visualization
 
 Children are considered vulnerable road users due to their physical fragility and limited situational awareness. This analysis focuses on child pedestrians and cyclists involved in fatal road transport accidents in Australia from 1989 to present. The analysis aims to identify long-term trends, and gender-based differences, and key risk periods by month, day, and time. The findings can support targeted interventions to improve road safety for children and non-motorized road users.
 
@@ -106,7 +106,7 @@ Children are considered vulnerable road users due to their physical fragility an
 ## 3.1 Child Pedestrian and Cyclist Fatalities
 
 
-### 3.1.1 Child Pedestrian and Cyclist Fatalities by Year
+### Child Pedestrian and Cyclist Fatalities by Year
 
 ```{python}
 # Fatalities for Children Under 16 by Road User Type 
@@ -161,7 +161,7 @@ Fatalities have declined across all jurisdictions over the past three decades, w
 
 The overall downward trend suggests widespread improvements in road safety and child protection, though persistent differences between larger and smaller states may reflect underlying variations in population size, infrastructure, and road use exposure.
 
-### 3.1.2 Child Pedestrian and Cyclist Fatalities by Month
+### Child Pedestrian and Cyclist Fatalities by Month
 
 ```{python}
 # Use the pre-defined DataFrame directly
@@ -194,7 +194,7 @@ March records the highest number of fatalities, followed by February and April, 
 
 These patterns highlight the increased risk during school periods, particularly at the beginning of the academic year, and reinforce the need for targeted road safety campaigns and infrastructure improvements near schools and common travel routes.
 
-### 3.1.3 Child Pedestrian and Cyclist Fatalities by Day of Week and Time of Day
+### Child Pedestrian and Cyclist Fatalities by Day of Week and Time of Day
 
 ```{python}
 # Operate on a slice
@@ -241,7 +241,7 @@ This heatmap shows when child pedestrian and cyclist fatalities (under 16) most 
 On weekends, fatalities are lower overall and spread more evenly throughout the day, with a minor rise around 3 PM on Saturdays. These patterns highlight the need for targeted road safety measures during school travel hours, particularly in the afternoon when children may be less supervised and traffic volume is high.
 
 
-### 3.1.4 Child Pedestrian and Cyclist Fatalities by Gender
+### Child Pedestrian and Cyclist Fatalities by Gender
 
 ```{python}
 ped_cyclist_gender_fatalities = child_ped_cyclist_fatalities.dropna(subset=['Gender'])
@@ -277,7 +277,7 @@ These disparities suggest the need for gender-sensitive road safety education an
 In this section, we examine child pedestrian fatalities independently to identify risk patterns unique to this group. Isolating these incidents enables more precise policy recommendations around urban planning, traffic calming, and school zone safety.
 
 
-### 3.2.1 Child Pedestiran Fatalities by Year
+### Child Pedestrian Fatalities by Year
 
 ```{python}
 
@@ -324,7 +324,7 @@ This stacked bar chart shows the annual number of child pedestrian fatalities by
 
 However, because numbers in the later years are low, small fluctuations can appear large in relative terms, and should be interpreted cautiously. The continued presence of fatalities in NSW during this period may warrant further investigation into population density, urban traffic exposure, or pedestrian safety infrastructure.
 
-### 3.2.2 Child Pedestrian Fatalities by Month
+### Child Pedestrian Fatalities by Month
 
 ```{python}
 # Use the pre-defined DataFrame for pedestrian children directly
@@ -362,7 +362,7 @@ This bar chart displays child pedestrian fatalities by month from 1989 to 2021. 
 In contrast, November shows the lowest fatality count, possibly reflecting both end-of-year fatigue in reporting or reduced outdoor activity due to rising temperatures and school year winding down.
 
 
-### 3.2.3 Child Pesestrian Fatalities by Day of Week and Time of Day
+### Child Pedestrian Fatalities by Day of Week and Time of Day
 
 ```{python}
 # Create a slice of the pedestrian_children DataFrame with relevant columns
@@ -411,7 +411,7 @@ plt.show()
 This heatmap illustrates the distribution of child pedestrian fatalities by hour of day and day of week from 1989 to 2021. The most prominent peaks occur on weekday afternoons, particularly around 3–5 PM, coinciding with typical school dismissal times. Notably, Wednesdays and Thursdays at 3–4 PM exhibit the highest fatality counts, suggesting recurring risk windows in the midweek. Weekend patterns are less pronounced but show modest activity in the late afternoons, particularly on Saturdays. Early morning and late evening hours show comparatively lower risk.
 
 
-### 3.2.4 Child Pedestrian Fatalities by Gender
+### Child Pedestrian Fatalities by Gender
 
 ```{python}
 pedestrian_gender_fatalities = pedestrian_children.dropna(subset=['Gender'])
@@ -441,7 +441,7 @@ This bar chart shows the distribution of child pedestrian fatalities by gender f
 This section explores fatal incidents involving child cyclists, examining trends over time, by location, and demographic patterns to identify risk factors unique to this vulnerable road user group.
 
 
-### 3.3.1 Child Cyclist Fatalities by Year
+### Child Cyclist Fatalities by Year
 
 ```{python}
 
@@ -483,7 +483,7 @@ plt.show()
 This stacked bar chart shows fatal cyclist incidents involving children under 16 across Australian states from 1989 to 2021. There is a clear and sustained decline in fatalities across all jurisdictions over time. While New South Wales, Victoria, and Queensland consistently report the highest counts, the absolute numbers in recent years are very low—often in the single digits. This downward trend may not solely reflect safer road conditions but could also suggest a shift away from cycling as a common mode of transport for children, particularly for school commutes.
 
 
-### 3.3.2 Child Cyclist Fatalities by Month
+### Child Cyclist Fatalities by Month
 
 ```{python}
 
@@ -520,7 +520,7 @@ plt.show()
 This bar chart illustrates child cyclist fatalities by month from 1989 to 2021. A distinct seasonal pattern emerges, with higher fatalities during warmer months — particularly March, February, and January — and a sharp decline during the colder months of June through September. This suggests that child cycling activity may be strongly influenced by seasonal weather, with reduced exposure to road environments in winter correlating with fewer fatalities.
 
 
-### 3.3.3 Child Cyclist Fatalities by Day of Week and Time of Day
+### Child Cyclist Fatalities by Day of Week and Time of Day
 
 ```{python}
 
@@ -569,7 +569,7 @@ plt.show()
 This heatmap displays the distribution of child cyclist fatalities by hour of the day and day of the week from 1989 to 2021. A distinct concentration appears during weekday afternoons, particularly between 3–6 PM, which coincides with the after-school period. Weekend fatalities are more evenly distributed across daylight hours. The overall low fatality counts highlight the relatively small number of incidents, potentially reflecting a decline in cycling participation among children or improvements in road safety.
 
 
-### 3.3.4 Child Cyclist Fatalities by Gender
+### Child Cyclist Fatalities by Gender
 
 ```{python}
 

@@ -218,7 +218,7 @@ Drops incomplete, redundant, or irrelevant columns
 
 Returns a tidy, analysis-ready DataFrame</code></pre>
 <p>The cleaned dataset is then filtered to isolate fatal incidents involving motorcyclists and pillion passengers, forming the analytical base for this sub-study.</p>
-<div id="6994019c" class="cell" data-execution_count="1">
+<div id="27ef2c7e" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
@@ -292,7 +292,7 @@ Returns a tidy, analysis-ready DataFrame</code></pre>
 <p>The following section presents key visualizations that explore how motorcycle-related fatalities have varied over time and by geography. These charts aim to highlight long-term trends, state-level differences, and contextualize deaths relative to the licensed rider population.</p>
 <section id="yearly-fatalities" class="level3">
 <h3 class="anchored" data-anchor-id="yearly-fatalities">3.1 Yearly Fatalities</h3>
-<div id="ae64f05c" class="cell" data-execution_count="2">
+<div id="8ee45b02" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by Year and Road User for the filtered set</span></span>
@@ -336,7 +336,7 @@ Forward-filling tier labels (Full, Provisional, L Permits)
 
 Reshaping the data to align with crash statistics</code></pre>
 <p>Despite its structure, this dataset provides valuable insight by allowing normalization of fatalities per licensed rider—offering a more accurate picture of risk over time.</p>
-<div id="b51dcc12" class="cell" data-execution_count="3">
+<div id="03a5d58b" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyze_motorcycle_fatality_rates(motorcyclist_pillion_fatalities):</span>
@@ -468,7 +468,7 @@ Reshaping the data to align with crash statistics</code></pre>
 </section>
 <section id="fatalities-by-state" class="level3">
 <h3 class="anchored" data-anchor-id="fatalities-by-state">3.2 Fatalities by State</h3>
-<div id="72d0e6e5" class="cell" data-execution_count="4">
+<div id="1811d6bb" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by Year and State</span></span>
@@ -503,7 +503,7 @@ Reshaping the data to align with crash statistics</code></pre>
 </section>
 <section id="age-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="age-distribution">3.3 Age Distribution</h3>
-<div id="ba870583" class="cell" data-execution_count="5">
+<div id="8923546c" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the age distribution for motorcyclists and pillion passengers</span></span>
@@ -528,7 +528,7 @@ Reshaping the data to align with crash statistics</code></pre>
 </section>
 <section id="gender-breakdown" class="level3">
 <h3 class="anchored" data-anchor-id="gender-breakdown">3.4 Gender Breakdown</h3>
-<div id="65cb21ef" class="cell" data-execution_count="6">
+<div id="2a8275d1" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out missing gender values</span></span>
@@ -560,58 +560,71 @@ Reshaping the data to align with crash statistics</code></pre>
 </div>
 </div>
 <p>The overwhelming majority of motorcycle fatalities between 1989 and 2021 involved male riders, who accounted for 93.7% of all deaths. Female riders represented just 6.3% of the total. While this stark imbalance partly reflects the fact that far more men ride motorcycles, it also highlights a broader pattern in risk-taking behavior. Numerous studies have shown that male motorcyclists, particularly younger riders, are more likely to engage in speeding, aggressive cornering, and risky overtaking — all factors linked to crash risk. The gender gap in fatalities is therefore not just about who rides, but often how they ride.</p>
-<div id="a5f58ce3" class="cell" data-execution_count="7">
+<div id="17f0faf1" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out missing Age or Gender values for the plot</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>age_gender_data <span class="op">=</span> motorcyclist_pillion_fatalities.dropna(subset<span class="op">=</span>[<span class="st">'Age'</span>, <span class="st">'Gender'</span>])</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the violin plot</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">'Gender'</span>, y<span class="op">=</span><span class="st">'Age'</span>, data<span class="op">=</span>age_gender_data, palette<span class="op">=</span>custom_palette, hue<span class="op">=</span><span class="st">'Gender'</span>, legend<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Age Distribution of Motorcyclist and Pillion Fatalities by Gender (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Gender'</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Age'</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.yticks(np.arange(<span class="dv">0</span>, <span class="dv">101</span>, <span class="dv">10</span>)) <span class="co"># Set y-ticks from 0 to 100</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ratio of gender fatalities of pillion passengers</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out missing gender values for pillion passengers</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>pillion_gender_fatalities <span class="op">=</span> pillion_fatalities.dropna(subset<span class="op">=</span>[<span class="st">'Gender'</span>])</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by Gender, counting all Crash ID occurrences for pillions</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>pillion_gender_count <span class="op">=</span> pillion_gender_fatalities.groupby(<span class="st">'Gender'</span>)[<span class="st">'Crash ID'</span>].count().reset_index(name<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate percentages</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>pillion_gender_count[<span class="st">'Percentage'</span>] <span class="op">=</span> (pillion_gender_count[<span class="st">'Fatalities'</span>] <span class="op">/</span> pillion_gender_count[<span class="st">'Fatalities'</span>].<span class="bu">sum</span>()) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the percentages</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Pillion Passenger Gender Breakdown (%):"</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pillion_gender_count[[<span class="st">'Gender'</span>, <span class="st">'Percentage'</span>]])</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting a bar plot for Pillion Gender breakdown percentages</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Gender'</span>, y<span class="op">=</span><span class="st">'Percentage'</span>, data<span class="op">=</span>pillion_gender_count, hue<span class="op">=</span><span class="st">'Gender'</span>, palette<span class="op">=</span>custom_palette, dodge<span class="op">=</span><span class="va">False</span>, legend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Pillion Passenger Fatalities by Gender (%) (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Gender'</span>)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Percentage of Pillion Fatalities (%)'</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">100</span>) <span class="co"># Set y-axis limit to 100%</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Note to self: future expansion on pillion passenger risks</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co"># - Consider expanding on the gender imbalance in pillion passenger fatalities (56% female vs 44% male).</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="co"># - Explore cultural and behavioural explanations — e.g. women more likely to ride as passengers than operate motorcycles.</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co"># - Investigate risk differences for pillions: seating position, lack of protective gear, and limited control.</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="co"># - Possibly link to public health campaigns (or lack thereof) targeting pillion safety.</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="co"># - Could include qualitative anecdotes or policy gaps for supporting data storytelling.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Pillion Passenger Gender Breakdown (%):
+   Gender  Percentage
+0  Female   55.647383
+1    Male   44.352617</code></pre>
+</div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="2-motorcyclists_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="2-motorcyclists_files/figure-html/cell-8-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>This violin plot shows the age distribution of motorcyclist and pillion fatalities by gender from 1989 to 2021. The distribution for males is skewed younger, with a dense cluster in the 20s and 30s — consistent with the overall age histogram. Female fatalities, while far fewer in number, show a slightly broader age distribution and a marginally higher mean age. The slight double peak among females could hint at two distinct rider or passenger cohorts — perhaps younger pillions and older recreational riders — but given the small sample size, caution is warranted in overinterpreting this pattern. Still, the plot suggests that female riders and passengers involved in fatal crashes tend to be, on average, a bit older than their male counterparts.</p>
-</section>
-<section id="monthly-trends" class="level3">
-<h3 class="anchored" data-anchor-id="monthly-trends">3.5 Monthly Trends</h3>
-<div id="c8813374" class="cell" data-execution_count="8">
+<p>Pillion passenger fatalities show a gendered pattern, with 56% of deaths involving female passengers and 44% male. This stands in contrast to rider fatalities, which are overwhelmingly male. The data reflects broader social dynamics — women are more likely to be passengers than riders, and pillion safety is rarely given the same attention in safety campaigns or gear design.</p>
+<div id="aa115a1e" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Map month numbers to names</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>month_counts_df <span class="op">=</span> motorcyclist_pillion_fatalities.copy() <span class="co"># Use copy to avoid SettingWithCopyWarning if modifying view</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>month_counts_df[<span class="st">'Month Name'</span>] <span class="op">=</span> month_counts_df[<span class="st">'Month'</span>].<span class="bu">map</span>(month_names)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of fatalities by month</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>month_counts <span class="op">=</span> month_counts_df[<span class="st">'Month Name'</span>].value_counts().reset_index()</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>month_counts.columns <span class="op">=</span> [<span class="st">'Month'</span>, <span class="st">'Fatalities'</span>]</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort the months in calendar order</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>month_counts[<span class="st">'Month'</span>] <span class="op">=</span> pd.Categorical(month_counts[<span class="st">'Month'</span>], categories<span class="op">=</span>month_order, ordered<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>month_counts <span class="op">=</span> month_counts.sort_values(<span class="st">'Month'</span>)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting a bar plot for monthly breakdown</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Month'</span>, y<span class="op">=</span><span class="st">'Fatalities'</span>, data<span class="op">=</span>month_counts, hue<span class="op">=</span><span class="st">'Month'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>, dodge<span class="op">=</span><span class="va">False</span>, legend<span class="op">=</span><span class="va">False</span>) <span class="co"># Changed palette</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Motorcyclist and Pillion Fatalities by Month (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Month'</span>)</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Fatalities'</span>)</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out missing Age or Gender values for the plot</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>age_gender_data <span class="op">=</span> motorcyclist_pillion_fatalities.dropna(subset<span class="op">=</span>[<span class="st">'Age'</span>, <span class="st">'Gender'</span>])</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the violin plot</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span><span class="st">'Gender'</span>, y<span class="op">=</span><span class="st">'Age'</span>, data<span class="op">=</span>age_gender_data, palette<span class="op">=</span>custom_palette, hue<span class="op">=</span><span class="st">'Gender'</span>, legend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Age Distribution of Motorcyclist and Pillion Fatalities by Gender (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Gender'</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Age'</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>plt.yticks(np.arange(<span class="dv">0</span>, <span class="dv">101</span>, <span class="dv">10</span>)) <span class="co"># Set y-ticks from 0 to 100</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plt.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -621,47 +634,34 @@ Reshaping the data to align with crash statistics</code></pre>
 </div>
 </div>
 </div>
-<p>This chart shows the number of motorcyclist and pillion fatalities by month from 1989 to 2021. Unsurprisingly, the colder, wetter winter months of June and July record the fewest fatalities — likely reflecting both reduced riding frequency and more cautious behavior during poor weather. In contrast, fatalities peak during the warmer months, particularly in March, October, and November, when riding conditions are ideal and recreational use spikes.</p>
+<p>This violin plot shows the age distribution of motorcyclist and pillion fatalities by gender from 1989 to 2021. The distribution for males is skewed younger, with a dense cluster in the 20s and 30s — consistent with the overall age histogram. Female fatalities, while far fewer in number, show a slightly broader age distribution and a marginally higher mean age. The slight double peak among females could hint at two distinct rider or passenger cohorts — perhaps younger pillions and older recreational riders — but given the small sample size, caution is warranted in overinterpreting this pattern. Still, the plot suggests that female riders and passengers involved in fatal crashes tend to be, on average, a bit older than their male counterparts.</p>
 </section>
-<section id="time-of-day-vs-day-of-week" class="level3">
-<h3 class="anchored" data-anchor-id="time-of-day-vs-day-of-week">3.7 Time of Day vs Day of Week</h3>
-<div id="98e8079b" class="cell" data-execution_count="9">
+<section id="monthly-trends" class="level3">
+<h3 class="anchored" data-anchor-id="monthly-trends">3.5 Monthly Trends</h3>
+<div id="b1ccca03" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select relevant columns and drop missing Time values</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>heatmap_df <span class="op">=</span> motorcyclist_pillion_fatalities[[<span class="st">'Time'</span>, <span class="st">'Dayweek'</span>]].dropna(subset<span class="op">=</span>[<span class="st">'Time'</span>]).copy()</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting the hour from the time field</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>heatmap_df[<span class="st">'Hour'</span>] <span class="op">=</span> heatmap_df[<span class="st">'Time'</span>].<span class="bu">str</span>.split(<span class="st">':'</span>).<span class="bu">str</span>[<span class="dv">0</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a pivot table</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>pivot_table <span class="op">=</span> pd.pivot_table(heatmap_df,</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                            values<span class="op">=</span><span class="st">'Time'</span>,</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                            index<span class="op">=</span>[<span class="st">'Hour'</span>],</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                            columns<span class="op">=</span>[<span class="st">'Dayweek'</span>],</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                            aggfunc<span class="op">=</span><span class="st">'count'</span>,</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                            fill_value<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Reindex to ensure all hours and days are present and ordered correctly</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>pivot_table <span class="op">=</span> pivot_table.reindex(<span class="bu">range</span>(<span class="dv">24</span>), fill_value<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>pivot_table <span class="op">=</span> pivot_table.reindex(columns<span class="op">=</span>day_order, fill_value<span class="op">=</span><span class="dv">0</span>) <span class="co"># Use the predefined day_order</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the heatmap</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>sns.heatmap(pivot_table, </span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>            annot<span class="op">=</span><span class="va">True</span>, </span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>            cmap<span class="op">=</span><span class="st">'RdYlGn_r'</span>, <span class="co"># Reversed Red-Yellow-Green colormap</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>            fmt<span class="op">=</span><span class="st">'g'</span>) <span class="co"># General format for annotations</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Motorcyclist and Pillion Fatalities by Day of Week and Hour of Day (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Day of the Week'</span>)</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Hour of Day'</span>)</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="co"># # Note to self: Do two further plots</span></span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Weekday crashes might skew toward multi-vehicle, likely tied to commuting hours — think lane filtering gone wrong, inattentive drivers during peak traffic, or intersections in city zones.</span></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Weekend crashes, on the other hand, might lean heavily toward single-vehicle incidents, especially on winding, high-speed rural roads (the twisties). This would back the theory that rider error, overconfidence, or unfamiliarity with terrain plays a major role.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Map month numbers to names</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>month_counts_df <span class="op">=</span> motorcyclist_pillion_fatalities.copy() <span class="co"># Use copy to avoid SettingWithCopyWarning if modifying view</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>month_counts_df[<span class="st">'Month Name'</span>] <span class="op">=</span> month_counts_df[<span class="st">'Month'</span>].<span class="bu">map</span>(month_names)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of fatalities by month</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>month_counts <span class="op">=</span> month_counts_df[<span class="st">'Month Name'</span>].value_counts().reset_index()</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>month_counts.columns <span class="op">=</span> [<span class="st">'Month'</span>, <span class="st">'Fatalities'</span>]</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort the months in calendar order</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>month_counts[<span class="st">'Month'</span>] <span class="op">=</span> pd.Categorical(month_counts[<span class="st">'Month'</span>], categories<span class="op">=</span>month_order, ordered<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>month_counts <span class="op">=</span> month_counts.sort_values(<span class="st">'Month'</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting a bar plot for monthly breakdown</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Month'</span>, y<span class="op">=</span><span class="st">'Fatalities'</span>, data<span class="op">=</span>month_counts, hue<span class="op">=</span><span class="st">'Month'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>, dodge<span class="op">=</span><span class="va">False</span>, legend<span class="op">=</span><span class="va">False</span>) <span class="co"># Changed palette</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Motorcyclist and Pillion Fatalities by Month (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Month'</span>)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Fatalities'</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -671,33 +671,83 @@ Reshaping the data to align with crash statistics</code></pre>
 </div>
 </div>
 </div>
+<p>This chart shows the number of motorcyclist and pillion fatalities by month from 1989 to 2021. Unsurprisingly, the colder, wetter winter months of June and July record the fewest fatalities — likely reflecting both reduced riding frequency and more cautious behavior during poor weather. In contrast, fatalities peak during the warmer months, particularly in March, October, and November, when riding conditions are ideal and recreational use spikes.</p>
+</section>
+<section id="time-of-day-vs-day-of-week" class="level3">
+<h3 class="anchored" data-anchor-id="time-of-day-vs-day-of-week">3.7 Time of Day vs Day of Week</h3>
+<div id="2292cf32" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select relevant columns and drop missing Time values</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>heatmap_df <span class="op">=</span> motorcyclist_pillion_fatalities[[<span class="st">'Time'</span>, <span class="st">'Dayweek'</span>]].dropna(subset<span class="op">=</span>[<span class="st">'Time'</span>]).copy()</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting the hour from the time field</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>heatmap_df[<span class="st">'Hour'</span>] <span class="op">=</span> heatmap_df[<span class="st">'Time'</span>].<span class="bu">str</span>.split(<span class="st">':'</span>).<span class="bu">str</span>[<span class="dv">0</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a pivot table</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>pivot_table <span class="op">=</span> pd.pivot_table(heatmap_df,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>                            values<span class="op">=</span><span class="st">'Time'</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>                            index<span class="op">=</span>[<span class="st">'Hour'</span>],</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>                            columns<span class="op">=</span>[<span class="st">'Dayweek'</span>],</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>                            aggfunc<span class="op">=</span><span class="st">'count'</span>,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>                            fill_value<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Reindex to ensure all hours and days are present and ordered correctly</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>pivot_table <span class="op">=</span> pivot_table.reindex(<span class="bu">range</span>(<span class="dv">24</span>), fill_value<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>pivot_table <span class="op">=</span> pivot_table.reindex(columns<span class="op">=</span>day_order, fill_value<span class="op">=</span><span class="dv">0</span>) <span class="co"># Use the predefined day_order</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the heatmap</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>sns.heatmap(pivot_table, </span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>            annot<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>            cmap<span class="op">=</span><span class="st">'RdYlGn_r'</span>, <span class="co"># Reversed Red-Yellow-Green colormap</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>            fmt<span class="op">=</span><span class="st">'g'</span>) <span class="co"># General format for annotations</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Motorcyclist and Pillion Fatalities by Day of Week and Hour of Day (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Day of the Week'</span>)</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Hour of Day'</span>)</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="co"># # Note to self: Do two further plots</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Weekday crashes might skew toward multi-vehicle, likely tied to commuting hours — think lane filtering gone wrong, inattentive drivers during peak traffic, or intersections in city zones.</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Weekend crashes, on the other hand, might lean heavily toward single-vehicle incidents, especially on winding, high-speed rural roads (the twisties). This would back the theory that rider error, overconfidence, or unfamiliarity with terrain plays a major role.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2-motorcyclists_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>This heatmap reveals a striking pattern in motorcycle fatalities by day and hour: the most dangerous time to ride is Saturday and Sunday afternoons, with a particularly sharp spike between 11 a.m. and 4 p.m.. While fatalities occur throughout the week, the clustering on weekends suggests a strong link to recreational riding behavior. Unlike weekday commuters, many weekend riders hit the road less frequently and may lack consistent exposure to high-risk situations. The open roads and “spirited” riding common on weekends can turn deadly — especially on rural or winding routes. In contrast, weekday fatalities are more evenly distributed and may involve commuter riders navigating traffic-heavy environments.</p>
 </section>
 <section id="single-vs-multi-vehicle-crashes" class="level3">
 <h3 class="anchored" data-anchor-id="single-vs-multi-vehicle-crashes">3.8 Single vs Multi-Vehicle Crashes</h3>
-<div id="2d1f2d6f" class="cell" data-execution_count="10">
+<div id="9351fc47" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate counts for each Crash Type</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>crash_type_counts <span class="op">=</span> motorcyclist_pillion_fatalities[<span class="st">'Crash Type'</span>].value_counts().reset_index()</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>crash_type_counts.columns <span class="op">=</span> [<span class="st">'Crash Type'</span>, <span class="st">'Fatalities'</span>]</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate percentages</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>crash_type_counts[<span class="st">'Percentage'</span>] <span class="op">=</span> (crash_type_counts[<span class="st">'Fatalities'</span>] <span class="op">/</span> crash_type_counts[<span class="st">'Fatalities'</span>].<span class="bu">sum</span>()) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the percentages</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Crash Type Breakdown (%):"</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crash_type_counts[[<span class="st">'Crash Type'</span>, <span class="st">'Percentage'</span>]])</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the bar chart of percentages</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Crash Type'</span>, y<span class="op">=</span><span class="st">'Percentage'</span>, data<span class="op">=</span>crash_type_counts, hue<span class="op">=</span><span class="st">'Crash Type'</span>, palette<span class="op">=</span><span class="st">'coolwarm'</span>, dodge<span class="op">=</span><span class="va">False</span>, legend<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Percentage of Single vs Multi-Vehicle Crashes (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Crash Type'</span>)</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Percentage of Fatalities (%)'</span>)</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">100</span>) <span class="co"># Set y-axis limit to 100%</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate counts for each Crash Type</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>crash_type_counts <span class="op">=</span> motorcyclist_pillion_fatalities[<span class="st">'Crash Type'</span>].value_counts().reset_index()</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>crash_type_counts.columns <span class="op">=</span> [<span class="st">'Crash Type'</span>, <span class="st">'Fatalities'</span>]</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate percentages</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>crash_type_counts[<span class="st">'Percentage'</span>] <span class="op">=</span> (crash_type_counts[<span class="st">'Fatalities'</span>] <span class="op">/</span> crash_type_counts[<span class="st">'Fatalities'</span>].<span class="bu">sum</span>()) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the percentages</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Crash Type Breakdown (%):"</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crash_type_counts[[<span class="st">'Crash Type'</span>, <span class="st">'Percentage'</span>]])</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the bar chart of percentages</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Crash Type'</span>, y<span class="op">=</span><span class="st">'Percentage'</span>, data<span class="op">=</span>crash_type_counts, hue<span class="op">=</span><span class="st">'Crash Type'</span>, palette<span class="op">=</span><span class="st">'coolwarm'</span>, dodge<span class="op">=</span><span class="va">False</span>, legend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Percentage of Single vs Multi-Vehicle Crashes (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Crash Type'</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Percentage of Fatalities (%)'</span>)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">100</span>) <span class="co"># Set y-axis limit to 100%</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Crash Type Breakdown (%):
@@ -708,7 +758,7 @@ Reshaping the data to align with crash statistics</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="2-motorcyclists_files/figure-html/cell-11-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="2-motorcyclists_files/figure-html/cell-12-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -716,42 +766,42 @@ Reshaping the data to align with crash statistics</code></pre>
 <p>Analysis of crash types from 1989 to 2021 reveals that 58% of fatal motorcycle crashes involved another vehicle, while 42% were single-vehicle incidents. This finding highlights that a significant portion of fatalities occur without another party involved, suggesting that rider behavior, decision-making, or road conditions may play an important role.</p>
 <p>The high proportion of single-vehicle motorcycle fatalities reinforces a longstanding principle in motorcycle safety: the rider themselves is often the greatest risk factor. While not all single-vehicle crashes stem from rider error, the data implies that many of these tragic events could potentially be mitigated through improved rider training, safer riding practices, and hazard awareness. It also raises questions about infrastructure and road maintenance, both of which disproportionately affect motorcyclists.</p>
 <p>In contrast, multi-vehicle crashes remind us that vigilance is equally required around other road users, many of whom may fail to detect or respect motorcyclists. Together, these figures point to the need for both personal responsibility and broader systemic efforts to protect motorcyclists.</p>
-<div id="c9e7f079" class="cell" data-execution_count="11">
+<div id="d1752b78" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Line Graph of Proportions Over Time</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by Year and Crash Type, count fatalities</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>fatalities_by_year_crash_type <span class="op">=</span> motorcyclist_pillion_fatalities.groupby([<span class="st">'Year'</span>, <span class="st">'Crash Type'</span>])[<span class="st">'Crash ID'</span>].count().reset_index(name<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total fatalities per year</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>total_fatalities_per_year <span class="op">=</span> fatalities_by_year_crash_type.groupby(<span class="st">'Year'</span>)[<span class="st">'Fatalities'</span>].transform(<span class="st">'sum'</span>)</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate proportion for each crash type per year</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>fatalities_by_year_crash_type[<span class="st">'Proportion'</span>] <span class="op">=</span> (fatalities_by_year_crash_type[<span class="st">'Fatalities'</span>] <span class="op">/</span> total_fatalities_per_year) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the line graph of proportions</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span><span class="st">'Year'</span>, </span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Proportion'</span>, </span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>fatalities_by_year_crash_type, </span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">'Crash Type'</span>, </span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>            marker<span class="op">=</span><span class="st">'o'</span>,</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>            palette<span class="op">=</span><span class="st">'coolwarm'</span>)</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Proportion of Single vs Multi-Vehicle Crashes Over Time (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Proportion of Fatalities (%)'</span>)</span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">100</span>) <span class="co"># Set y-axis limit to 100%</span></span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>sns.despine()</span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Crash Type'</span>)</span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Line Graph of Proportions Over Time</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by Year and Crash Type, count fatalities</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>fatalities_by_year_crash_type <span class="op">=</span> motorcyclist_pillion_fatalities.groupby([<span class="st">'Year'</span>, <span class="st">'Crash Type'</span>])[<span class="st">'Crash ID'</span>].count().reset_index(name<span class="op">=</span><span class="st">'Fatalities'</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total fatalities per year</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>total_fatalities_per_year <span class="op">=</span> fatalities_by_year_crash_type.groupby(<span class="st">'Year'</span>)[<span class="st">'Fatalities'</span>].transform(<span class="st">'sum'</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate proportion for each crash type per year</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>fatalities_by_year_crash_type[<span class="st">'Proportion'</span>] <span class="op">=</span> (fatalities_by_year_crash_type[<span class="st">'Fatalities'</span>] <span class="op">/</span> total_fatalities_per_year) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the line graph of proportions</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span><span class="st">'Year'</span>, </span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Proportion'</span>, </span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>fatalities_by_year_crash_type, </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">'Crash Type'</span>, </span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>            marker<span class="op">=</span><span class="st">'o'</span>,</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>            palette<span class="op">=</span><span class="st">'coolwarm'</span>)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Proportion of Single vs Multi-Vehicle Crashes Over Time (</span><span class="sc">{</span>earliest_year<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>latest_year<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Proportion of Fatalities (%)'</span>)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">100</span>) <span class="co"># Set y-axis limit to 100%</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>sns.despine()</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Crash Type'</span>)</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="2-motorcyclists_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="2-motorcyclists_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -759,37 +809,37 @@ Reshaping the data to align with crash statistics</code></pre>
 <p>Analysis of fatal motorcycle crashes by type reveals an emerging trend: since 2015, the proportion of single-vehicle fatalities has been gradually increasing, while multi-vehicle fatalities have declined — a convergence not seen in earlier decades. This is especially noteworthy given the context of major technological and safety advancements in motorcycling during this period.</p>
 <p>Modern motorcycles, including mid-range performance bikes, now come equipped with advanced safety features such as traction control, ABS, multiple rider modes, wheelie control, and quickshifters. High-end models even offer lean-angle-sensitive ABS, cornering lights, and ride-by-wire throttles. Simultaneously, protective gear has improved dramatically — with the rise of ECE 22.06-certified helmets, airbag vests, and CE Level 2-rated armor becoming increasingly standard and affordable.</p>
 <p>Despite these improvements, the relative rise in single-vehicle fatalities suggests that technology alone is not enough to prevent crashes. These incidents may stem from factors like excessive speed, rider inexperience, or misjudgment on corners and rural roads — scenarios where rider behavior and decision-making remain the dominant risk factors. It reinforces the idea that while safety features can mitigate outcomes, they cannot eliminate the inherent risk of riding. This underscores the ongoing need for rider education, road awareness, and perhaps cultural shifts within the motorcycling community toward valuing defensive riding as much as performance and thrill.</p>
-<div id="46c2873c" class="cell" data-execution_count="12">
+<div id="21d43507" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Compute proportions</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>day_crash_prop <span class="op">=</span> (</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    motorcyclist_pillion_fatalities</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">'Day of week'</span>, <span class="st">'Crash Type'</span>])[<span class="st">'Crash ID'</span>]</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    .count()</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    .unstack() <span class="co"># Pivot 'Crash Type' to columns</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">apply</span>(<span class="kw">lambda</span> x: x <span class="op">/</span> x.<span class="bu">sum</span>(), axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># Calculate proportion across columns (within each 'Day of week')</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    .stack() <span class="co"># Convert back to long format</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    .rename(<span class="st">"Proportion"</span>)</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Plot</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>day_crash_prop, x<span class="op">=</span><span class="st">'Day of week'</span>, y<span class="op">=</span><span class="st">'Proportion'</span>, hue<span class="op">=</span><span class="st">'Crash Type'</span>)</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Proportion of Motorcycle Fatalities: Single vs Multiple Vehicle Crashes</span><span class="ch">\n</span><span class="st">By Weekday vs Weekend'</span>)</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Proportion'</span>)</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">''</span>)</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Crash Type'</span>)</span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Compute proportions</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>day_crash_prop <span class="op">=</span> (</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    motorcyclist_pillion_fatalities</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">'Day of week'</span>, <span class="st">'Crash Type'</span>])[<span class="st">'Crash ID'</span>]</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    .count()</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    .unstack() <span class="co"># Pivot 'Crash Type' to columns</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">apply</span>(<span class="kw">lambda</span> x: x <span class="op">/</span> x.<span class="bu">sum</span>(), axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># Calculate proportion across columns (within each 'Day of week')</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    .stack() <span class="co"># Convert back to long format</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    .rename(<span class="st">"Proportion"</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Plot</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>day_crash_prop, x<span class="op">=</span><span class="st">'Day of week'</span>, y<span class="op">=</span><span class="st">'Proportion'</span>, hue<span class="op">=</span><span class="st">'Crash Type'</span>)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Proportion of Motorcycle Fatalities: Single vs Multiple Vehicle Crashes</span><span class="ch">\n</span><span class="st">By Weekday vs Weekend'</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Proportion'</span>)</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">''</span>)</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Crash Type'</span>)</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="2-motorcyclists_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="2-motorcyclists_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>

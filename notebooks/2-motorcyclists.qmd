@@ -346,6 +346,42 @@ plt.show()
 The overwhelming majority of motorcycle fatalities between 1989 and 2021 involved male riders, who accounted for 93.7% of all deaths. Female riders represented just 6.3% of the total. While this stark imbalance partly reflects the fact that far more men ride motorcycles, it also highlights a broader pattern in risk-taking behavior. Numerous studies have shown that male motorcyclists, particularly younger riders, are more likely to engage in speeding, aggressive cornering, and risky overtaking — all factors linked to crash risk. The gender gap in fatalities is therefore not just about who rides, but often how they ride.
 
 ```{python}
+# Ratio of gender fatalities of pillion passengers
+
+# Filter out missing gender values for pillion passengers
+pillion_gender_fatalities = pillion_fatalities.dropna(subset=['Gender'])
+
+# Group data by Gender, counting all Crash ID occurrences for pillions
+pillion_gender_count = pillion_gender_fatalities.groupby('Gender')['Crash ID'].count().reset_index(name='Fatalities')
+
+# Calculate percentages
+pillion_gender_count['Percentage'] = (pillion_gender_count['Fatalities'] / pillion_gender_count['Fatalities'].sum()) * 100
+
+# Print the percentages
+print("Pillion Passenger Gender Breakdown (%):")
+print(pillion_gender_count[['Gender', 'Percentage']])
+
+# Plotting a bar plot for Pillion Gender breakdown percentages
+plt.figure(figsize=(8, 6))
+sns.barplot(x='Gender', y='Percentage', data=pillion_gender_count, hue='Gender', palette=custom_palette, dodge=False, legend=False)
+plt.title(f'Pillion Passenger Fatalities by Gender (%) ({earliest_year} - {latest_year})')
+plt.xlabel('Gender')
+plt.ylabel('Percentage of Pillion Fatalities (%)')
+plt.ylim(0, 100) # Set y-axis limit to 100%
+plt.tight_layout()
+plt.show()
+
+# Note to self: future expansion on pillion passenger risks
+# - Consider expanding on the gender imbalance in pillion passenger fatalities (56% female vs 44% male).
+# - Explore cultural and behavioural explanations — e.g. women more likely to ride as passengers than operate motorcycles.
+# - Investigate risk differences for pillions: seating position, lack of protective gear, and limited control.
+# - Possibly link to public health campaigns (or lack thereof) targeting pillion safety.
+# - Could include qualitative anecdotes or policy gaps for supporting data storytelling.
+```
+
+Pillion passenger fatalities show a gendered pattern, with 56% of deaths involving female passengers and 44% male. This stands in contrast to rider fatalities, which are overwhelmingly male. The data reflects broader social dynamics — women are more likely to be passengers than riders, and pillion safety is rarely given the same attention in safety campaigns or gear design.
+
+```{python}
 # Filter out missing Age or Gender values for the plot
 age_gender_data = motorcyclist_pillion_fatalities.dropna(subset=['Age', 'Gender'])
 
