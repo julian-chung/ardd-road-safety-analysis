@@ -3,7 +3,7 @@ project:
   output-dir: docs 
 
 website:
-  title: "Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)"
+  title: "Analysis of Australian Road Deaths (ARDD Dataset, 1989–2025)"
   navbar:
     left:
       - text: "Home"
