@@ -135,9 +135,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)",
+    "title": "Australian Road Safety Analysis",
     "section": "",
-    "text": "Welcome to this interactive data analysis project focused on road fatalities in Australia. Drawing on over three decades of data from the Australian Road Deaths Database (BITRE) to explore trends and risk patterns in fatal crashes.\n\n\n\nA national overview of road fatalities in Australia, including: - Yearly and monthly trends - State-by-state comparisons - Day-of-week and time-of-day crash patterns - Road user group breakdowns\n👉 View the Main EDA Report\n\n\n\n\nA focused sub-analysis of crashes involving motorcyclists and pillion passengers, with a look at: - Rider demographics and age distribution - Day/time risk patterns (heatmaps) - Single-vehicle vs multi-vehicle crash trends - Risk normalization using motorcycle licensing data\n👉 View the Motorcyclist Analysis\n\n\n\n\nAn in-depth look at fatalities involving child pedestrians and cyclists, including: - Age and gender distributions - Crash location and vehicle involvement - Seasonal and daily risk profiles\n👉 View the Vulnerable Road Users Report\n\n\n\n\nThis project was developed as part of a public health data science portfolio. It showcases skills in data wrangling, statistical analysis, and data storytelling using open-source tools.\nTech stack: - Python · Pandas · Matplotlib · Seaborn - Jupyter/Quarto · GitHub Pages\nData source: BITRE Australian Road Deaths Database\nLast updated: May 2025"
+    "text": "Portfolio overview — key findings from three notebooks exploring fatal road crashes in Australia using BITRE data (1989–2025). Links to the full analyses are below each section."
   },
   {
     "objectID": "index.html#main-eda",
@@ -163,9 +163,9 @@
   {
     "objectID": "index.html#about-this-project",
     "href": "index.html#about-this-project",
-    "title": "Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)",
-    "section": "",
-    "text": "This project was developed as part of a public health data science portfolio. It showcases skills in data wrangling, statistical analysis, and data storytelling using open-source tools.\nTech stack: - Python · Pandas · Matplotlib · Seaborn - Jupyter/Quarto · GitHub Pages\nData source: BITRE Australian Road Deaths Database\nLast updated: May 2025"
+    "title": "Australian Road Safety Analysis",
+    "section": "About this project",
+    "text": "About this project\nThis project analyses fatal road crash data from the Australian Road Deaths Database (BITRE), covering {earliest_year}–{latest_year}. It was developed as part of a public health data science portfolio to demonstrate skills in data wrangling, statistical analysis, and data visualisation.\nBuilt with: Python · Pandas · Matplotlib · Seaborn · Quarto · GitHub Pages\nData source: BITRE Australian Road Deaths Database"
   },
   {
     "objectID": "notebooks/1-vulnerable-road-users.html",
@@ -201,5 +201,33 @@
     "title": "Sub Analysis of Pedestrians and Cyclists Under 16",
     "section": "4. Conclusion",
     "text": "4. Conclusion\nThis exploratory analysis highlights consistent patterns in child pedestrian and cyclist fatalities across Australia between 1989 and 2021. The data reflect clear improvements in safety outcomes over time, yet notable vulnerabilities remain — particularly in temporal clustering, gender disparity, and geographic variability.\nWhile pedestrian fatalities have declined more significantly, the persistence of cyclist deaths — especially among boys — calls for deeper investigation into behavioral, cultural, and infrastructural factors. Time-of-day clustering around school transit periods reinforces the need for targeted safety interventions.\nFuture work may focus on integrating spatial data, school zone mapping, or mobility trends to explore contextual contributors to these incidents. This project demonstrates the value of EDA in generating hypotheses and guiding data-driven public health planning."
+  },
+  {
+    "objectID": "index.html#a-long-term-decline-in-road-fatalities",
+    "href": "index.html#a-long-term-decline-in-road-fatalities",
+    "title": "Australian Road Safety Analysis",
+    "section": "A long-term decline in road fatalities",
+    "text": "A long-term decline in road fatalities\n\n\n\n\n\n\n\n\nFigure 1: Fatalities per 100,000 population, 1989–2025. Raw crash counts adjusted for population growth to show the true trend.\n\n\n\n\n\nSummary — to write\n👉 Full EDA notebook"
+  },
+  {
+    "objectID": "index.html#child-road-user-safety",
+    "href": "index.html#child-road-user-safety",
+    "title": "Australian Road Safety Analysis",
+    "section": "Child road user safety",
+    "text": "Child road user safety\n\n\n\n\n\n\n\n\nFigure 2: Fatal crashes involving child pedestrians and cyclists under 16.\n\n\n\n\n\nSummary — to write\n👉 Full report"
+  },
+  {
+    "objectID": "index.html#motorcycle-risk-normalised",
+    "href": "index.html#motorcycle-risk-normalised",
+    "title": "Australian Road Safety Analysis",
+    "section": "Motorcycle risk, normalised",
+    "text": "Motorcycle risk, normalised\n\n\n\n\n\n\n\n\nFigure 3: Fatalities per 10,000 active motorcycle licences (2013–2022), controlling for the size of the rider population.\n\n\n\n\n\nSummary — to write\n👉 Full report"
+  },
+  {
+    "objectID": "index.html#when-do-motorcyclists-crash",
+    "href": "index.html#when-do-motorcyclists-crash",
+    "title": "Australian Road Safety Analysis",
+    "section": "When do motorcyclists crash?",
+    "text": "When do motorcyclists crash?\n\n\n\n\n\n\n\n\nFigure 4: Total fatal crashes by hour and day across the full dataset. Weekend afternoons stand out clearly.\n\n\n\n\n\nSummary — to write\n👉 Full motorcyclist analysis"
   }
 ]

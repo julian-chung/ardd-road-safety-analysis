@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)</title>
+<title>Australian Road Safety Analysis – Analysis of Australian Road Deaths (ARDD Dataset, 1989–2025)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bdd2aebeb936dcddaa5f935a5de481c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c07a4171bf867555f72abcf5a4e90589.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)</span>
+    <span class="navbar-title">Analysis of Australian Road Deaths (ARDD Dataset, 1989–2025)</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -121,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)</h1>
+<h1 class="title">Australian Road Safety Analysis</h1>
 </div>
 
 
@@ -138,37 +139,101 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="australian-road-deaths-data-exploration" class="level1">
-<h1>🚗 Australian Road Deaths Data Exploration</h1>
-<p>Welcome to this interactive data analysis project focused on road fatalities in Australia. Drawing on over three decades of data from the <strong>Australian Road Deaths Database (BITRE)</strong> to explore trends and risk patterns in fatal crashes.</p>
+<p><em>Portfolio overview — key findings from three notebooks exploring fatal road crashes in Australia using BITRE data (1989–2025). Links to the full analyses are below each section.</em></p>
 <hr>
-<section id="main-eda" class="level2">
-<h2 class="anchored" data-anchor-id="main-eda">📊 Main EDA</h2>
-<p>A national overview of road fatalities in Australia, including: - Yearly and monthly trends - State-by-state comparisons - Day-of-week and time-of-day crash patterns - Road user group breakdowns</p>
-<p>👉 <a href="notebooks/0-eda-australian-road-fatalities.html">View the Main EDA Report</a></p>
+<section id="a-long-term-decline-in-road-fatalities" class="level2">
+<h2 class="anchored" data-anchor-id="a-long-term-decline-in-road-fatalities">A long-term decline in road fatalities</h2>
+<div id="cell-fig-national-trend" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div id="fig-national-trend" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-national-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-national-trend-output-1.png" width="949" height="422" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-national-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Fatalities per 100,000 population, 1989–2025. Raw crash counts adjusted for population growth to show the true trend.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Summary — to write</em></p>
+<p>👉 <a href="notebooks/0-eda-australian-road-fatalities.html">Full EDA notebook</a></p>
 <hr>
 </section>
-<section id="motorcyclist-fatalities" class="level2">
-<h2 class="anchored" data-anchor-id="motorcyclist-fatalities">🏍️ Motorcyclist Fatalities</h2>
-<p>A focused sub-analysis of crashes involving motorcyclists and pillion passengers, with a look at: - Rider demographics and age distribution - Day/time risk patterns (heatmaps) - Single-vehicle vs multi-vehicle crash trends - Risk normalization using motorcycle licensing data</p>
-<p>👉 <a href="notebooks/2-motorcyclists.html">View the Motorcyclist Analysis</a></p>
-<hr>
+<div class="columns">
+<div class="column" style="width:49%;">
+<section id="child-road-user-safety" class="level2">
+<h2 class="anchored" data-anchor-id="child-road-user-safety">Child road user safety</h2>
+<div id="cell-fig-children" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div id="fig-children" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-children-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-children-output-1.png" width="661" height="421" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-children-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Fatal crashes involving child pedestrians and cyclists under 16.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Summary — to write</em></p>
+<p>👉 <a href="notebooks/1-vulnerable-road-users.html">Full report</a></p>
 </section>
-<section id="vulnerable-road-users" class="level2">
-<h2 class="anchored" data-anchor-id="vulnerable-road-users">🚸 Vulnerable Road Users</h2>
-<p>An in-depth look at fatalities involving <strong>child pedestrians and cyclists</strong>, including: - Age and gender distributions - Crash location and vehicle involvement - Seasonal and daily risk profiles</p>
-<p>👉 <a href="notebooks/1-vulnerable-road-users.html">View the Vulnerable Road Users Report</a></p>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<section id="motorcycle-risk-normalised" class="level2">
+<h2 class="anchored" data-anchor-id="motorcycle-risk-normalised">Motorcycle risk, normalised</h2>
+<div id="cell-fig-moto-rate" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div id="fig-moto-rate" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-moto-rate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-moto-rate-output-1.png" width="661" height="421" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moto-rate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Fatalities per 10,000 active motorcycle licences (2013–2022), controlling for the size of the rider population.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Summary — to write</em></p>
+<p>👉 <a href="notebooks/2-motorcyclists.html">Full report</a></p>
+</section>
+</div>
+</div>
+<hr>
+<section id="when-do-motorcyclists-crash" class="level2">
+<h2 class="anchored" data-anchor-id="when-do-motorcyclists-crash">When do motorcyclists crash?</h2>
+<div id="cell-fig-moto-heatmap" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div id="fig-moto-heatmap" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-moto-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-moto-heatmap-output-1.png" width="968" height="662" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moto-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Total fatal crashes by hour and day across the full dataset. Weekend afternoons stand out clearly.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Summary — to write</em></p>
+<p>👉 <a href="notebooks/2-motorcyclists.html">Full motorcyclist analysis</a></p>
 <hr>
 </section>
 <section id="about-this-project" class="level2">
-<h2 class="anchored" data-anchor-id="about-this-project">📂 About This Project</h2>
-<p>This project was developed as part of a <strong>public health data science portfolio</strong>. It showcases skills in data wrangling, statistical analysis, and data storytelling using open-source tools.</p>
-<p><strong>Tech stack:</strong> - Python · Pandas · Matplotlib · Seaborn - Jupyter/Quarto · GitHub Pages</p>
-<p><strong>Data source:</strong> <a href="https://www.bitre.gov.au/statistics/safety/fatal_road_crash_database">BITRE Australian Road Deaths Database</a><br>
-<em>Last updated: May 2025</em></p>
+<h2 class="anchored" data-anchor-id="about-this-project">About this project</h2>
+<p>This project analyses fatal road crash data from the <strong>Australian Road Deaths Database (BITRE)</strong>, covering {earliest_year}–{latest_year}. It was developed as part of a public health data science portfolio to demonstrate skills in data wrangling, statistical analysis, and data visualisation.</p>
+<p><strong>Built with:</strong> Python · Pandas · Matplotlib · Seaborn · Quarto · GitHub Pages</p>
+<p><strong>Data source:</strong> <a href="https://www.bitre.gov.au/statistics/safety/fatal_road_crash_database">BITRE Australian Road Deaths Database</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -223,13 +288,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

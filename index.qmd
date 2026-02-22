@@ -1,59 +1,239 @@
 ---
-title: "Analysis of Australian Road Deaths (ARDD Dataset, 1989–2021)"
+title: "Australian Road Safety Analysis"
 format:
   html:
     toc: false
-    code-fold: false
+execute:
+  echo: false
+  warning: false
+  message: false
 ---
 
-# 🚗 Australian Road Deaths Data Exploration
-
-Welcome to this interactive data analysis project focused on road fatalities in Australia. Drawing on over three decades of data from the **Australian Road Deaths Database (BITRE)** to explore trends and risk patterns in fatal crashes.
-
----
-
-## 📊 Main EDA
-
-A national overview of road fatalities in Australia, including:
-- Yearly and monthly trends
-- State-by-state comparisons
-- Day-of-week and time-of-day crash patterns
-- Road user group breakdowns
-
-👉 [View the Main EDA Report](notebooks/0-eda-australian-road-fatalities.html)
+*Portfolio overview — key findings from three notebooks exploring fatal road crashes in Australia using BITRE data (1989–2025). Links to the full analyses are below each section.*
 
 ---
 
-## 🏍️ Motorcyclist Fatalities
+```{python}
+#| label: setup
 
-A focused sub-analysis of crashes involving motorcyclists and pillion passengers, with a look at:
-- Rider demographics and age distribution
-- Day/time risk patterns (heatmaps)
-- Single-vehicle vs multi-vehicle crash trends
-- Risk normalization using motorcycle licensing data
+import sys
+sys.path.append("scripts")
 
-👉 [View the Motorcyclist Analysis](notebooks/2-motorcyclists.html)
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+import seaborn as sns
+from data_cleaning import full_clean_pipeline
+
+# ── Palette ───────────────────────────────────────────────────────────────────
+BLUE  = "#2166ac"
+CORAL = "#d6604d"
+
+# ── Global style ──────────────────────────────────────────────────────────────
+plt.rcParams.update({
+    "figure.facecolor":  "white",
+    "axes.facecolor":    "white",
+    "axes.spines.top":   False,
+    "axes.spines.right": False,
+    "axes.edgecolor":    "#cccccc",
+    "axes.grid":         True,
+    "axes.grid.axis":    "y",
+    "grid.color":        "#eeeeee",
+    "grid.linewidth":    0.8,
+    "axes.labelsize":    11,
+    "axes.titlesize":    13,
+    "axes.titleweight":  "bold",
+    "axes.titlepad":     14,
+    "xtick.labelsize":   10,
+    "ytick.labelsize":   10,
+    "xtick.bottom":      False,
+    "ytick.left":        False,
+    "font.family":       "sans-serif",
+    "legend.frameon":    False,
+    "legend.fontsize":   10,
+})
+
+# ── Load data ─────────────────────────────────────────────────────────────────
+df = pd.read_csv("data/Crash_Data.csv", low_memory=False)
+df = full_clean_pipeline(df)
+
+earliest_year = df['Year'].min()
+latest_year   = df['Year'].max()
+```
+
+## A long-term decline in road fatalities
+
+```{python}
+#| label: fig-national-trend
+#| fig-cap: "Fatalities per 100,000 population, 1989–2025. Raw crash counts adjusted for population growth to show the true trend."
+
+population_data = {
+    'Year': list(range(1989, 2026)),
+    'Population': [
+        16796588, 17048003, 17271086, 17462504, 17631511, 17805504, 18003000,
+        18211845, 18410250, 18601667, 18800892, 19017963, 19248143, 19475844,
+        19698999, 19925056, 20171731, 20467030, 20830828, 21247873, 21660892,
+        22019168, 22357034, 22729269, 23111782, 23469579, 23820236, 24195701,
+        24590334, 24979230, 25357170, 25670051, 25921089, 26200985, 26451124,
+        26713205, 26974026
+    ]
+}
+
+pop_df  = pd.DataFrame(population_data)
+fat_yr  = df.groupby('Year')['Crash ID'].size().reset_index(name='Fatalities')
+merged  = pd.merge(fat_yr, pop_df, on='Year', how='inner')
+merged['per_100k'] = merged['Fatalities'] / merged['Population'] * 100_000
+
+fig, ax = plt.subplots(figsize=(10, 4.5))
+ax.plot(merged['Year'], merged['per_100k'],
+        color=BLUE, linewidth=2.5, marker='o', markersize=4)
+ax.set_title(f"Road Fatalities per 100,000 Population ({earliest_year}–{latest_year})")
+ax.set_ylabel("Deaths per 100,000")
+ax.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.1f'))
+plt.tight_layout()
+plt.show()
+```
+
+*Summary — to write*
+
+👉 [Full EDA notebook](notebooks/0-eda-australian-road-fatalities.html)
 
 ---
 
-## 🚸 Vulnerable Road Users
+:::: {.columns}
 
-An in-depth look at fatalities involving **child pedestrians and cyclists**, including:
-- Age and gender distributions
-- Crash location and vehicle involvement
-- Seasonal and daily risk profiles
+::: {.column width="49%"}
 
-👉 [View the Vulnerable Road Users Report](notebooks/1-vulnerable-road-users.html)
+## Child road user safety
+
+```{python}
+#| label: fig-children
+#| fig-cap: "Fatal crashes involving child pedestrians and cyclists under 16."
+
+children  = df[df['Age Group'] == '0_to_16']
+child_pd  = children[children['Road User'].isin(['Pedestrian', 'Pedal cyclist'])]
+by_yr     = child_pd.groupby(['Year', 'Road User'])['Crash ID'].count().reset_index(name='Fatalities')
+
+palette = {'Pedestrian': BLUE, 'Pedal cyclist': CORAL}
+
+fig, ax = plt.subplots(figsize=(7, 4.5))
+for user, grp in by_yr.groupby('Road User'):
+    ax.plot(grp['Year'], grp['Fatalities'],
+            label=user, color=palette[user],
+            linewidth=2.5, marker='o', markersize=4)
+ax.set_title(f"Child Fatalities (Under 16)\n{earliest_year}–{latest_year}")
+ax.set_ylabel("Fatalities")
+ax.legend()
+plt.tight_layout()
+plt.show()
+```
+
+*Summary — to write*
+
+👉 [Full report](notebooks/1-vulnerable-road-users.html)
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+
+## Motorcycle risk, normalised
+
+```{python}
+#| label: fig-moto-rate
+#| fig-cap: "Fatalities per 10,000 active motorcycle licences (2013–2022), controlling for the size of the rider population."
+
+mc = df[df['Road User'].isin(['Motorcycle rider', 'Motorcycle pillion passenger'])]
+
+lic = pd.read_csv("data/motorcycle_licenses.csv",
+                  header=None, skiprows=1, skipinitialspace=True)
+tiers = ["Full licence", "Provisional licence", "L Permits"]
+lic["tier"] = lic[0].where(lic[0].isin(tiers)).ffill()
+lic = lic[~lic[0].isin(tiers)].copy()
+lic.columns = ["date", "car", "motorcycle", "light_rigid", "medium_rigid",
+               "heavy_rigid", "heavy_combination", "multi_combination", "tier"]
+lic["year"] = pd.to_numeric(
+    "20" + lic["date"].str.extract(r"-(\d{2})$").iloc[:, 0], errors='coerce')
+lic["motorcycle"] = pd.to_numeric(
+    lic["motorcycle"].astype(str)
+        .str.replace(",", "", regex=False)
+        .str.replace(" ", "", regex=False)
+        .str.strip()
+        .replace("", pd.NA),
+    errors='coerce')
+lic = lic.dropna(subset=["year", "motorcycle"])
+lic["year"] = lic["year"].astype(int)
+
+lic_summary = lic.groupby("year")["motorcycle"].sum().reset_index(name="total_licenses")
+fat_yr_mc   = mc.groupby('Year')['Crash ID'].count().reset_index(name='Fatalities')
+merged_mc   = pd.merge(fat_yr_mc, lic_summary, left_on='Year', right_on='year', how='inner')
+merged_mc   = merged_mc[(merged_mc['Year'] >= 2013) & (merged_mc['Year'] <= 2022)]
+merged_mc['per_10k'] = merged_mc['Fatalities'] / merged_mc['total_licenses'] * 10_000
+
+fig, ax = plt.subplots(figsize=(7, 4.5))
+ax.plot(merged_mc['Year'], merged_mc['per_10k'],
+        color=BLUE, linewidth=2.5, marker='o', markersize=5)
+ax.set_title("Motorcyclist Fatalities per 10,000 Licences\n(2013–2022)")
+ax.set_ylabel("Deaths per 10,000 licences")
+plt.tight_layout()
+plt.show()
+```
+
+*Summary — to write*
+
+👉 [Full report](notebooks/2-motorcyclists.html)
+
+:::
+
+::::
 
 ---
 
-## 📂 About This Project
+## When do motorcyclists crash?
 
-This project was developed as part of a **public health data science portfolio**. It showcases skills in data wrangling, statistical analysis, and data storytelling using open-source tools.
+```{python}
+#| label: fig-moto-heatmap
+#| fig-cap: "Total fatal crashes by hour and day across the full dataset. Weekend afternoons stand out clearly."
 
-**Tech stack:**
-- Python · Pandas · Matplotlib · Seaborn
-- Jupyter/Quarto · GitHub Pages
+day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
-**Data source:** [BITRE Australian Road Deaths Database](https://www.bitre.gov.au/statistics/safety/fatal_road_crash_database)  
-_Last updated: May 2025_
+hm    = mc[['Time', 'Dayweek']].dropna(subset=['Time']).copy()
+hm['Hour'] = hm['Time'].str.split(':').str[0].astype(int)
+
+pivot = pd.pivot_table(hm, values='Time', index='Hour', columns='Dayweek',
+                       aggfunc='count', fill_value=0)
+pivot = pivot.reindex(range(24), fill_value=0)
+pivot = pivot.reindex(columns=day_order, fill_value=0)
+
+fig, ax = plt.subplots(figsize=(11, 7))
+sns.heatmap(
+    pivot,
+    annot=True, fmt='g', ax=ax,
+    cmap='YlOrRd',
+    linewidths=0.4, linecolor='white',
+    cbar_kws={'shrink': 0.55, 'label': 'Fatal crashes'},
+    annot_kws={'size': 9}
+)
+ax.set_title(f"Motorcyclist Fatalities by Day and Hour ({earliest_year}–{latest_year})", pad=16)
+ax.set_xlabel("")
+ax.set_ylabel("Hour of Day")
+plt.tight_layout()
+plt.show()
+```
+
+*Summary — to write*
+
+👉 [Full motorcyclist analysis](notebooks/2-motorcyclists.html)
+
+---
+
+## About this project
+
+This project analyses fatal road crash data from the **Australian Road Deaths Database (BITRE)**, covering {earliest_year}–{latest_year}. It was developed as part of a public health data science portfolio to demonstrate skills in data wrangling, statistical analysis, and data visualisation.
+
+**Built with:** Python · Pandas · Matplotlib · Seaborn · Quarto · GitHub Pages
+
+**Data source:** [BITRE Australian Road Deaths Database](https://www.bitre.gov.au/statistics/safety/fatal_road_crash_database)
