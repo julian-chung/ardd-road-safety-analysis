@@ -48,7 +48,9 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Data: download the ARDD dataset from [BITRE](https://www.bitre.gov.au/statistics/safety/fatal_road_crash_database) and place CSV files in `data/`.
+**Crash data:** download the ARDD dataset from [BITRE](https://www.bitre.gov.au/statistics/safety/fatal_road_crash_database) and place CSV files in `data/`.
+
+**Motorcycle licence data** (`data/motorcycle_licenses.csv`): sourced from the BITRE Australian Infrastructure and Transport Statistics Yearbook, Road chapter. The annual yearbook Excel file (`bitre-yearbook-YYYY-04-road.xlsx`) is published at `https://www.bitre.gov.au/sites/default/files/documents/` — use the "Drivers licences" table.
 
 To render the site locally:
 ```bash
