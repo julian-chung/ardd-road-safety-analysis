@@ -17,7 +17,7 @@ website:
 
 format:
   html:
-    theme: flatly
+    theme: [cosmo, assets/styles.css]
     toc: true
     toc-location: right
     code-fold: true
