@@ -17,7 +17,10 @@ website:
 
 format:
   html:
-    theme: [cosmo, assets/styles.css]
+    theme:
+      light: [cosmo, assets/styles.css]
+      dark: [darkly, assets/styles-dark.css]
     toc: true
     toc-location: right
     code-fold: true
+    out-width: "100%"
