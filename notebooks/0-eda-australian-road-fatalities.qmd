@@ -858,4 +858,5 @@ Key findings include:
 ## Opportunities for Further Research
 
 This dataset covers fatal crashes only. Adding non-fatal injury data would give a fuller view of road harm, not just the most severe outcomes.  
+
 It would also be useful to examine injury-to-fatality ratios for pedestrians and cyclists to better understand where safety gains are happening and where they are stalling.
