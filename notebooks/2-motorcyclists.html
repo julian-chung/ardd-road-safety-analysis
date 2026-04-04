@@ -381,7 +381,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-cleaning" class="level2">
 <h2 class="anchored" data-anchor-id="data-cleaning">2. Data Cleaning</h2>
 <p>The notebook uses <code>full_clean_pipeline()</code> from <code>scripts/data_cleaning.py</code> to load and tidy the raw crash data — handling missing values, dropping redundant columns, and returning a clean, analysis-ready DataFrame. The dataset is then filtered to isolate fatal incidents involving motorcycle riders and pillion passengers.</p>
-<div id="df9a0516" class="cell" data-execution_count="1">
+<div id="7b392014" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
@@ -451,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The sections below explore how motorcycle fatalities vary by time, geography, and rider demographics, and situate the death toll against the licensed rider population.</p>
 <section id="yearly-fatalities" class="level3">
 <h3 class="anchored" data-anchor-id="yearly-fatalities">3.1 Yearly Fatalities</h3>
-<div id="7c5522c5" class="cell" data-execution_count="2">
+<div id="bfecea82" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by Year and Road User for the filtered set</span></span>
@@ -487,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Raw fatality counts have remained broadly flat — pillion deaths are relatively stable, and rider deaths show no meaningful long-term decline. But with Australia’s population and licensed rider base both growing since 1989, raw numbers can be misleading. Normalising fatalities per 10,000 motorcycle licences offers a more meaningful picture of risk over time. Licensing data from BITRE is available from 2013, so the chart below covers that window.</p>
 <p><strong>Integrating Motorcycle Licence Data</strong>BITRE publishes annual motorcycle licensing data in its Australian Infrastructure and Transport Statistics Yearbook (Road chapter), broken into three tiers: Full, Provisional, and L Permits. The relevant file is <code>bitre-yearbook-YYYY-04-road.xlsx</code>, available from the BITRE website. The data required significant wrangling — removing non-data rows, forward-filling tier labels, and reshaping the structure to align with crash statistics — but the result enables normalisation of fatalities per licensed rider, offering a more meaningful measure of risk over time.</p>
-<div id="904803e7" class="cell" data-execution_count="3">
+<div id="e6891467" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyze_motorcycle_fatality_rates(fatalities_df):</span>
@@ -630,7 +630,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="fatalities-by-state" class="level3">
 <h3 class="anchored" data-anchor-id="fatalities-by-state">3.2 Fatalities by State</h3>
-<div id="25808397" class="cell" data-execution_count="4">
+<div id="c1a1e1b1" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by Year and State</span></span>
@@ -665,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="age-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="age-distribution">3.3 Age Distribution</h3>
-<div id="343b7474" class="cell" data-execution_count="5">
+<div id="7cf904f1" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the age distribution for motorcyclists and pillion passengers</span></span>
@@ -690,7 +690,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="gender-breakdown" class="level3">
 <h3 class="anchored" data-anchor-id="gender-breakdown">3.4 Gender Breakdown</h3>
-<div id="844c11dd" class="cell" data-execution_count="6">
+<div id="6d011ff6" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out missing gender values</span></span>
@@ -722,7 +722,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Male riders accounted for 93.7% of all fatalities — a stark imbalance that reflects both who rides and how they ride. While far more men hold motorcycle licenses, the gap is also driven by risk-taking behaviour: younger male riders are more prone to speeding, aggressive cornering, and risky overtaking. The gender disparity is not just about exposure — it’s also about the choices made on the road.</p>
-<div id="f82f7b6f" class="cell" data-execution_count="7">
+<div id="75918fe0" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ratio of gender fatalities of pillion passengers</span></span>
@@ -772,7 +772,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Pillion passenger fatalities show a gendered pattern, with 56% of deaths involving female passengers and 44% male. This stands in contrast to rider fatalities, which are overwhelmingly male. The data reflects broader social dynamics — women are more likely to be passengers than riders, and pillion safety is rarely given the same attention in safety campaigns or gear design.</p>
-<div id="8900ab52" class="cell" data-execution_count="8">
+<div id="366b79c1" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out missing Age or Gender values for the plot</span></span>
@@ -800,7 +800,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="monthly-trends" class="level3">
 <h3 class="anchored" data-anchor-id="monthly-trends">3.5 Monthly Trends</h3>
-<div id="4905f415" class="cell" data-execution_count="9">
+<div id="c8894cea" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Map month numbers to names</span></span>
@@ -837,7 +837,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="time-of-day-vs-day-of-week" class="level3">
 <h3 class="anchored" data-anchor-id="time-of-day-vs-day-of-week">3.6 Time of Day vs Day of Week</h3>
-<div id="3c6054d4" class="cell" data-execution_count="10">
+<div id="1e368b95" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select relevant columns and drop missing Time values</span></span>
@@ -887,7 +887,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="single-vs-multi-vehicle-crashes" class="level3">
 <h3 class="anchored" data-anchor-id="single-vs-multi-vehicle-crashes">3.7 Single vs Multi-Vehicle Crashes</h3>
-<div id="1de2f6a5" class="cell" data-execution_count="11">
+<div id="30a2e326" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate counts for each Crash Type</span></span>
@@ -928,7 +928,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Analysis of crash types from 1989 to 2021 reveals that 58% of fatal motorcycle crashes involved another vehicle, while 42% were single-vehicle incidents. This finding highlights that a significant portion of fatalities occur without another party involved, suggesting that rider behavior, decision-making, or road conditions may play an important role.</p>
 <p>The high proportion of single-vehicle motorcycle fatalities reinforces a longstanding principle in motorcycle safety: the rider themselves is often the greatest risk factor. While not all single-vehicle crashes stem from rider error, the data implies that many of these tragic events could potentially be mitigated through improved rider training, safer riding practices, and hazard awareness. It also raises questions about infrastructure and road maintenance, both of which disproportionately affect motorcyclists.</p>
 <p>In contrast, multi-vehicle crashes remind us that vigilance is equally required around other road users, many of whom may fail to detect or respect motorcyclists. Together, these figures point to the need for both personal responsibility and broader systemic efforts to protect motorcyclists.</p>
-<div id="55b81fb8" class="cell" data-execution_count="12">
+<div id="edb0726c" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Line Graph of Proportions Over Time</span></span>
@@ -971,7 +971,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Analysis of fatal motorcycle crashes by type reveals an emerging trend: since 2015, the proportion of single-vehicle fatalities has been gradually increasing, while multi-vehicle fatalities have declined — a convergence not seen in earlier decades. This is especially noteworthy given the context of major technological and safety advancements in motorcycling during this period.</p>
 <p>Modern motorcycles, including mid-range performance bikes, now come equipped with advanced safety features such as traction control, ABS, multiple rider modes, wheelie control, and quickshifters. High-end models even offer lean-angle-sensitive ABS, cornering lights, and ride-by-wire throttles. Simultaneously, protective gear has improved dramatically — with the rise of ECE 22.06-certified helmets, airbag vests, and CE Level 2-rated armor becoming increasingly standard and affordable.</p>
 <p>Despite these improvements, the relative rise in single-vehicle fatalities suggests that technology alone is not enough to prevent crashes. These incidents may stem from factors like excessive speed, rider inexperience, or misjudgment on corners and rural roads — scenarios where rider behavior and decision-making remain the dominant risk factors. It reinforces the idea that while safety features can mitigate outcomes, they cannot eliminate the inherent risk of riding. This underscores the ongoing need for rider education, road awareness, and perhaps cultural shifts within the motorcycling community toward valuing defensive riding as much as performance and thrill.</p>
-<div id="d1c3568d" class="cell" data-execution_count="13">
+<div id="c4195922" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Compute proportions</span></span>
