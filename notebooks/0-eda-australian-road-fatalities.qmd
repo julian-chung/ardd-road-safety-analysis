@@ -37,6 +37,7 @@ The key objectives of this analysis are to:
 
 # Part 1: Data Checking
 
+
 ## 1.1 Reading Data and Importing Libraries
 
 Import the necessary libraries and read the dataset into a pandas DataFrame. The dataset is in CSV format and contains information about fatal road accidents in Australia from 1989. The dataset is updated monthly and includes various attributes such as the date of the accident, location, vehicle type, and demographic information about the individuals involved in the accidents.
@@ -89,6 +90,7 @@ display(df.info())
 # Take the number of rows and columns in the dataset, and the number of unique Crash ID's, and print them out in a sentence. 
 
 print(f"Dataset contains {df.shape[0]:,} rows and {df.shape[1]} columns, "f"with {df['Crash ID'].nunique():,} unique crash IDs.")
+
 ```
 
 The table below provides a high-level summary of each column, including:
@@ -113,6 +115,7 @@ summary_df = pd.DataFrame({
 
 # Displaying the summary dataframe
 display(summary_df)
+
 ```
 
 47,567 unique crashes resulted in 52,843 fatalities — some events claimed multiple lives. The deadliest single crash on record involved 35 deaths (the 1989 Kempsey bus disaster).
@@ -128,6 +131,7 @@ min_age = df['Age'].min()
 max_age = df['Age'].max()
 
 print(f"The average age of individuals involved in fatal road crashes was {mean_age:.1f} years "f"(median: {median_age}, range: {min_age}–{max_age}).")
+
 ```
 
 # Part 2: Data Preparation
@@ -184,6 +188,7 @@ df = full_clean_pipeline(df)
 latest_year = df['Year'].max()
 earliest_year = df['Year'].min()
 print(f"The dataset contains data from {earliest_year} to {latest_year}.")
+
 ```
 
 ## 2.3 Visualise the Remaining Missing Data
@@ -205,6 +210,7 @@ plt.ylabel('Count of missing values')
 plt.xticks(rotation=90)
 plt.tight_layout()
 plt.show()
+
 ```
 
 The count chart is hard to read — a couple of columns dominate. The percentage view below (capped at 10%) makes the smaller gaps easier to see.
@@ -241,6 +247,7 @@ display(duplicate_rows)
 # Checking for duplicate values in the Crash ID column
 duplicate_crash_ids = df[df.duplicated(['Crash ID'])]
 display(duplicate_crash_ids)
+
 ```
 
 In this dataset, Crash IDs represent a single event, but there are multiple rows for each Crash ID in some cases when there have been multiple fatalities in a crash. Since there appears to be no true duplicate rows, we will not drop any rows from the dataset.
@@ -248,6 +255,7 @@ In this dataset, Crash IDs represent a single event, but there are multiple rows
 ## 2.5 Checking for Outliers
 
 In this dataset we have a single continuous variable of interest, age. We will use a boxplot to check for outliers in this column.
+
 
 ```{python}
 #| ExecuteTime: {end_time: '2024-07-09T01:05:15.923273Z', start_time: '2024-07-09T01:05:15.803311Z'}
@@ -258,6 +266,7 @@ sns.boxplot(x=df['Age'])
 plt.title('Boxplot of Age')
 plt.xlabel('Age')
 plt.show()
+
 ```
 
 No outliers visible. The IQR check below confirms this.
@@ -291,6 +300,7 @@ def identify_outliers(column):
 
 outliers = identify_outliers(df['Age'])
 print(f"Outliers: {outliers.values}")
+
 ```
 
 # Part 3: Data Visualisation
@@ -327,6 +337,7 @@ plt.xlabel('Age')
 plt.xticks(range(0, 101, 10))
 plt.ylabel('Count')
 plt.show()
+
 ```
 
 Fatalities peak sharply among people in their early 20s, then taper off steadily with age.
@@ -345,6 +356,7 @@ plt.title(f"Gender Distribution of Fatal Accidents in Australia by\nCount ({earl
 plt.xlabel('Gender')
 plt.ylabel('Count')
 plt.show()
+
 ```
 
 Males make up the clear majority — the chart below expresses this as a percentage.
@@ -367,6 +379,7 @@ plt.title(f"Gender Distribution of Fatal Accidents in Australia\nas a Percentage
 plt.xlabel('Gender')
 plt.ylabel('Percentage')
 plt.show()
+
 ```
 
 Around 70% of road fatalities are male — a ratio that, as we'll see later, has stayed remarkably consistent over time.
@@ -387,6 +400,7 @@ plt.title(f"Age and Gender Distribution of Fatal Accidents in Australia ({earlie
 plt.xlabel('Age')
 plt.ylabel('Density')
 plt.show()
+
 ```
 
 Both genders peak around age 20 and follow a broadly similar distribution. The difference is largely one of scale, not shape.
@@ -404,6 +418,7 @@ plt.title(f"Box Plot of Age and Gender Distribution of Fatal Accidents\nin Austr
 plt.xlabel('Gender')
 plt.ylabel('Age')
 plt.show()
+
 ```
 
 Male fatalities skew slightly older at the median, with a handful of outliers at the upper end.
@@ -456,6 +471,7 @@ plt.xlabel('Year')
 plt.ylabel('Fatalities')
 plt.legend(title='Age Group')
 plt.show()
+
 ```
 
 Fatalities have fallen across all age groups since 1989, with the proportional mix between groups staying broadly consistent.
@@ -524,6 +540,7 @@ plt.title(f"Number of Fatal Accidents by State ({earliest_year} to {latest_year}
 plt.xlabel('Number of Accidents')
 plt.ylabel('State')
 plt.show()
+
 ```
 
 Same data, different format — easier to compare state counts directly.
@@ -546,6 +563,7 @@ month_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
             'August', 'September', 'October', 'November', 'December']
 month_counts['Month'] = pd.Categorical(month_counts['Month'], categories=month_order, ordered=True)
 month_counts = month_counts.sort_values('Month')
+
 ```
 
 ```{python}
@@ -567,6 +585,7 @@ plt.ylabel('Number of Accidents')
 plt.xticks(rotation=45)
 plt.yticks(range(0, 5500, 500))
 plt.show()
+
 ```
 
 Fatalities are fairly evenly distributed throughout the year, with a modest uptick in December and March — both associated with increased traffic volumes and holiday travel.
@@ -582,6 +601,7 @@ day_counts.columns = ['Day', 'Accidents']
 day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 day_counts['Day'] = pd.Categorical(day_counts['Day'], categories=day_order, ordered=True)
 day_counts = day_counts.sort_values('Day')
+
 ```
 
 ```{python}
@@ -603,6 +623,7 @@ plt.yticks(range(0, 12000, 1000))
 plt.ylabel('Number of Accidents')
 plt.xticks(rotation=45)
 plt.show()
+
 ```
 
 Saturday records the most fatalities, followed by Friday and Sunday. The weekend effect is clear and consistent.
@@ -659,6 +680,7 @@ plt.title(f"Heatmap of Fatal Accidents ({earliest_year} to {latest_year}) by Day
 plt.xlabel('Day of the Week')
 plt.ylabel('Hour of Day')
 plt.show()
+
 ```
 
 Friday and Saturday afternoons stand out clearly — the 3pm Friday slot in particular. Late-night weekend hours also see elevated numbers.
@@ -684,6 +706,7 @@ plt.xlabel('Year')
 plt.ylabel('Number of Fatalities')
 plt.grid(True)
 plt.show()
+
 ```
 
 Road fatalities have declined substantially since 1989, but have risen from their historic low of around 1,100 in 2020–21 to levels not seen since 2016. Since Australia's population has grown considerably over this period, raw counts alone can be misleading — a population-adjusted measure gives a more accurate picture of road safety progress.
@@ -727,6 +750,7 @@ plt.xlabel('Year')
 plt.ylabel('Fatalities per 100,000 Population')
 plt.grid(True)
 plt.show()
+
 ```
 
 When adjusted for population growth, the picture is more nuanced. Fatalities per 100,000 people remain only slightly above the pre-pandemic low, reflecting the fact that the recent rise in raw numbers is partly explained by a larger population base. Population-adjusted figures are generally a more meaningful measure of road safety progress, and on that basis the recent increase, while worth monitoring, is considerably less dramatic than the raw numbers suggest.
@@ -814,9 +838,25 @@ plt.grid(True)
 sns.despine()
 plt.tight_layout()
 plt.show()
+
 ```
 
 Pedestrian fatalities have fallen steadily since 1989. Cyclist deaths have barely moved since the mid-1990s — a gap explored further in the vulnerable road users notebook.
 
-# Part 4: ConclusionThis exploratory analysis examined the demographic, geographic, and temporal distribution of fatal road transport accidents in Australia, focusing on changes from 1989 to 2025.Key findings include:- A significant overall decline in fatalities, both in absolute terms and per 100,000 population.- The largest reduction occurred among 17–25-year-old drivers, potentially linked to licensing reforms targeting provisional licence holders.- Males consistently account for approximately 70% of road fatalities throughout the observed period.- Fatal accidents are most concentrated between Friday and Sunday, with Friday afternoons posing the highest risk.- New South Wales, Victoria, and Queensland collectively represent over 80% of national road fatalities.- Pedestrian fatalities have decreased over time, while cyclist fatalities have remained relatively stable since the mid-1990s.## Opportunities for Further ResearchThis dataset focuses solely on fatal accidents. Expanding future analyses to include injury data could provide a more comprehensive understanding of road safety trends.  Additionally, examining the injury-to-fatality ratio among pedestrians and cyclists could offer insights into the effectiveness of vehicle design improvements and road safety initiatives aimed at protecting vulnerable road users.
+# Part 4: Conclusion
+
+This exploratory analysis examined the demographic, geographic, and temporal distribution of fatal road transport accidents in Australia, focusing on changes from 1989 to 2025.
+
+Key findings include:
+- A significant overall decline in fatalities, both in absolute terms and per 100,000 population.
+- The largest reduction occurred among 17–25-year-old drivers, potentially linked to licensing reforms targeting provisional licence holders.
+- Males consistently account for approximately 70% of road fatalities throughout the observed period.
+- Fatal accidents are most concentrated between Friday and Sunday, with Friday afternoons posing the highest risk.
+- New South Wales, Victoria, and Queensland collectively represent over 80% of national road fatalities.
+- Pedestrian fatalities have decreased over time, while cyclist fatalities have remained relatively stable since the mid-1990s.
+
+## Opportunities for Further Research
+
+This dataset focuses solely on fatal accidents. Expanding future analyses to include injury data could provide a more comprehensive understanding of road safety trends.  
+Additionally, examining the injury-to-fatality ratio among pedestrians and cyclists could offer insights into the effectiveness of vehicle design improvements and road safety initiatives aimed at protecting vulnerable road users.
 
