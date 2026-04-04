@@ -1,7 +1,18 @@
 ---
-title: Sub Analysis of Pedestrians and Cyclists Under 16
-jupyter: python3
+title: 'Pedestrian and Cyclist Fatalities: Children Under 16'
+jupyter:
+  jupytext:
+    cell_metadata_filter: '-all'
+    encoding: '# coding: utf-8'
+    executable: /usr/bin/env python
+    main_language: python
+    notebook_metadata_filter: '-all'
+  kernelspec:
+    display_name: .venv
+    language: python
+    name: python3
 ---
+
 
 This brief sub-analysis explores patterns in fatal road transport accidents involving **child pedestrians and cyclists** in Australia from 1989 to present. These road users are considered **vulnerable** due to their physical fragility and limited situational awareness.
 
@@ -11,6 +22,7 @@ The notebook focuses on identifying:
 - Key risk periods by month, day, and time
 
 Findings from this analysis can support targeted interventions to improve road safety for children and non-motorized road users.
+
 
 ## 1. Key Findings
 
@@ -25,6 +37,7 @@ Findings from this analysis can support targeted interventions to improve road s
 Data cleaning pipeline is imported from the `data_cleaning.py` file. The pipeline includes functions to load the data, clean it, and filter it for the analysis.
 
 ```{python}
+#| lines_to_next_cell: 2
 """
 This notebook is fully self-contained and does not depend on the main EDA notebook.
 
@@ -82,6 +95,7 @@ month_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
 day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 custom_palette = {'Female': 'lightcoral', 'Male': 'skyblue'}
+
 ```
 
 
@@ -141,6 +155,7 @@ plt.legend(title='State')
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
+
 ```
 
 Fatalities have declined across all jurisdictions over the past three decades, with the steepest reductions occurring in the early 1990s. New South Wales consistently recorded the highest number of child fatalities, followed by Victoria and Queensland. From around 2010 onward, most states reached relatively low and stable fatality counts, with smaller jurisdictions such as the ACT, Tasmania, and the Northern Territory reporting only isolated deaths in some years.
@@ -252,6 +267,7 @@ print(ped_cyclist_gender_count[['Gender', 'Percentage']])
 # - Significant male overrepresentation (71%) — this echoes broader patterns in injury epidemiology.
 # - Consider referencing behavioural studies on risk-taking in boys vs girls.
 # - Could be interesting to stratify by pedestrian vs cyclist — are boys more likely in one group?
+
 ```
 
 Males account for 71% of fatalities, while females make up 29% — a ratio that aligns with global trends in child injury and trauma literature. Boys are consistently overrepresented in road trauma statistics, often attributed to differences in risk-taking behaviour, mobility patterns, and supervision levels.
@@ -338,6 +354,7 @@ plt.show()
 # - Slight dip during winter (June–August), potentially due to lower pedestrian activity or shorter days.
 # - November dip is interesting — worth checking if linked to school exams or decreased mobility.
 # - Future idea: plot weather data overlays or correlate with pedestrian traffic density.
+
 ```
 
 This bar chart displays child pedestrian fatalities by month from 1989 to 2025. The distribution reveals a seasonal pattern, with higher fatalities in school-term months such as March and April, and a modest dip during mid-year winter months like June and July. March stands out as the peak month for fatalities, which may coincide with the return to school routines, busier traffic, and possibly less daylight in early mornings.
@@ -413,6 +430,7 @@ plt.show()
 # Calculate and print the percentage
 pedestrian_gender_count['Percentage'] = (pedestrian_gender_count['Fatalities'] / pedestrian_gender_count['Fatalities'].sum()) * 100
 print(pedestrian_gender_count[['Gender', 'Percentage']])
+
 ```
 
 This bar chart shows the distribution of child pedestrian fatalities by gender from 1989 to 2025. Males accounted for 66% of all fatalities, while females made up 34%. Although the disparity is notable, it's less pronounced than in the combined cyclist + pedestrian cohort, suggesting that male overrepresentation is particularly elevated among cyclists — a trend explored later in this report.
@@ -591,3 +609,4 @@ This exploratory analysis highlights consistent patterns in child pedestrian and
 While pedestrian fatalities have declined more significantly, the persistence of cyclist deaths — especially among boys — calls for deeper investigation into behavioral, cultural, and infrastructural factors. Time-of-day clustering around school transit periods reinforces the need for targeted safety interventions.
 
 Future work may focus on integrating spatial data, school zone mapping, or mobility trends to explore contextual contributors to these incidents. This project demonstrates the value of EDA in generating hypotheses and guiding data-driven public health planning.
+

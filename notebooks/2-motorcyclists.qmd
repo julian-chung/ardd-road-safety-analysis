@@ -3,6 +3,7 @@ title: Fatal Motorcycle Crashes
 jupyter: python3
 ---
 
+
 _A sub-analysis of the ARDD focusing on fatal motorcycle crashes._
 
 Motorcycle riding evokes freedom and exhilaration—but it also carries disproportionate risk. Despite advances in protective gear and rider assist technologies, motorcyclists remain significantly overrepresented in fatal crash statistics across Australia.
@@ -28,6 +29,7 @@ Fatalities skew young, peaking in the early 20s, then tapering with age—though
 * **Seasonal Variation**
 Fatalities are higher in summer and spring, peaking in March, and lowest in the winter months, especially July. Not exactly surprising—cold rain is a great motivator to leave the bike parked—but the difference is notable.
 
+
 ## 2. Data Cleaning
 
 The notebook uses `full_clean_pipeline()` from `scripts/data_cleaning.py` to load and tidy the raw crash data — handling missing values, dropping redundant columns, and returning a clean, analysis-ready DataFrame. The dataset is then filtered to isolate fatal incidents involving motorcycle riders and pillion passengers.
@@ -35,7 +37,6 @@ The notebook uses `full_clean_pipeline()` from `scripts/data_cleaning.py` to loa
 ```{python}
 """
 This notebook is fully self-contained and does not depend on the main EDA notebook.
-
 The dataset is loaded and cleaned using `full_clean_pipeline()` from `scripts/data_cleaning.py`, which:
 - Loads raw data from /data/Crash_Data.csv
 - Cleans missing values and harmonizes variables
@@ -45,16 +46,14 @@ The dataset is loaded and cleaned using `full_clean_pipeline()` from `scripts/da
 
 # Set the directory for the script
 import sys
-sys.path.append("../scripts") 
+sys.path.append("../scripts")
 
 # Importing necessary libraries
-
-import pandas as pd 
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from IPython.display import display
-
 from data_cleaning import full_clean_pipeline
 
 df = pd.read_csv("../data/Crash_Data.csv", low_memory=False)
@@ -66,15 +65,15 @@ earliest_year = df['Year'].min()
 print(f"The dataset contains data from {earliest_year} to {latest_year}.")
 
 # Define constants for reuse
-month_names = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May',
-            6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October',
-            11: 'November', 12: 'December'}
-
-month_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
-            'August', 'September', 'October', 'November', 'December']
-
+month_names = {
+    1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June',
+    7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'
+}
+month_order = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+]
 day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-
 custom_palette = {'Female': 'lightcoral', 'Male': 'skyblue'}
 
 # Filter for Motorcyclists and Pillion Passengers
@@ -86,8 +85,6 @@ pillion_fatalities = df[df['Road User'] == 'Motorcycle pillion passenger']
 # print(f"- motorcyclist_pillion_fatalities: {motorcyclist_pillion_fatalities.shape[0]} rows")
 # print(f"- motorcyclist_fatalities: {motorcyclist_fatalities.shape[0]} rows")
 # print(f"- pillion_fatalities: {pillion_fatalities.shape[0]} rows")
-
-# # Check for missing values in the filtered DataFrames
 # print("\nMissing values in motorcyclist_pillion_fatalities:")
 # print(motorcyclist_pillion_fatalities.isnull().sum())
 # print("\nMissing values in motorcyclist_fatalities:")
@@ -129,9 +126,7 @@ plt.show()
 
 Raw fatality counts have remained broadly flat — pillion deaths are relatively stable, and rider deaths show no meaningful long-term decline. But with Australia's population and licensed rider base both growing since 1989, raw numbers can be misleading. Normalising fatalities per 10,000 motorcycle licences offers a more meaningful picture of risk over time. Licensing data from BITRE is available from 2013, so the chart below covers that window.
 
-**Integrating Motorcycle Licence Data**
-
-BITRE publishes annual motorcycle licensing data in its Australian Infrastructure and Transport Statistics Yearbook (Road chapter), broken into three tiers: Full, Provisional, and L Permits. The relevant file is `bitre-yearbook-YYYY-04-road.xlsx`, available from the BITRE website. The data required significant wrangling — removing non-data rows, forward-filling tier labels, and reshaping the structure to align with crash statistics — but the result enables normalisation of fatalities per licensed rider, offering a more meaningful measure of risk over time.
+**Integrating Motorcycle Licence Data**BITRE publishes annual motorcycle licensing data in its Australian Infrastructure and Transport Statistics Yearbook (Road chapter), broken into three tiers: Full, Provisional, and L Permits. The relevant file is `bitre-yearbook-YYYY-04-road.xlsx`, available from the BITRE website. The data required significant wrangling — removing non-data rows, forward-filling tier labels, and reshaping the structure to align with crash statistics — but the result enables normalisation of fatalities per licensed rider, offering a more meaningful measure of risk over time.
 
 ```{python}
 def analyze_motorcycle_fatality_rates(fatalities_df):
@@ -143,91 +138,100 @@ def analyze_motorcycle_fatality_rates(fatalities_df):
     # Source: BITRE Australian Infrastructure and Transport Statistics Yearbook, Road chapter.
     # Annual Excel file: bitre-yearbook-YYYY-04-road.xlsx ("Drivers licences" table).
     # Latest edition: https://www.bitre.gov.au/sites/default/files/documents/bitre-yearbook-2025-04-road.xlsx
-    df_licenses = pd.read_csv("../data/motorcycle_licenses.csv", header=None, skiprows=1, skipinitialspace=True) 
-    
+    df_licenses = pd.read_csv("../data/motorcycle_licenses.csv", header=None, skiprows=1, skipinitialspace=True)
+
     # Define known licence tier labels
     tiers = ["Full licence", "Provisional licence", "L Permits"]
-    
+
     # Add a column to track the tier label
     df_licenses["tier"] = df_licenses[0].where(df_licenses[0].isin(tiers)).ffill()
-    
+
     # Filter out rows that are just the tier labels themselves
     df_licenses = df_licenses[~df_licenses[0].isin(tiers)].copy()
-    
+
     # Rename columns based on expected positions
-    if df_licenses.shape[1] == 9: # 8 original + 1 tier
-        df_licenses.columns = ["date", "car", "motorcycle", "light_rigid", "medium_rigid", "heavy_rigid", "heavy_combination", "multi_combination", "tier"]
+    if df_licenses.shape[1] == 9:  # 8 original + 1 tier
+        df_licenses.columns = [
+            "date", "car", "motorcycle", "light_rigid",
+            "medium_rigid", "heavy_rigid", "heavy_combination",
+            "multi_combination", "tier"
+        ]
     else:
-        print(f"Warning: Unexpected number of columns ({df_licenses.shape[1]}) in license data after adding tier. Check CSV structure.")
-        return pd.DataFrame()  # Return empty DataFrame if there's an error
-    
+        print(
+            f"Warning: Unexpected number of columns ({df_licenses.shape[1]}) "
+            "in license data after adding tier. Check CSV structure."
+        )
+        return pd.DataFrame(), 2013, 2022
+
     # Extract the last two digits after the hyphen
     two_digit_year = df_licenses["date"].str.extract(r"-(\d{2})$").iloc[:, 0]
+
     # Prepend '20' and convert to numeric (integer), handling potential errors
     df_licenses["year"] = pd.to_numeric("20" + two_digit_year, errors='coerce')
-    
+
     # Clean the motorcycle licence count column
     df_licenses["motorcycle"] = (
         df_licenses["motorcycle"]
-        .astype(str) 
+        .astype(str)
         .str.replace(",", "", regex=False)
         .str.replace(" ", "", regex=False)
-        .str.strip() 
-        .replace("", pd.NA) 
+        .str.strip()
+        .replace("", pd.NA)
     )
-    
+
     # Convert motorcycle column to numeric, coercing errors to NA
     df_licenses["motorcycle"] = pd.to_numeric(df_licenses["motorcycle"], errors="coerce")
-    
+
     # Drop rows where year extraction failed or motorcycle count is missing/invalid
     df_licenses = df_licenses.dropna(subset=["year", "motorcycle"])
-    
+
     # Convert year and motorcycle count to integer type now that NAs are handled
     if df_licenses.empty:
         print("Warning: Licence DataFrame is empty after cleaning and dropping NAs. Cannot create summary.")
-        return pd.DataFrame()
-        
-    df_licenses["year"] = df_licenses["year"].astype(int) 
-    df_licenses["motorcycle"] = df_licenses["motorcycle"].astype(int) 
-    
+        return pd.DataFrame(), 2013, 2022
+
+    df_licenses["year"] = df_licenses["year"].astype(int)
+    df_licenses["motorcycle"] = df_licenses["motorcycle"].astype(int)
+
     # Group by year and sum the motorcycle licences across all tiers
     license_summary = (
         df_licenses.groupby("year")["motorcycle"]
         .sum()
         .reset_index(name="total_motorcycle_licenses")
     )
-    
+
     # 2. Calculate total fatalities per year (riders only, excluding pillion passengers)
     total_fatalities_per_year = (
         fatalities_df.groupby('Year')['Crash ID']
         .count()
         .reset_index(name='total_fatalities')
     )
-    
+
     # 3. Merge fatality data with licence data
     merged_data = pd.merge(
-        total_fatalities_per_year, 
-        license_summary, 
-        left_on='Year', 
-        right_on='year', 
+        total_fatalities_per_year,
+        license_summary,
+        left_on='Year',
+        right_on='year',
         how='inner'
     )
-    
+
     # 4. Filter for the desired year range
     start_year_rate = 2013
     end_year_rate = 2022
     merged_data_filtered = merged_data[
         (merged_data['Year'] >= start_year_rate) & (merged_data['Year'] <= end_year_rate)
     ].copy()
-    
+
     # 5. Calculate the rate per 10,000 licences
     merged_data_filtered['fatalities_per_10k_licenses'] = np.where(
         merged_data_filtered['total_motorcycle_licenses'] > 0,
         (merged_data_filtered['total_fatalities'] / merged_data_filtered['total_motorcycle_licenses']) * 10000,
         0
     )
-    
+
     return merged_data_filtered, start_year_rate, end_year_rate
+
 
 # Run the analysis function (riders only — pillion passengers excluded as they don't hold motorcycle licences)
 merged_data_filtered, start_year_rate, end_year_rate = analyze_motorcycle_fatality_rates(motorcyclist_fatalities)
@@ -236,9 +240,9 @@ merged_data_filtered, start_year_rate, end_year_rate = analyze_motorcycle_fatali
 if not merged_data_filtered.empty:
     plt.figure(figsize=(12, 6))
     sns.lineplot(
-        x='Year', 
-        y='fatalities_per_10k_licenses', 
-        data=merged_data_filtered, 
+        x='Year',
+        y='fatalities_per_10k_licenses',
+        data=merged_data_filtered,
         marker='o'
     )
     plt.title(f'Motorcyclist Fatalities per 10,000 Licences ({start_year_rate}-{end_year_rate})')
@@ -254,9 +258,7 @@ else:
     print("\nNo data available to plot fatalities per 10,000 licences.")
 ```
 
-Adjusted for licence numbers, the rate shows no strong trend across the decade. The exception is 2020, which stands out as a clear historic low — around 0.70 fatalities per 10,000 licences — almost certainly reflecting the dramatic reduction in riding activity during COVID-19 lockdowns. By 2022, the rate had rebounded to approximately 0.93, closer to the pre-pandemic range.
-
-It's worth noting that licence counts are an imperfect proxy for exposure: many holders ride infrequently or not at all, so the true per-active-rider risk may be higher than this chart implies. With that caveat, the metric is still more informative than raw numbers alone.
+Adjusted for licence numbers, the rate shows no strong trend across the decade. The exception is 2020, which stands out as a clear historic low — around 0.70 fatalities per 10,000 licences — almost certainly reflecting the dramatic reduction in riding activity during COVID-19 lockdowns. By 2022, the rate had rebounded to approximately 0.93, closer to the pre-pandemic range.It's worth noting that licence counts are an imperfect proxy for exposure: many holders ride infrequently or not at all, so the true per-active-rider risk may be higher than this chart implies. With that caveat, the metric is still more informative than raw numbers alone.
 
 ### 3.2 Fatalities by State
 
@@ -282,9 +284,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-The distribution of fatalities largely mirrors population size and urbanisation, with NSW, Queensland, Victoria, and Western Australia accounting for the bulk of cases across the dataset. This is broadly expected — these states contain the largest populations and the greatest total road networks. However, population alone doesn't tell the full story. States like Queensland and Western Australia have vast rural and outback road systems where emergency response times are longer, roads are less forgiving, and fatalities are less likely to be prevented by timely medical intervention. The Northern Territory, despite its small population, has historically recorded disproportionately high road fatality rates overall — and this pattern likely extends to motorcyclists, though raw counts may appear modest.
-
-It is also worth noting that the stacked bar chart reflects absolute counts rather than rates, which limits direct comparison between states. A per-capita or per-licensed-rider view would likely surface meaningful differences — particularly for smaller jurisdictions. Nonetheless, the chart provides a useful long-run picture of how each state has contributed to the national toll, and whether any state shows a structural shift over time.
+The distribution of fatalities largely mirrors population size and urbanisation, with NSW, Queensland, Victoria, and Western Australia accounting for the bulk of cases across the dataset. This is broadly expected — these states contain the largest populations and the greatest total road networks. However, population alone doesn't tell the full story. States like Queensland and Western Australia have vast rural and outback road systems where emergency response times are longer, roads are less forgiving, and fatalities are less likely to be prevented by timely medical intervention. The Northern Territory, despite its small population, has historically recorded disproportionately high road fatality rates overall — and this pattern likely extends to motorcyclists, though raw counts may appear modest.It is also worth noting that the stacked bar chart reflects absolute counts rather than rates, which limits direct comparison between states. A per-capita or per-licensed-rider view would likely surface meaningful differences — particularly for smaller jurisdictions. Nonetheless, the chart provides a useful long-run picture of how each state has contributed to the national toll, and whether any state shows a structural shift over time.
 
 ### 3.3 Age Distribution
 
@@ -300,9 +300,7 @@ plt.grid(True)
 plt.show()
 ```
 
-Fatalities peak sharply among riders in their early-to-mid 20s, before tapering off through middle age and declining steeply beyond 60. This age profile is consistent with broader road fatality trends — younger riders tend to be newer to the road, more likely to take risks, and statistically over-represented in crashes across all vehicle types. For motorcyclists specifically, inexperience is compounded by the unforgiving nature of two-wheeled travel: there is no crumple zone, no airbag, and little margin for error at speed.
-
-The gradual decline after the mid-20s peak likely reflects a combination of improved skill with experience, lifestyle changes that reduce riding frequency, and a natural attrition of higher-risk riders from the road. That said, the distribution does not fall to zero with age — a meaningful tail persists into the 50s and 60s, reflecting the growing cohort of older recreational riders who return to or remain on motorcycles in retirement. This group presents a different risk profile: while they may ride more cautiously, older riders are physiologically more vulnerable to crash injury, and their fatalities may be more likely to result from medical complications than pure crash severity. The data suggests that no single age group can be considered low-risk when it comes to motorcycling.
+Fatalities peak sharply among riders in their early-to-mid 20s, before tapering off through middle age and declining steeply beyond 60. This age profile is consistent with broader road fatality trends — younger riders tend to be newer to the road, more likely to take risks, and statistically over-represented in crashes across all vehicle types. For motorcyclists specifically, inexperience is compounded by the unforgiving nature of two-wheeled travel: there is no crumple zone, no airbag, and little margin for error at speed.The gradual decline after the mid-20s peak likely reflects a combination of improved skill with experience, lifestyle changes that reduce riding frequency, and a natural attrition of higher-risk riders from the road. That said, the distribution does not fall to zero with age — a meaningful tail persists into the 50s and 60s, reflecting the growing cohort of older recreational riders who return to or remain on motorcycles in retirement. This group presents a different risk profile: while they may ride more cautiously, older riders are physiologically more vulnerable to crash injury, and their fatalities may be more likely to result from medical complications than pure crash severity. The data suggests that no single age group can be considered low-risk when it comes to motorcycling.
 
 ### 3.4 Gender Breakdown
 
@@ -452,7 +450,6 @@ plt.show()
 
 The most dangerous time to ride is Saturday and Sunday afternoon — fatalities concentrate sharply between 11am and 4pm on weekends. The pattern points clearly to recreational riding: less frequent riders on unfamiliar or technical roads, often pushing harder than their skill level warrants. Weekday fatalities are more evenly spread across the day and likely reflect a different risk profile — commuters navigating traffic in urban environments.
 
-
 ### 3.7 Single vs Multi-Vehicle Crashes
 
 ```{python}
@@ -553,14 +550,5 @@ On weekdays, a greater proportion of fatal crashes involve multiple vehicles —
 
 ## 4. Conclusion
 
-Motorcyclists remain one of the most vulnerable groups on Australian roads. Over three decades of data, a consistent picture emerges: most deaths occur on weekends, in daylight hours, and involve young men riding alone — peaking in warmer months and driven as much by rider behaviour as by traffic conditions.
+Motorcyclists remain one of the most vulnerable groups on Australian roads. Over three decades of data, a consistent picture emerges: most deaths occur on weekends, in daylight hours, and involve young men riding alone — peaking in warmer months and driven as much by rider behaviour as by traffic conditions.Normalising against licensing data shows that risk remains elevated even accounting for population growth, suggesting that broader safety improvements need to be paired with targeted rider education and cultural change within motorcycling communities.Future work could explore:- Linking crash severity to vehicle type or engine capacity- Incorporating weather or road condition data- Analysing post-licensure experience (e.g., L/P plate data where available)Ultimately, these findings point toward more nuanced road safety policy — particularly around preventing loss-of-control incidents among recreational riders.
 
-Normalising against licensing data shows that risk remains elevated even accounting for population growth, suggesting that broader safety improvements need to be paired with targeted rider education and cultural change within motorcycling communities.
-
-Future work could explore:
-
-- Linking crash severity to vehicle type or engine capacity
-- Incorporating weather or road condition data
-- Analysing post-licensure experience (e.g., L/P plate data where available)
-
-Ultimately, these findings point toward more nuanced road safety policy — particularly around preventing loss-of-control incidents among recreational riders.

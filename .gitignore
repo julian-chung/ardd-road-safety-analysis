@@ -15,5 +15,8 @@ Thumbs.db
 __pycache__/
 *.pyc
 /.quarto/
+/_site/
 
 **/*.quarto_ipynb
+
+/docs

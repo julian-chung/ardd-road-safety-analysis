@@ -1,6 +1,5 @@
 project:
   type: website
-  output-dir: docs 
 
 website:
   title: "Analysis of Australian Road Deaths (ARDD Dataset, 1989–2025)"
@@ -13,7 +12,7 @@ website:
       - text: "Motorcyclists"
         href: notebooks/2-motorcyclists.qmd
       - text: "Children"
-        href: notebooks/1-vulnerable-road-users.qmd
+        href: notebooks/1-children.qmd
 
 format:
   html:

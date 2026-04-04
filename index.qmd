@@ -97,7 +97,7 @@ plt.show()
 
 Road fatalities fell sharply between 1989 and 1995, then continued declining more gradually to a record low in 2020, but have seen a modest rise since then.
 
-👉 [Full EDA notebook](notebooks/0-eda-australian-road-fatalities.html)
+↗ [Full EDA notebook](notebooks/0-eda-australian-road-fatalities.html)
 
 ---
 
@@ -131,7 +131,7 @@ plt.show()
 
 Child pedestrian and cyclist fatalities have fallen dramatically over the period, with both groups declining steeply through the 1990s and continuing downward into the 2000s — a period of broad road safety reform including expanded random breath testing, seatbelt enforcement, and later the introduction of 40km/h school zones. In recent years, the apparent fluctuations in the data reflect how low the numbers have become — nationally, fewer than 15 child pedestrians and 7 child cyclists are killed each year. Proportional to a country of 27 million people, this represents a remarkable improvement in child road safety.
 
-👉 [Full report](notebooks/1-vulnerable-road-users.html)
+↗ [Full report](notebooks/1-vulnerable-road-users.html)
 
 :::
 
@@ -184,7 +184,7 @@ plt.show()
 
 Unlike the broad decline seen in overall road fatalities, motorcyclist fatalities per 10,000 licences have shown no clear downward trend between 2013 and 2022, fluctuating between roughly 0.75 and 1.0 deaths per 10,000 licences. The low point in 2020 likely reflects reduced riding during COVID-19 lockdowns, while the drivers of the subsequent rise remain unclear. This suggests that safety improvements seen across road users more broadly have not translated as clearly to motorcyclists.
 
-👉 [Full report](notebooks/2-motorcyclists.html)
+↗ [Full report](notebooks/2-motorcyclists.html)
 
 :::
 
@@ -226,13 +226,13 @@ plt.show()
 
 Fatal motorcycle crashes cluster heavily on weekends, particularly between 10am and 3pm on Saturdays and Sundays — a pattern that points toward recreational riding as a significant risk factor. Whether this reflects the 'weekend rider' effect, where infrequent riders face greater risk due to less regular saddle time, or simply higher weekend exposure, is an open question. Friday afternoons also show elevated fatalities, suggesting the risk begins building before the weekend proper.
 
-👉 [Full motorcyclist analysis](notebooks/2-motorcyclists.html)
+↗ [Full motorcyclist analysis](notebooks/2-motorcyclists.html)
 
 ---
 
 ## About this project
 
-This project analyses fatal road crash data from the **Australian Road Deaths Database (BITRE)**, covering {earliest_year}–{latest_year}. It was developed as part of a public health data science portfolio to demonstrate skills in data wrangling, statistical analysis, and data visualisation.
+This project analyses fatal road crash data from the **Australian Road Deaths Database (BITRE)**, covering 1989–2025. It was developed as part of a public health data science portfolio to demonstrate skills in data wrangling, statistical analysis, and data visualisation.
 
 **Built with:** Python · Pandas · Matplotlib · Seaborn · Quarto · GitHub Pages
 

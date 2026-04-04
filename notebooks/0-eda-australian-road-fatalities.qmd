@@ -3,6 +3,7 @@ title: Analysis of Fatal Road Accidents in Australia since 1989
 jupyter: python3
 ---
 
+
 ## Introduction
 
 This project explores fatal road transport accidents in Australia from 1989. Using data sourced from the [Australian Road Deaths Database (ARDD)](https://catalogue.data.infrastructure.gov.au/dataset/australian-road-deaths-database), the analysis examines the demographic, geographic, and temporal distribution of fatal accidents.
@@ -33,6 +34,7 @@ The key objectives of this analysis are to:
 
 - Pedestrian fatalities have decreased over time, but cyclist fatalities have remained relatively constant since the mid-1990s.
 
+
 # Part 1: Data Checking
 
 ## 1.1 Reading Data and Importing Libraries
@@ -40,6 +42,8 @@ The key objectives of this analysis are to:
 Import the necessary libraries and read the dataset into a pandas DataFrame. The dataset is in CSV format and contains information about fatal road accidents in Australia from 1989. The dataset is updated monthly and includes various attributes such as the date of the accident, location, vehicle type, and demographic information about the individuals involved in the accidents.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:04:23.974295Z', start_time: '2024-07-09T01:04:22.710814Z'}
+#| collapsed: true
 # Set the directory for the script
 
 import sys
@@ -63,6 +67,8 @@ df = pd.read_csv("../data/Crash_Data.csv", low_memory=False)
 Briefly inspect to check column names, types, summary statistics, and overall structure.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:04:31.296262Z', start_time: '2024-07-09T01:04:31.285629Z'}
+#| collapsed: false
 # View the first and last five rows of the dataset
 
 display(df.head())
@@ -70,12 +76,16 @@ display(df.tail())
 ```
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:04:35.436612Z', start_time: '2024-07-09T01:04:35.415429Z'}
+#| collapsed: false
 
 # Get information about the dataset
 display(df.info())
 ```
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:04:40.386430Z', start_time: '2024-07-09T01:04:40.374607Z'}
+#| collapsed: false
 # Take the number of rows and columns in the dataset, and the number of unique Crash ID's, and print them out in a sentence. 
 
 print(f"Dataset contains {df.shape[0]:,} rows and {df.shape[1]} columns, "f"with {df['Crash ID'].nunique():,} unique crash IDs.")
@@ -90,6 +100,8 @@ The table below provides a high-level summary of each column, including:
 Note: For identifier fields like `Crash ID`, the "top value" has limited interpretive value, but is more informative in fields such as `State` or `Age`.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:04:44.577995Z', start_time: '2024-07-09T01:04:44.480340Z'}
+#| collapsed: false
 # Creating and populating a summary dataframe using pandas
 summary_df = pd.DataFrame({
     'Column Name': df.columns, # Getting the column names
@@ -106,6 +118,8 @@ display(summary_df)
 47,567 unique crashes resulted in 52,843 fatalities — some events claimed multiple lives. The deadliest single crash on record involved 35 deaths (the 1989 Kempsey bus disaster).
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:04:47.092074Z', start_time: '2024-07-09T01:04:47.084966Z'}
+#| collapsed: false
 # Calculate statistics for the 'Age' column
 
 mean_age = df['Age'].mean()
@@ -120,9 +134,11 @@ print(f"The average age of individuals involved in fatal road crashes was {mean_
 
 ## 2.1 Checking for null or missing values
 
-From information provided in the [ARDD data dictionary](https://data.gov.au/dataset/ds-dga-5b530fb8-526e-4fbf-b0f6-aa24e84e4277/distribution/dist-dga-59055fed-d4f1-4a81-b3ee-75cb438009c6/details?q=ardd) we know that missing values are represented by '-9', 'Unspecified' or 'Other/-9'. We will search for these values and replace them with null values (NaN).
+From information provided in the [ARDD data dictionary](https://data.gov.au/dataset/ds-dga-5b530fb8-526e-4fbf-b0f6-aa24e84e4277/distribution/dist-dga-59055fed-d4f1-4a81-b3ee-75cb438009c6/details?q=ardd) we know that missing values are represented by '-9', 'Unspecified' or 'Other/-9'. We will search for these values and replace them with null values (NaN). 
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:04:48.868552Z', start_time: '2024-07-09T01:04:48.804787Z'}
+#| collapsed: false
 # Firstly, we will find the number of blank values in the dataset
 blank_values = df.isnull().sum()
 
@@ -172,9 +188,11 @@ print(f"The dataset contains data from {earliest_year} to {latest_year}.")
 
 ## 2.3 Visualise the Remaining Missing Data
 
-A quick visualisation of the remaining missing data will be created to help identify any remaining issues.
+A quick visualisation of the remaining missing data will be created to help identify any remaining issues. 
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:04:59.547229Z', start_time: '2024-07-09T01:04:59.113436Z'}
+#| collapsed: false
 # Creating a bar chart of the missing data
 sns.set_style('whitegrid')
 missing_value_count = df.isnull().sum() # We could instead call on the missing_data_summary dataframe using the 'total_missing' column, but defining a new variable is easier to read and shorter to type
@@ -192,6 +210,8 @@ plt.show()
 The count chart is hard to read — a couple of columns dominate. The percentage view below (capped at 10%) makes the smaller gaps easier to see.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:03.989754Z', start_time: '2024-07-09T01:05:03.816796Z'}
+#| collapsed: false
 # Creating a bar chart of the percentage of missing data
 sns.set_style('whitegrid')
 missing_values_percentage = (missing_value_count / len(df)) * 100
@@ -212,6 +232,8 @@ Speed limit has the highest share of missing values at around 2.6%. Everything e
 ## 2.4 Check for Duplicate Entries
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:11.758716Z', start_time: '2024-07-09T01:05:11.706834Z'}
+#| collapsed: false
 # Checking for duplicate rows
 duplicate_rows = df[df.duplicated()]
 display(duplicate_rows)
@@ -228,6 +250,8 @@ In this dataset, Crash IDs represent a single event, but there are multiple rows
 In this dataset we have a single continuous variable of interest, age. We will use a boxplot to check for outliers in this column.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:15.923273Z', start_time: '2024-07-09T01:05:15.803311Z'}
+#| collapsed: false
 # Creating a boxplot to check for outliers in the Age column
 plt.figure(figsize=(8,3))
 sns.boxplot(x=df['Age'])
@@ -239,6 +263,8 @@ plt.show()
 No outliers visible. The IQR check below confirms this.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:19.287958Z', start_time: '2024-07-09T01:05:19.258768Z'}
+#| collapsed: false
 # Creating a function to calculate the IRQ
 def IRQ_and_bounds(column):
     Q1 = column.quantile(0.25)
@@ -288,6 +314,8 @@ These visual insights provide context for evaluating the impact of road safety i
 ## 3.1 Demographic Analysis of Fatal Road Accidents in Australia
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:22.106653Z', start_time: '2024-07-09T01:05:21.963352Z'}
+#| collapsed: false
 # Age and Sex distribution of fatal road transport accidents in Australia
 sns.set_style('whitegrid')
 plt.figure(figsize=(16,8))
@@ -304,6 +332,8 @@ plt.show()
 Fatalities peak sharply among people in their early 20s, then taper off steadily with age.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:26.823067Z', start_time: '2024-07-09T01:05:26.717117Z'}
+#| collapsed: false
 # Plot of fatal accidents by gender
 
 sns.set_style('whitegrid')
@@ -320,6 +350,8 @@ plt.show()
 Males make up the clear majority — the chart below expresses this as a percentage.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:29.057932Z', start_time: '2024-07-09T01:05:29.001428Z'}
+#| collapsed: false
 # Gender distribution of fatal accidents by gender as a percentage
 gender_percentage = (df['Gender'].value_counts(normalize=True) * 100).reset_index()
 gender_percentage.columns = ['Gender', 'Percentage']
@@ -340,6 +372,8 @@ plt.show()
 Around 70% of road fatalities are male — a ratio that, as we'll see later, has stayed remarkably consistent over time.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:31.531719Z', start_time: '2024-07-09T01:05:31.317932Z'}
+#| collapsed: false
 # Density plot of age and gender
 plt.figure(figsize=(16,8))
 sns.set_style('whitegrid')
@@ -358,6 +392,8 @@ plt.show()
 Both genders peak around age 20 and follow a broadly similar distribution. The difference is largely one of scale, not shape.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:34.650814Z', start_time: '2024-07-09T01:05:34.543971Z'}
+#| collapsed: false
 # Box plot of age and gender distribution
 plt.figure(figsize=(4,6))
 sns.set_style('whitegrid')
@@ -373,6 +409,8 @@ plt.show()
 Male fatalities skew slightly older at the median, with a handful of outliers at the upper end.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:36.680378Z', start_time: '2024-07-09T01:05:36.573087Z'}
+#| collapsed: false
 # Calculate the number of accidents by road user
 road_user_counts = df['Road User'].value_counts().reset_index()
 road_user_counts.columns = ['Road User', 'Accidents']
@@ -395,6 +433,8 @@ plt.show()
 Drivers and passengers make up the bulk of fatalities — unsurprisingly, given how many more cars there are on the road than anything else. Pedestrians and motorcyclists follow, and both are examined in more detail in the sub-analyses.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:46.380823Z', start_time: '2024-07-09T01:05:46.088711Z'}
+#| collapsed: false
 # Calculate the number of accidents by road user
 age_group_fatalities = df.groupby(['Year', 'Age Group'], observed=True)['Crash ID'].size().reset_index(name='Fatalities')
 
@@ -421,6 +461,8 @@ plt.show()
 Fatalities have fallen across all age groups since 1989, with the proportional mix between groups staying broadly consistent.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:56.867473Z', start_time: '2024-07-09T01:05:56.625118Z'}
+#| collapsed: false
 # Calculate the number of accidents by road user 
 road_user_fatalities = df.groupby(['Year', 'Road User'])['Crash ID'].size().reset_index(name='Fatalities')
 
@@ -448,6 +490,8 @@ The same broad decline holds across all road user types, with no major shifts in
 ## 3.2 Geographic Analysis of Fatal Road Accidents in Australia
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:05:59.121312Z', start_time: '2024-07-09T01:05:59.045233Z'}
+#| collapsed: false
 # Pie chart of fatal accidents by State
 # Firstly, calculate the number of accidents by state. 
 state_counts = df['State'].value_counts().reset_index()
@@ -465,6 +509,8 @@ plt.show()
 NSW, Victoria, and Queensland together account for around 80% of fatalities — broadly in line with their share of the national population.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:06:13.459654Z', start_time: '2024-07-09T01:06:13.349695Z'}
+#| collapsed: false
 # Bar chart of fatal accidents by State
 sns.set_style('whitegrid')
 plt.figure(figsize=(12,6))
@@ -487,6 +533,8 @@ Same data, different format — easier to compare state counts directly.
 ### Accidents by Month of Year
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:06:20.927754Z', start_time: '2024-07-09T01:06:20.918425Z'}
+#| collapsed: false
 # Now we will calculate the number of accidents by month
 
 month_counts = df['Month Name'].value_counts().reset_index()
@@ -501,6 +549,8 @@ month_counts = month_counts.sort_values('Month')
 ```
 
 ```{python}
+#| ExecuteTime: {end_time: '2023-10-28T09:16:51.079610Z', start_time: '2023-10-28T09:16:50.974037Z'}
+#| collapsed: false
 # Plot the number of accidents by month
 
 sns.set_style('whitegrid')
@@ -522,6 +572,8 @@ plt.show()
 Fatalities are fairly evenly distributed throughout the year, with a modest uptick in December and March — both associated with increased traffic volumes and holiday travel.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:06:25.146459Z', start_time: '2024-07-09T01:06:25.138646Z'}
+#| collapsed: false
 # Count accidents by day of the week
 day_counts = df['Dayweek'].value_counts().reset_index()
 day_counts.columns = ['Day', 'Accidents']
@@ -533,6 +585,8 @@ day_counts = day_counts.sort_values('Day')
 ```
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:06:27.186084Z', start_time: '2024-07-09T01:06:27.086563Z'}
+#| collapsed: false
 # Plot the number of accidents by day of the week
 
 sns.set_style('whitegrid')
@@ -554,6 +608,8 @@ plt.show()
 Saturday records the most fatalities, followed by Friday and Sunday. The weekend effect is clear and consistent.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:06:29.957184Z', start_time: '2024-07-09T01:06:29.839149Z'}
+#| collapsed: false
 day_counts['Percentage'] = (day_counts['Accidents'] / day_counts['Accidents'].sum()) * 100
 sns.set_style('whitegrid')
 plt.figure(figsize=(12,6))
@@ -572,6 +628,8 @@ plt.show()
 A day-of-week and hour-of-day heatmap makes the pattern much clearer.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:06:33.045845Z', start_time: '2024-07-09T01:06:32.724346Z'}
+#| collapsed: false
 # We will create a new data frame for this visualisation because we have to do some manipulation that involves dropping rows. 
 
 # Creating a new dataframe
@@ -608,6 +666,8 @@ Friday and Saturday afternoons stand out clearly — the 3pm Friday slot in part
 ### Change over time in the number of fatal accidents by year
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:41:39.972113Z', start_time: '2024-07-09T01:41:39.851082Z'}
+#| collapsed: false
 # Creating a line graph of fatalities by year
 fatalities_per_year = df.groupby('Year')['Crash ID'].size().reset_index()
 fatalities_per_year.columns = ['Year', 'Fatalities']
@@ -629,6 +689,8 @@ plt.show()
 Road fatalities have declined substantially since 1989, but have risen from their historic low of around 1,100 in 2020–21 to levels not seen since 2016. Since Australia's population has grown considerably over this period, raw counts alone can be misleading — a population-adjusted measure gives a more accurate picture of road safety progress.
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:41:57.714875Z', start_time: '2024-07-09T01:41:57.611239Z'}
+#| collapsed: false
 # We find population data for Australia from 1989 to 2021 from the United Nations website: https://population.un.org/dataportal/data/indicators/49/locations/36/start/1989/end/2021/table/pivotbylocation
 # Using this data we create a dictionary with Year as the index. 
 
@@ -672,6 +734,8 @@ When adjusted for population growth, the picture is more nuanced. Fatalities per
 ### Fatalities by gender over time
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:42:09.337595Z', start_time: '2024-07-09T01:42:09.212702Z'}
+#| collapsed: false
 # Grouping the number of fatalities each year by gender
 gender_fatalities = df.groupby(['Year', 'Gender'])['Crash ID'].size().reset_index(name='Fatalities')
 
@@ -702,6 +766,8 @@ The male-to-female ratio has barely shifted since 1989 — this is a persistent 
 ### Fatalities by age group over time
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:42:13.809212Z', start_time: '2024-07-09T01:42:13.685940Z'}
+#| collapsed: false
 # Plotting
 sns.set_style('whitegrid')
 plt.figure(figsize=(12, 6))
@@ -719,6 +785,8 @@ Every age group has seen a decline, but the 17–25 cohort stands out — the dr
 ### Fatalities by road user type over time
 
 ```{python}
+#| ExecuteTime: {end_time: '2024-07-09T01:42:20.725429Z', start_time: '2024-07-09T01:42:20.587920Z'}
+#| collapsed: false
 # Grouping data by year and road user type, and counting fatalities
 ped_and_cyclist_fatalities = df[df['Road User'].isin(['Pedal cyclist', 'Pedestrian'])]
 
@@ -750,19 +818,5 @@ plt.show()
 
 Pedestrian fatalities have fallen steadily since 1989. Cyclist deaths have barely moved since the mid-1990s — a gap explored further in the vulnerable road users notebook.
 
-# Part 4: Conclusion
+# Part 4: ConclusionThis exploratory analysis examined the demographic, geographic, and temporal distribution of fatal road transport accidents in Australia, focusing on changes from 1989 to 2025.Key findings include:- A significant overall decline in fatalities, both in absolute terms and per 100,000 population.- The largest reduction occurred among 17–25-year-old drivers, potentially linked to licensing reforms targeting provisional licence holders.- Males consistently account for approximately 70% of road fatalities throughout the observed period.- Fatal accidents are most concentrated between Friday and Sunday, with Friday afternoons posing the highest risk.- New South Wales, Victoria, and Queensland collectively represent over 80% of national road fatalities.- Pedestrian fatalities have decreased over time, while cyclist fatalities have remained relatively stable since the mid-1990s.## Opportunities for Further ResearchThis dataset focuses solely on fatal accidents. Expanding future analyses to include injury data could provide a more comprehensive understanding of road safety trends.  Additionally, examining the injury-to-fatality ratio among pedestrians and cyclists could offer insights into the effectiveness of vehicle design improvements and road safety initiatives aimed at protecting vulnerable road users.
 
-This exploratory analysis examined the demographic, geographic, and temporal distribution of fatal road transport accidents in Australia, focusing on changes from 1989 to 2025.
-
-Key findings include:
-- A significant overall decline in fatalities, both in absolute terms and per 100,000 population.
-- The largest reduction occurred among 17–25-year-old drivers, potentially linked to licensing reforms targeting provisional licence holders.
-- Males consistently account for approximately 70% of road fatalities throughout the observed period.
-- Fatal accidents are most concentrated between Friday and Sunday, with Friday afternoons posing the highest risk.
-- New South Wales, Victoria, and Queensland collectively represent over 80% of national road fatalities.
-- Pedestrian fatalities have decreased over time, while cyclist fatalities have remained relatively stable since the mid-1990s.
-
-## Opportunities for Further Research
-
-This dataset focuses solely on fatal accidents. Expanding future analyses to include injury data could provide a more comprehensive understanding of road safety trends.  
-Additionally, examining the injury-to-fatality ratio among pedestrians and cyclists could offer insights into the effectiveness of vehicle design improvements and road safety initiatives aimed at protecting vulnerable road users.
