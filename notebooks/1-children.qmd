@@ -14,14 +14,14 @@ jupyter:
 ---
 
 
-This brief sub-analysis explores patterns in fatal road transport accidents involving **child pedestrians and cyclists** in Australia from 1989 to present. These road users are considered **vulnerable** due to their physical fragility and limited situational awareness.
+This sub-analysis looks at fatal crashes involving **child pedestrians and cyclists** in Australia from 1989 to the present. These groups are especially vulnerable on roads because they have less physical protection and often less traffic awareness than adults.
 
 The notebook focuses on identifying:
 - Long-term trends in child pedestrian and cyclist fatalities
 - Temporal and gender-based differences
 - Key risk periods by month, day, and time
 
-Findings from this analysis can support targeted interventions to improve road safety for children and non-motorized road users.
+The goal is to highlight patterns that can inform practical safety interventions for children.
 
 
 ## 1. Key Findings
@@ -101,7 +101,7 @@ custom_palette = {'Female': 'lightcoral', 'Male': 'skyblue'}
 
 ## 3. Vulnerable Road Users Visualization
 
-Children are considered vulnerable road users due to their physical fragility and limited situational awareness. This analysis focuses on child pedestrians and cyclists involved in fatal road transport accidents in Australia from 1989 to present. The analysis aims to identify long-term trends, and gender-based differences, and key risk periods by month, day, and time. The findings can support targeted interventions to improve road safety for children and non-motorized road users.
+This section focuses on child pedestrians and cyclists and tracks long-term trends, gender differences, and high-risk time windows (month, day, and hour). The aim is to keep the findings practical and easy to act on.
 
 
 ## 3.1 Child Pedestrian and Cyclist Fatalities
@@ -604,9 +604,8 @@ This bar chart shows a pronounced gender disparity in child cyclist fatalities: 
 
 ## 4. Conclusion
 
-This exploratory analysis highlights consistent patterns in child pedestrian and cyclist fatalities across Australia between 1989 and 2025. The data reflect clear improvements in safety outcomes over time, yet notable vulnerabilities remain — particularly in temporal clustering, gender disparity, and geographic variability.
+This analysis shows a clear long-run drop in child pedestrian and cyclist fatalities across Australia from 1989 to 2025. Even with that improvement, risk still clusters by time of day, gender, and location.
 
-While pedestrian fatalities have declined more significantly, the persistence of cyclist deaths — especially among boys — calls for deeper investigation into behavioral, cultural, and infrastructural factors. Time-of-day clustering around school transit periods reinforces the need for targeted safety interventions.
+Pedestrian deaths fell faster than cyclist deaths, and cyclist fatalities remain heavily concentrated among boys. The repeated afternoon peak around school travel hours also points to where interventions are most likely to matter.
 
-Future work may focus on integrating spatial data, school zone mapping, or mobility trends to explore contextual contributors to these incidents. This project demonstrates the value of EDA in generating hypotheses and guiding data-driven public health planning.
-
+Useful next steps include adding spatial layers (for example, school zones) and mobility trends to understand local context better. Overall, this notebook is intended as an evidence-first starting point for targeted child road safety work.

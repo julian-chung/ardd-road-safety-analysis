@@ -6,7 +6,7 @@ jupyter: python3
 
 ## Introduction
 
-This project explores fatal road transport accidents in Australia from 1989. Using data sourced from the [Australian Road Deaths Database (ARDD)](https://catalogue.data.infrastructure.gov.au/dataset/australian-road-deaths-database), the analysis examines the demographic, geographic, and temporal distribution of fatal accidents.
+This notebook looks at fatal road crashes in Australia from 1989 onward using the [Australian Road Deaths Database (ARDD)](https://catalogue.data.infrastructure.gov.au/dataset/australian-road-deaths-database). The focus is simple: who is most affected, where risk is concentrated, and how patterns have shifted over time.
 
 The key objectives of this analysis are to:
 
@@ -18,7 +18,7 @@ The key objectives of this analysis are to:
 
 * Analyse trends over time in road fatalities overall and among vulnerable road users (pedestrians, cyclists)
 
-* The analysis applies data cleaning, missing value handling, and exploratory data visualization techniques to highlight significant trends and support future road safety research efforts.
+* Use straightforward data cleaning and exploratory visualisation to surface practical trends for policy and prevention work.
 
 ## Key Findings
 
@@ -845,7 +845,7 @@ Pedestrian fatalities have fallen steadily since 1989. Cyclist deaths have barel
 
 # Part 4: Conclusion
 
-This exploratory analysis examined the demographic, geographic, and temporal distribution of fatal road transport accidents in Australia, focusing on changes from 1989 to 2025.
+This analysis mapped how fatal road crashes in Australia have changed from 1989 to 2025 across people, places, and time.
 
 Key findings include:
 - A significant overall decline in fatalities, both in absolute terms and per 100,000 population.
@@ -857,6 +857,5 @@ Key findings include:
 
 ## Opportunities for Further Research
 
-This dataset focuses solely on fatal accidents. Expanding future analyses to include injury data could provide a more comprehensive understanding of road safety trends.  
-Additionally, examining the injury-to-fatality ratio among pedestrians and cyclists could offer insights into the effectiveness of vehicle design improvements and road safety initiatives aimed at protecting vulnerable road users.
-
+This dataset covers fatal crashes only. Adding non-fatal injury data would give a fuller view of road harm, not just the most severe outcomes.  
+It would also be useful to examine injury-to-fatality ratios for pedestrians and cyclists to better understand where safety gains are happening and where they are stalling.
